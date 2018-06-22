@@ -33,6 +33,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                 cargarCompras(Convert.ToInt32(txtId.Text));
                 dgvProveedor.Visible = false;
             }
+            //hola
         }
 
         private void cargarCompras(int id)
