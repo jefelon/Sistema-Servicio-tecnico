@@ -67,18 +67,18 @@
             // txtProductoId
             // 
             this.txtProductoId.Enabled = false;
-            this.txtProductoId.Location = new System.Drawing.Point(57, 149);
+            this.txtProductoId.Location = new System.Drawing.Point(57, 133);
             this.txtProductoId.Name = "txtProductoId";
-            this.txtProductoId.Size = new System.Drawing.Size(22, 20);
+            this.txtProductoId.Size = new System.Drawing.Size(15, 20);
             this.txtProductoId.TabIndex = 95;
             this.txtProductoId.Visible = false;
             // 
             // btnCargarProducto
             // 
             this.btnCargarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCargarProducto.Location = new System.Drawing.Point(477, 146);
+            this.btnCargarProducto.Location = new System.Drawing.Point(441, 146);
             this.btnCargarProducto.Name = "btnCargarProducto";
-            this.btnCargarProducto.Size = new System.Drawing.Size(50, 23);
+            this.btnCargarProducto.Size = new System.Drawing.Size(64, 23);
             this.btnCargarProducto.TabIndex = 94;
             this.btnCargarProducto.Text = "-----";
             this.btnCargarProducto.UseVisualStyleBackColor = true;
@@ -101,9 +101,9 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(477, 179);
+            this.btnAgregar.Location = new System.Drawing.Point(441, 179);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(144, 40);
+            this.btnAgregar.Size = new System.Drawing.Size(64, 40);
             this.btnAgregar.TabIndex = 92;
             this.btnAgregar.Text = "agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -143,15 +143,15 @@
             // 
             // txtProducto
             // 
-            this.txtProducto.Location = new System.Drawing.Point(162, 149);
+            this.txtProducto.Location = new System.Drawing.Point(110, 149);
             this.txtProducto.Name = "txtProducto";
-            this.txtProducto.Size = new System.Drawing.Size(233, 20);
+            this.txtProducto.Size = new System.Drawing.Size(325, 20);
             this.txtProducto.TabIndex = 87;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(85, 153);
+            this.label2.Location = new System.Drawing.Point(33, 153);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 86;
@@ -160,7 +160,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 153);
+            this.label1.Location = new System.Drawing.Point(5, 133);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 84;

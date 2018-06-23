@@ -15,6 +15,7 @@ namespace Sistema_de_ventas_2018.Negocio
         private decimal _stock;
         private int _detalleVentaId;
         private int _detalleCompraId;
+        private int _detalleProductoSalidaId;
 
         public int Id
 
@@ -68,6 +69,19 @@ namespace Sistema_de_ventas_2018.Negocio
             }
 
             set{ _detalleCompraId = value;}
+        }
+        
+        public int DetalleProductoSalidaId
+        {
+            get
+            {
+                return _detalleProductoSalidaId;
+            }
+
+            set
+            {
+                _detalleProductoSalidaId = value;
+            }
         }
 
         public Inventario()

@@ -79,8 +79,10 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtBuscarIngreso = new System.Windows.Forms.TextBox();
-            this.txtEstado = new System.Windows.Forms.TextBox();
+            this.txtEstadoSalida = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtEstadoIngreso = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleProductoSalida)).BeginInit();
             this.groupBox8.SuspendLayout();
@@ -447,9 +449,9 @@
             // 
             this.txtAdelanto.Enabled = false;
             this.txtAdelanto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAdelanto.Location = new System.Drawing.Point(118, 579);
+            this.txtAdelanto.Location = new System.Drawing.Point(118, 575);
             this.txtAdelanto.Name = "txtAdelanto";
-            this.txtAdelanto.Size = new System.Drawing.Size(212, 22);
+            this.txtAdelanto.Size = new System.Drawing.Size(181, 22);
             this.txtAdelanto.TabIndex = 65;
             this.txtAdelanto.Text = "S/ 100.00";
             // 
@@ -457,7 +459,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(28, 582);
+            this.label13.Location = new System.Drawing.Point(28, 578);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(84, 16);
             this.label13.TabIndex = 64;
@@ -579,12 +581,12 @@
             this.txtBuscarIngreso.TabIndex = 0;
             this.txtBuscarIngreso.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscarIngreso_KeyDown);
             // 
-            // txtEstado
+            // txtEstadoSalida
             // 
-            this.txtEstado.Location = new System.Drawing.Point(857, 491);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(89, 20);
-            this.txtEstado.TabIndex = 72;
+            this.txtEstadoSalida.Location = new System.Drawing.Point(857, 491);
+            this.txtEstadoSalida.Name = "txtEstadoSalida";
+            this.txtEstadoSalida.Size = new System.Drawing.Size(89, 20);
+            this.txtEstadoSalida.TabIndex = 72;
             // 
             // label3
             // 
@@ -595,12 +597,35 @@
             this.label3.TabIndex = 71;
             this.label3.Text = "ESTADO:";
             // 
+            // txtEstadoIngreso
+            // 
+            this.txtEstadoIngreso.BackColor = System.Drawing.Color.Red;
+            this.txtEstadoIngreso.Enabled = false;
+            this.txtEstadoIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEstadoIngreso.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.txtEstadoIngreso.Location = new System.Drawing.Point(118, 603);
+            this.txtEstadoIngreso.Name = "txtEstadoIngreso";
+            this.txtEstadoIngreso.Size = new System.Drawing.Size(181, 22);
+            this.txtEstadoIngreso.TabIndex = 74;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(28, 606);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(67, 16);
+            this.label14.TabIndex = 73;
+            this.label14.Text = "ESTADO:";
+            // 
             // FrmSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 652);
-            this.Controls.Add(this.txtEstado);
+            this.Controls.Add(this.txtEstadoIngreso);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.txtEstadoSalida);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label5);
@@ -705,8 +730,10 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtBuscarIngreso;
-        private System.Windows.Forms.TextBox txtEstado;
+        private System.Windows.Forms.TextBox txtEstadoSalida;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvDetalleServicioSalida;
+        private System.Windows.Forms.TextBox txtEstadoIngreso;
+        private System.Windows.Forms.Label label14;
     }
 }

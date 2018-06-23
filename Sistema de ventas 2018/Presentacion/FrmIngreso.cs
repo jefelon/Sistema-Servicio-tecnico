@@ -36,7 +36,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                     ingreso.MotivoIngreso = txtMotivoIngreso.Text;
                     ingreso.FechaProbableReparacion = dtpFechaProbableReparacion.Value;
                     ingreso.Adelanto = Convert.ToDecimal(txtAdento.Text);
-                    ingreso.Estado = txtEstado.Text;
+                    ingreso.Estado = txtEstadoIngreso.Text;
                     ingreso.Cliente.Id = Convert.ToInt32(txtClienteId.Text);
                     ingreso.Equipo.Id = Convert.ToInt32(txtEquipoId.Text);
                     int returnId = FIngreso.Insertar(ingreso);
@@ -83,10 +83,10 @@ namespace Sistema_de_ventas_2018.Presentacion
                 resultado = "El campo Adelanto está vacío";
                 txtAdento.Focus();
             }
-            if (txtEstado.Text == "")
+            if (txtEstadoIngreso.Text == "")
             {
                 resultado = "El campo Estado está vacío";
-                txtEstado.Focus();
+                txtEstadoIngreso.Focus();
             }
             return resultado;
         }
@@ -140,7 +140,7 @@ namespace Sistema_de_ventas_2018.Presentacion
             txtNombre.Enabled = b;
             txtDNI.Enabled = b;
            // txtEquipoId.Enabled = b;
-            txtEstado.Enabled = b;
+            txtEstadoIngreso.Enabled = b;
             txtObservacionInterna.Enabled = b;
             txtObservacionExterna.Enabled = b;
             txtNumero.Enabled = b;
@@ -161,7 +161,7 @@ namespace Sistema_de_ventas_2018.Presentacion
             txtNombre.Text = "";
             txtDNI.Text = "";
             txtEquipoId.Text = "";
-            txtEstado.Text = "";
+            txtEstadoIngreso.Text = "";
             txtObservacionInterna.Text = "";
             txtObservacionExterna.Text = "";
             txtNumero.Text = "";

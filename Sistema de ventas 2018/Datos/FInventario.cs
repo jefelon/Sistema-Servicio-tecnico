@@ -19,6 +19,33 @@ namespace Sistema_de_ventas_2018.Datos
             };
             return DBHelper.ExecuteDataSet("usp_Datos_FInventario_GetAll", dbParams);
         }
+        public static int InsertarDetalleProductoSalida(Inventario inventario)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+            {
+                 DBHelper.MakeParam("@ProductoId",SqlDbType.Int,0,inventario.Producto.Id),
+                DBHelper.MakeParam("@Entrada",SqlDbType.Int,0,inventario.Entrada),
+                DBHelper.MakeParam("@Salida",SqlDbType.Int,0,inventario.Salida),
+                DBHelper.MakeParam("@DetalleVentaId",SqlDbType.Int,0,inventario.DetalleVentaId),
+                DBHelper.MakeParam("@DetalleCompraId",SqlDbType.Int,0,inventario.DetalleCompraId),
+                DBHelper.MakeParam("@DetalleProductoSalidaId",SqlDbType.Int,0,inventario.DetalleProductoSalidaId)
+            };
+            return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Datos_FInventario_InsertarDetalleProductoSalida", dbParams));
+        }
+
+        public static int InsertarCompra(Inventario inventario)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+            {
+                DBHelper.MakeParam("@ProductoId",SqlDbType.Int,0,inventario.Producto.Id),
+                DBHelper.MakeParam("@Entrada",SqlDbType.Int,0,inventario.Entrada),
+                DBHelper.MakeParam("@Salida",SqlDbType.Int,0,inventario.Salida),
+                DBHelper.MakeParam("@DetalleVentaId",SqlDbType.Int,0,inventario.DetalleVentaId),
+                DBHelper.MakeParam("@DetalleCompraId",SqlDbType.Int,0,inventario.DetalleCompraId),
+                DBHelper.MakeParam("@DetalleProductoSalidaId",SqlDbType.Int,0,inventario.DetalleProductoSalidaId)
+            };
+            return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Datos_FInventario_InsertarCompra", dbParams));
+        }
         public static int Insertar(Inventario inventario)
         {
             SqlParameter[] dbParams = new SqlParameter[]
@@ -27,7 +54,8 @@ namespace Sistema_de_ventas_2018.Datos
                 DBHelper.MakeParam("@Entrada",SqlDbType.Int,0,inventario.Entrada),
                 DBHelper.MakeParam("@Salida",SqlDbType.Int,0,inventario.Salida),
                 DBHelper.MakeParam("@DetalleVentaId",SqlDbType.Int,0,inventario.DetalleVentaId),
-                DBHelper.MakeParam("@DetalleCompraId",SqlDbType.Int,0,inventario.DetalleCompraId)
+                DBHelper.MakeParam("@DetalleCompraId",SqlDbType.Int,0,inventario.DetalleCompraId),
+                DBHelper.MakeParam("@DetalleProductoSalidaId",SqlDbType.Int,0,inventario.DetalleProductoSalidaId)
             };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Datos_FInventario_Insertar", dbParams));
         }

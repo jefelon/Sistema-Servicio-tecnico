@@ -30,6 +30,8 @@
         {
             this.dgvDatosProducto = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtBuscarNombre = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosProducto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,11 +41,11 @@
             this.dgvDatosProducto.AllowUserToDeleteRows = false;
             this.dgvDatosProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDatosProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatosProducto.Location = new System.Drawing.Point(12, 42);
+            this.dgvDatosProducto.Location = new System.Drawing.Point(12, 57);
             this.dgvDatosProducto.Name = "dgvDatosProducto";
             this.dgvDatosProducto.ReadOnly = true;
             this.dgvDatosProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDatosProducto.Size = new System.Drawing.Size(1173, 309);
+            this.dgvDatosProducto.Size = new System.Drawing.Size(1173, 294);
             this.dgvDatosProducto.TabIndex = 15;
             this.dgvDatosProducto.DoubleClick += new System.EventHandler(this.dgvDatos_DoubleClick);
             // 
@@ -58,11 +60,30 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "LISTADO DE PRODUCTOS:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Buscar Nombre:";
+            // 
+            // txtBuscarNombre
+            // 
+            this.txtBuscarNombre.Location = new System.Drawing.Point(105, 32);
+            this.txtBuscarNombre.Name = "txtBuscarNombre";
+            this.txtBuscarNombre.Size = new System.Drawing.Size(197, 20);
+            this.txtBuscarNombre.TabIndex = 18;
+            this.txtBuscarNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscarNombre_KeyDown);
+            // 
             // FrmProducto_Vista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1197, 362);
+            this.Controls.Add(this.txtBuscarNombre);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvDatosProducto);
             this.Name = "FrmProducto_Vista";
@@ -78,5 +99,7 @@
 
         private System.Windows.Forms.DataGridView dgvDatosProducto;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtBuscarNombre;
     }
 }

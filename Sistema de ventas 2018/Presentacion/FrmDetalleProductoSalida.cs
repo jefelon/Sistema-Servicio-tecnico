@@ -28,8 +28,8 @@ namespace Sistema_de_ventas_2018.Presentacion
             dt = ds.Tables[0];
             dgvDatos.DataSource = dt;
             dgvDatos.Columns["Id"].Visible = false;
+            dgvDatos.Columns["ProductoId"].Visible = false;
 
-            
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -46,19 +46,19 @@ namespace Sistema_de_ventas_2018.Presentacion
                         detalleproductosalida.Salida.Id = Convert.ToInt32(txtSalidaId.Text);
                         detalleproductosalida.Precio = Convert.ToDecimal(txtPrecio.Text);
                         detalleproductosalida.Cantidad = Convert.ToDecimal(txtCantidad.Text);
+
                         int returnId = FDetalleProductoSalida.Insertar(detalleproductosalida);
+
+                        Inventario inventario = new Inventario();
+                        inventario.Producto.Id = Convert.ToInt32(txtProductoId.Text);
+                        inventario.Salida = Convert.ToDecimal(txtCantidad.Text);
+                        inventario.DetalleProductoSalidaId = returnId;
+                        FInventario.InsertarDetalleProductoSalida(inventario);
+
                         if (returnId > 0)
                         {
-                            foreach (DataGridViewRow row in dgvDatos.Rows)
-                            {
-                                Inventario inventario = new Inventario();
-                                inventario.Producto.Id = Convert.ToInt32(row.Cells[0].Value);
-                                inventario.Salida = Convert.ToDecimal(row.Cells[2].Value);
-                                inventario.Stock = Convert.ToDecimal(row.Cells[2].Value) - Convert.ToDecimal(row.Cells["StockInicial"].Value);
-                                inventario.DetalleVentaId = returnId;
-                                FInventario.Insertar(inventario);
-                            }
                             
+
                             FrmDetalleProductoSalida_Load(null, null);
                             habilitarBotones(false);
                         }
@@ -178,12 +178,12 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void dgvDatos_SelectionChanged(object sender, EventArgs e)
         {
-            asignatDatos();
+            //asignatDatos();
         }
 
         private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-             asignatDatos();
+             //asignatDatos();
         }
         public void asignatDatos()
         {
@@ -209,6 +209,8 @@ namespace Sistema_de_ventas_2018.Presentacion
             txtPrecio.Text = form.precio;
             txtProducto.Text = form.descripcion;
             txtProductoId.Text = form.productoId;
+
+
         }
 
         private void btnNuevo_Click_1(object sender, EventArgs e)

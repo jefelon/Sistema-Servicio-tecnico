@@ -99,6 +99,10 @@ namespace Sistema_de_ventas_2018.Presentacion
                 else
                 {
                     dgvProveedor.DataSource = dt;
+                    dgvProveedor.Columns["Id"].Visible = false;
+                    dgvProveedor.Columns["Ruc"].Visible = false;
+                    dgvProveedor.Columns["Direccion"].Visible = false;
+                    dgvProveedor.Columns["Telefono"].Visible = false;
                     dgvProveedor.Visible = true;
 
                 }
@@ -137,17 +141,18 @@ namespace Sistema_de_ventas_2018.Presentacion
                             {
                                 Inventario inventario = new Inventario();
                                 inventario.Producto.Id = Convert.ToInt32(row.Cells[0].Value);
-                                inventario.Entrada = Convert.ToDecimal(row.Cells[2].Value);
-                                inventario.Stock = Convert.ToDecimal(row.Cells[2].Value) + Convert.ToDecimal(row.Cells["StockInicial"].Value);
-                                inventario.DetalleVentaId = returnDetalleId;
+                                inventario.Entrada = Convert.ToDecimal(row.Cells[2].Value);                                
+                                inventario.DetalleCompraId = returnDetalleId;
 
-                                FInventario.Insertar(inventario);
+                                FInventario.InsertarCompra(inventario);
                             }     
                         }
                     }
                     MessageBox.Show("La compra numero " + txtNro_comprobante.Text + " se insertó correctamente");
-                    mostrarOcultar(false);
                     FrmCompra_Load(null, null);
+                    btnNuevo.PerformClick();
+                    mostrarOcultar(false);
+                    
                 }
                 else
                 {
@@ -198,6 +203,7 @@ namespace Sistema_de_ventas_2018.Presentacion
         }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            dgvDetalle.Rows.Clear();
             txtCantidad.Text = "";
             txtNro_comprobante.Text = "";
             txtPrecio.Text = "";

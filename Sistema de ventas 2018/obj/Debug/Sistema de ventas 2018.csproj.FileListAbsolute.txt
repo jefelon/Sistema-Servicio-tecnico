@@ -35,3 +35,40 @@ D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema de ventas 2018\ob
 D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema de ventas 2018\obj\Debug\Sistema de ventas 2018.csproj.GenerateResource.Cache
 D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema de ventas 2018\obj\Debug\Sistema de ventas 2018.exe
 D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema de ventas 2018\obj\Debug\Sistema de ventas 2018.pdb
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\bin\Debug\Sistema de ventas 2018.exe.config
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema de ventas 2018.exe
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema de ventas 2018.pdb
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\bin\Debug\Sistema de ventas 2018.exe
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\bin\Debug\Sistema de ventas 2018.pdb
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema de ventas 2018.csprojResolveAssemblyReference.cache
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Form1.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmCompra_Vista.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmGenerarSalida.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmInventario.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmListaEquipos.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmCategoria.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmCliente_Vista.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmCliente.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmCompra.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmDetalleProductoSalida.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmDetalleServicioSalida.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmEquipo_Vista.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmEquipo.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmIngreso.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmLogin.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmMarca.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmModelo.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmProducto_Vista.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmProducto.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmProveedor.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmSalida_Vista.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmSalida.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmServicio_Vista.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmServicio.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmStock.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmTipoDocumento.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmUnidadMedida.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmVenta_Vista.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmVenta.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Properties.Resources.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema de ventas 2018.csproj.GenerateResource.Cache

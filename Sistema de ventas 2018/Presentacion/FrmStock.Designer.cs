@@ -47,7 +47,7 @@
             // 
             // txtStock
             // 
-            this.txtStock.Location = new System.Drawing.Point(156, 8);
+            this.txtStock.Location = new System.Drawing.Point(100, 8);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(220, 20);
             this.txtStock.TabIndex = 46;
@@ -55,7 +55,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(100, 11);
+            this.label2.Location = new System.Drawing.Point(44, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 45;
@@ -109,11 +109,11 @@
             this.dgvDatos.AllowUserToDeleteRows = false;
             this.dgvDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Location = new System.Drawing.Point(12, 131);
+            this.dgvDatos.Location = new System.Drawing.Point(12, 133);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.ReadOnly = true;
             this.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDatos.Size = new System.Drawing.Size(521, 326);
+            this.dgvDatos.Size = new System.Drawing.Size(521, 324);
             this.dgvDatos.TabIndex = 43;
             this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
             this.dgvDatos.SelectionChanged += new System.EventHandler(this.dgvDatos_SelectionChanged);
@@ -128,9 +128,9 @@
             // txtId
             // 
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(38, 5);
+            this.txtId.Location = new System.Drawing.Point(25, 5);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(56, 20);
+            this.txtId.Size = new System.Drawing.Size(11, 20);
             this.txtId.TabIndex = 41;
             this.txtId.Visible = false;
             // 
@@ -146,7 +146,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 8);
+            this.label1.Location = new System.Drawing.Point(-2, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(21, 13);
             this.label1.TabIndex = 39;

@@ -32,7 +32,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                         salida.Numero = Convert.ToInt32(txtNumero.Text);////validamos el campo del formulario
                         salida.FechaSalida = dtpFecha.Value;
                         salida.Diagnostico = txtDiagnostico.Text;
-                        salida.Estado = txtEstado.Text;
+                        salida.Estado = txtEstadoSalida.Text;
                         int returnId = FSalida.Insertar(salida);//ejecutamos el procedimiento para Insertar
                         if (returnId > 0)
                         {
@@ -65,10 +65,10 @@ namespace Sistema_de_ventas_2018.Presentacion
                 resultado = "El campo Diagnostico está vacío";
                 txtDiagnostico.Focus();
             }
-            if (txtEstado.Text == "")
+            if (txtEstadoSalida.Text == "")
             {
                 resultado = "El campo Estado está vacío";
-                txtEstado.Focus();
+                txtEstadoSalida.Focus();
             }
             return resultado;
         }
@@ -81,7 +81,7 @@ namespace Sistema_de_ventas_2018.Presentacion
         public void mostrarOcultar(bool b)//metodo para habilitar los campos del formulario
         {
             txtDiagnostico.Enabled = b;
-            txtEstado.Enabled = b;
+            txtEstadoSalida.Enabled = b;
             txtNumero.Enabled = b;
             dtpFecha.Enabled = b;
 
@@ -132,6 +132,8 @@ namespace Sistema_de_ventas_2018.Presentacion
             DataSet ds = FDetalleProductoSalida.GetAll(Convert.ToInt32(txtId.Text));//creamos un dataset, un contenedor de datos y hacemos una consulta con la clase y su método GetAll, en ella el Id
             dt = ds.Tables[0];//asignamos los datos del datased a la tabla
             dgvDetalleProductoSalida.DataSource = dt; //pasamos los datos de la tabla al datagridview
+            dgvDetalleProductoSalida.Columns["ProductoId"].Visible = false;
+            dgvDetalleProductoSalida.Columns["Id"].Visible = false;
         }
 
         private void btnAgregarServicios_Click(object sender, EventArgs e)
@@ -178,6 +180,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                 txtObservacionExterna.Text = dt.Rows[0]["ObservacionExterna"].ToString();
                 txtObservacionInterna.Text = dt.Rows[0]["ObservacionInterna"].ToString();
                 txtAdelanto.Text = dt.Rows[0]["Adelanto"].ToString();
+                txtEstadoIngreso.Text = dt.Rows[0]["Estado"].ToString();
 
                 txtEquipo.Text= dt.Rows[0]["Descripcion"].ToString();
                 txtMarca.Text = dt.Rows[0]["Marca"].ToString();

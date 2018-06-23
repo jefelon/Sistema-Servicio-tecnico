@@ -17,6 +17,8 @@ namespace Sistema_de_ventas_2018.Presentacion
         {
             InitializeComponent();
         }
+
+        public int idDetalle;
         public string precio, descripcion, productoId;
         DataTable dt = new DataTable();
 
@@ -34,7 +36,23 @@ namespace Sistema_de_ventas_2018.Presentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
-        
+
+        private void cargarProducto(string BuscarNombre)
+        {
+            DataSet ds = FProducto.GetBuscar(BuscarNombre);
+            DataTable dt = ds.Tables[0];
+            dgvDatosProducto.DataSource = dt;
+        }
+
+        private void txtBuscarNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                cargarProducto((txtBuscarNombre.Text));
+            }
+        }
+
 
         private void dgvDatos_DoubleClick(object sender, EventArgs e)
         {

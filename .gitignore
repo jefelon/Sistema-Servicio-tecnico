@@ -1,0 +1,11 @@
+
+*.exe
+*.exe
+*.cache
+*.txt
+*.Cache
+*.pdb
+.vs/Sistema de ventas 2018/v14/.suo
+Sistema de ventas 2018/obj/Debug/Sistema de ventas 2018.exe
+Sistema de ventas 2018/obj/Debug/Sistema de ventas 2018.csprojResolveAssemblyReference.cache
+Sistema de ventas 2018/obj/Debug/Sistema de ventas 2018.csproj.GenerateResource.Cache

@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-
+            this.txtClienteId = new System.Windows.Forms.TextBox();
             this.btnCargarCliente = new System.Windows.Forms.Button();
-
-           
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtDNI = new System.Windows.Forms.TextBox();
@@ -40,9 +38,8 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-
+            this.txtEquipoId = new System.Windows.Forms.TextBox();
             this.btnCargarEquipo = new System.Windows.Forms.Button();
-
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtMarca = new System.Windows.Forms.TextBox();
@@ -67,9 +64,7 @@
             this.lbEstado = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.txtClienteId = new System.Windows.Forms.TextBox();
-            this.txtEquipoId = new System.Windows.Forms.TextBox();
-            this.txtEstado = new System.Windows.Forms.TextBox();
+            this.txtEstadoIngreso = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.btnNuevo = new System.Windows.Forms.Button();
@@ -80,10 +75,8 @@
             // 
             // groupBox1
             // 
-
             this.groupBox1.Controls.Add(this.txtClienteId);
             this.groupBox1.Controls.Add(this.btnCargarCliente);
-
             this.groupBox1.Controls.Add(this.txtDireccion);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtDNI);
@@ -98,7 +91,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CLIENTE";
             // 
-
+            // txtClienteId
+            // 
+            this.txtClienteId.Location = new System.Drawing.Point(77, 18);
+            this.txtClienteId.Name = "txtClienteId";
+            this.txtClienteId.Size = new System.Drawing.Size(20, 22);
+            this.txtClienteId.TabIndex = 6;
+            this.txtClienteId.Visible = false;
+            // 
             // btnCargarCliente
             // 
             this.btnCargarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -109,17 +109,14 @@
             this.btnCargarCliente.Text = "...";
             this.btnCargarCliente.UseVisualStyleBackColor = true;
             this.btnCargarCliente.Click += new System.EventHandler(this.button2_Click);
-
             // 
             // txtDireccion
             // 
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(103, 82);
             this.txtDireccion.Name = "txtDireccion";
-
             this.txtDireccion.Size = new System.Drawing.Size(260, 26);
             this.txtDireccion.TabIndex = 1;
-
             // 
             // label7
             // 
@@ -136,10 +133,8 @@
             this.txtDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDNI.Location = new System.Drawing.Point(103, 50);
             this.txtDNI.Name = "txtDNI";
-
             this.txtDNI.Size = new System.Drawing.Size(225, 26);
             this.txtDNI.TabIndex = 1;
-
             // 
             // label6
             // 
@@ -156,10 +151,8 @@
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(103, 16);
             this.txtNombre.Name = "txtNombre";
-
             this.txtNombre.Size = new System.Drawing.Size(225, 26);
             this.txtNombre.TabIndex = 1;
-
             // 
             // label5
             // 
@@ -173,10 +166,8 @@
             // 
             // groupBox2
             // 
-
             this.groupBox2.Controls.Add(this.txtEquipoId);
             this.groupBox2.Controls.Add(this.btnCargarEquipo);
-
             this.groupBox2.Controls.Add(this.txtModelo);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtMarca);
@@ -191,7 +182,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "EQUIPO";
             // 
-
+            // txtEquipoId
+            // 
+            this.txtEquipoId.Location = new System.Drawing.Point(62, -3);
+            this.txtEquipoId.Name = "txtEquipoId";
+            this.txtEquipoId.Size = new System.Drawing.Size(20, 22);
+            this.txtEquipoId.TabIndex = 7;
+            this.txtEquipoId.Visible = false;
+            // 
             // btnCargarEquipo
             // 
             this.btnCargarEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -202,7 +200,6 @@
             this.btnCargarEquipo.Text = "...";
             this.btnCargarEquipo.UseVisualStyleBackColor = true;
             this.btnCargarEquipo.Click += new System.EventHandler(this.button1_Click);
-
             // 
             // txtModelo
             // 
@@ -211,8 +208,6 @@
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(169, 26);
             this.txtModelo.TabIndex = 1;
-
-
             // 
             // label4
             // 
@@ -231,7 +226,6 @@
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(169, 26);
             this.txtMarca.TabIndex = 1;
-
             // 
             // label3
             // 
@@ -250,7 +244,6 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(169, 26);
             this.txtDescripcion.TabIndex = 1;
-
             // 
             // label2
             // 
@@ -433,29 +426,15 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // txtClienteId
+            // txtEstadoIngreso
             // 
-            this.txtClienteId.Location = new System.Drawing.Point(77, 18);
-            this.txtClienteId.Name = "txtClienteId";
-            this.txtClienteId.Size = new System.Drawing.Size(20, 22);
-            this.txtClienteId.TabIndex = 6;
-            this.txtClienteId.Visible = false;
-            // 
-            // txtEquipoId
-            // 
-            this.txtEquipoId.Location = new System.Drawing.Point(62, -3);
-            this.txtEquipoId.Name = "txtEquipoId";
-            this.txtEquipoId.Size = new System.Drawing.Size(20, 22);
-            this.txtEquipoId.TabIndex = 7;
-            this.txtEquipoId.Visible = false;
-            // 
-            // txtEstado
-            // 
-            this.txtEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstado.Location = new System.Drawing.Point(189, 505);
-            this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(151, 26);
-            this.txtEstado.TabIndex = 6;
+            this.txtEstadoIngreso.BackColor = System.Drawing.Color.Salmon;
+            this.txtEstadoIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEstadoIngreso.ForeColor = System.Drawing.Color.DarkRed;
+            this.txtEstadoIngreso.Location = new System.Drawing.Point(189, 505);
+            this.txtEstadoIngreso.Name = "txtEstadoIngreso";
+            this.txtEstadoIngreso.Size = new System.Drawing.Size(151, 26);
+            this.txtEstadoIngreso.TabIndex = 6;
             // 
             // label12
             // 
@@ -494,7 +473,7 @@
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.txtEstado);
+            this.Controls.Add(this.txtEstadoIngreso);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dtpFechaProbableReparacion);
@@ -568,7 +547,7 @@
         public System.Windows.Forms.TextBox txtModelo;
         public System.Windows.Forms.TextBox txtMarca;
         public System.Windows.Forms.TextBox txtEquipoId;
-        private System.Windows.Forms.TextBox txtEstado;
+        private System.Windows.Forms.TextBox txtEstadoIngreso;
         private System.Windows.Forms.Label label12;
         public System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btnNuevo;

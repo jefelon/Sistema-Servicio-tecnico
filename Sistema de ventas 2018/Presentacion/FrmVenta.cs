@@ -177,6 +177,8 @@ namespace Sistema_de_ventas_2018.Presentacion
 
                     MessageBox.Show("La venta numero " + txtNumeroDocumento.Text + " se insertó correctamente");//se muestra el mensaje con el numero de venta
                     FrmVenta_Load(null, null);//el formulario es nulo 
+                    btnNuevo.PerformClick();
+                    mostrarOcultar(false);
                 }
                 else
                 {
@@ -229,6 +231,7 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)//vaciamos los campos del formulario para insertar un nuevo registro
         {
+            dgvDetalle.Rows.Clear();
             txtCliente.Text ="";
             txtCantidad.Text = "";
             txtClienteId.Text = "";

@@ -11,6 +11,7 @@ namespace Sistema_de_ventas_2018.Datos
 {
        public class FStock
     {
+       
         public static DataSet GetAll()
         {
             SqlParameter[] dbParams = new SqlParameter[]
