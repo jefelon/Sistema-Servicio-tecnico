@@ -24,7 +24,7 @@ namespace Sistema_de_ventas_2018.Presentacion
             DataSet ds = FServicio.GetAll();//creamos un datased, un contenedor de datos hacemos una consulta a la clace FServicio y su metodo GetAll, en ella el SalidaId
             dt1 = ds.Tables[0];//asignamos los datos del datased a la tabla
             dgvServicioLista.DataSource = dt1;//pasamos los datos de la tabla al datagridview
-            dgvServicioLista.Columns["d"].Visible = false;
+            dgvServicioLista.Columns["Id"].Visible = false;
         }
 
         private void dgvServicioLista_CellContentClick(object sender, DataGridViewCellEventArgs e)

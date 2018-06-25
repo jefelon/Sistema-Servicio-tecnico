@@ -83,6 +83,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.txtEstadoIngreso = new System.Windows.Forms.ComboBox();
+            this.txtIdIngreso = new System.Windows.Forms.TextBox();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleProductoSalida)).BeginInit();
             this.groupBox8.SuspendLayout();
@@ -619,6 +620,14 @@
             this.txtEstadoIngreso.TabIndex = 75;
             this.txtEstadoIngreso.Text = "PENDIENTE";
             // 
+            // txtIdIngreso
+            // 
+            this.txtIdIngreso.Enabled = false;
+            this.txtIdIngreso.Location = new System.Drawing.Point(29, 44);
+            this.txtIdIngreso.Name = "txtIdIngreso";
+            this.txtIdIngreso.Size = new System.Drawing.Size(26, 20);
+            this.txtIdIngreso.TabIndex = 41;
+            // 
             // FrmSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -652,6 +661,7 @@
             this.Controls.Add(this.txtBuscarIngreso);
             this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtIdIngreso);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label1);
             this.Name = "FrmSalida";
@@ -736,5 +746,6 @@
         private System.Windows.Forms.DataGridView dgvDetalleServicioSalida;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox txtEstadoIngreso;
+        private System.Windows.Forms.TextBox txtIdIngreso;
     }
 }

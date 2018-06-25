@@ -50,10 +50,9 @@
             this.lblNumeroSalida.AutoSize = true;
             this.lblNumeroSalida.Location = new System.Drawing.Point(117, 33);
             this.lblNumeroSalida.Name = "lblNumeroSalida";
-            this.lblNumeroSalida.Size = new System.Drawing.Size(35, 13);
+            this.lblNumeroSalida.Size = new System.Drawing.Size(31, 13);
             this.lblNumeroSalida.TabIndex = 1;
-            this.lblNumeroSalida.Text = "label1";
-            this.lblNumeroSalida.Visible = false;
+            this.lblNumeroSalida.Text = "5455";
             // 
             // lblIdSalida
             // 
@@ -73,6 +72,7 @@
             this.btnCancelar.TabIndex = 0;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label1
             // 

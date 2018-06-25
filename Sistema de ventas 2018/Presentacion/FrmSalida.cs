@@ -108,6 +108,7 @@ namespace Sistema_de_ventas_2018.Presentacion
         private void btnNuevo_Click_1(object sender, EventArgs e)
         {
             FrmGenerarSalida frm = new FrmGenerarSalida();//abrimos nuevo formulario
+            frm.ingresoId = Convert.ToInt32(txtIdIngreso.Text);
             frm.ShowDialog();//mostramos el formulario
             mostrarOcultar(true);//habilitamos el metodo de mostrarOcultar
 
@@ -170,6 +171,7 @@ namespace Sistema_de_ventas_2018.Presentacion
             {
                 MessageBox.Show("El equipo ya fué entregado", "Editando salida",MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                txtIdIngreso.Text = dt.Rows[0]["Id"].ToString();
                 if (dt.Rows[0]["Razon_social"].ToString() != "")//si la tabla con el campo "Razon_social" tiene contenido
                 {
                     txtNombreRS.Text = dt.Rows[0]["Razon_social"].ToString();//asignamos la razon social
@@ -195,6 +197,7 @@ namespace Sistema_de_ventas_2018.Presentacion
             }
            else if (dt.Rows.Count > 0)//si la columna tiene contenido
             {
+                txtIdIngreso.Text = dt.Rows[0]["Id"].ToString();
                 if (dt.Rows[0]["Razon_social"].ToString()!="")//si la tabla con el campo "Razon_social" tiene contenido
                 {
                     txtNombreRS.Text = dt.Rows[0]["Razon_social"].ToString();//asignamos la razon social
