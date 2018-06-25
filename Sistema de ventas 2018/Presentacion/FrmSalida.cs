@@ -47,7 +47,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                     FrmSalida_Load(null, null);//el formulario es nulo
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
@@ -149,14 +149,19 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void cargarDetalleServicios()
         {
-            
+
             DataTable dt = new DataTable();//variables para crear la tabla
             mostrarOcultar(false);//deshabilitamos el metodo
             DataSet ds = FDetalleServicioSalida.GetAll(Convert.ToInt32(txtId.Text));//creamos un dataset, un contenedor de datos y hacemos una consulta con la clase y su método GetAll, en ella el Id         
             dt = ds.Tables[0];//asignamos los datos de datased a la tabla
             dgvDetalleServicioSalida.DataSource = dt;//pasamos los datos de la tabla al datagridview
         }
-
+        private void cargarDetalle(int numeroIngresoDetalle)
+        {
+            //DataSet dsdp = FIngreso.NumeroIngresoDetalle(numeroIngresoDetalle);
+            //DataTable dtdp = dsdp.Tables[0];
+            //dgvDetalleProductoSalida.DataSource = dtdp.Rows[0]["NombreProducto"].ToString();
+        }
 
         private void cargarIngreso(int numeroIngreso)
         {
@@ -191,6 +196,15 @@ namespace Sistema_de_ventas_2018.Presentacion
                 txtEquipo.Text = dt.Rows[0]["Descripcion"].ToString();
                 txtMarca.Text = dt.Rows[0]["Marca"].ToString();
                 textBox4.Text = dt.Rows[0]["Modelo"].ToString();
+                
+                //detalle       
+                DataSet ds5 = FSalida.Get(Convert.ToInt32(txtIdIngreso.Text));
+                DataTable dt5 = ds5.Tables[0];
+                txtId.Text = dt5.Rows[0]["Id"].ToString();
+                txtEstadoSalida.Text = dt5.Rows[0]["Numero"].ToString();
+                txtDiagnostico.Text = dt5.Rows[0]["Diagnostico"].ToString();
+                dtpFecha.Text = dt5.Rows[0]["Fecha"].ToString();
+                txtEstadoSalida.Text = dt5.Rows[0]["Estado"].ToString();
 
                 habilitarBotones(true);//habilitamos el metodo
 
@@ -218,6 +232,16 @@ namespace Sistema_de_ventas_2018.Presentacion
                 txtMarca.Text = dt.Rows[0]["Marca"].ToString();
                 textBox4.Text = dt.Rows[0]["Modelo"].ToString();
 
+                //detalle
+
+                DataSet ds5 = FSalida.Get(Convert.ToInt32(txtIdIngreso.Text));
+                DataTable dt5 = ds5.Tables[0];
+                txtId.Text = dt5.Rows[0]["Id"].ToString();
+                txtEstadoSalida.Text = dt5.Rows[0]["Numero"].ToString();
+                txtDiagnostico.Text = dt5.Rows[0]["Diagnostico"].ToString();
+                dtpFecha.Text = dt5.Rows[0]["FechaSalida"].ToString();
+                txtEstadoSalida.Text = dt5.Rows[0]["Estado"].ToString();
+
                 habilitarBotones(true);//habilitamos el metodo
 
             }
@@ -229,6 +253,7 @@ namespace Sistema_de_ventas_2018.Presentacion
             {
                 e.SuppressKeyPress = true;//tecla precionado
                 cargarIngreso(Convert.ToInt32(txtBuscarIngreso.Text));//llamamos al metodo y muestra los datos de la clace FIngreso 
+               //cargarDetalle(Convert.ToInt32(txtBuscarIngreso.Text));
             }
             
         }

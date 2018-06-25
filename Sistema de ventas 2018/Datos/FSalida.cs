@@ -51,5 +51,14 @@ namespace Sistema_de_ventas_2018.Datos
             };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Datos_FSalida_Eliminar", dbParams));
         }
+
+        public static DataSet Get(int IngresoId)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+            {
+                DBHelper.MakeParam("@IngresoId",SqlDbType.Int,0,IngresoId),
+            };
+            return DBHelper.ExecuteDataSet("usp_Datos_FSalida_Get", dbParams);
+        }
     }
 }
