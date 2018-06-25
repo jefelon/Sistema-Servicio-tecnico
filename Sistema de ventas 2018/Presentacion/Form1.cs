@@ -1,4 +1,5 @@
 ﻿using FastReport;
+using Sistema_de_ventas_2018.Negocio;
 using Sistema_de_ventas_2018.Presentacion;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,20 @@ namespace Sistema_de_ventas_2018
         private void Form1_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
+            if(Usuario.Tipo=="1")
+            {
+
+            }
+            else if(Usuario.Tipo == "2")
+            {
+                btnTpv.Visible = false;
+                clasificaciónToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("No tiene privilegios");
+            }
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)

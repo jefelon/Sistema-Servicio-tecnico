@@ -47,12 +47,11 @@
             // 
             // txtNombreUsuario
             // 
-            this.txtNombreUsuario.Font = new System.Drawing.Font("Panton Light Caps", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreUsuario.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreUsuario.Location = new System.Drawing.Point(118, 22);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(185, 23);
+            this.txtNombreUsuario.Size = new System.Drawing.Size(185, 22);
             this.txtNombreUsuario.TabIndex = 0;
-            this.txtNombreUsuario.Text = "raul";
             // 
             // label2
             // 
@@ -66,12 +65,11 @@
             // 
             // txtContrasena
             // 
-            this.txtContrasena.Font = new System.Drawing.Font("Panton Light Caps", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContrasena.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContrasena.Location = new System.Drawing.Point(118, 63);
             this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.Size = new System.Drawing.Size(185, 23);
+            this.txtContrasena.Size = new System.Drawing.Size(185, 22);
             this.txtContrasena.TabIndex = 1;
-            this.txtContrasena.Text = "raul";
             this.txtContrasena.UseSystemPasswordChar = true;
             // 
             // btnIngresar

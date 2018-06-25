@@ -122,7 +122,7 @@
             this.txtCliente.Location = new System.Drawing.Point(85, 25);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(385, 20);
-            this.txtCliente.TabIndex = 42;
+            this.txtCliente.TabIndex = 0;
             this.txtCliente.TextChanged += new System.EventHandler(this.txtCliente_TextChanged);
             this.txtCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCliente_KeyDown);
             // 
@@ -238,7 +238,7 @@
             this.cmbTipoDocumento.Location = new System.Drawing.Point(650, 4);
             this.cmbTipoDocumento.Name = "cmbTipoDocumento";
             this.cmbTipoDocumento.Size = new System.Drawing.Size(91, 21);
-            this.cmbTipoDocumento.TabIndex = 54;
+            this.cmbTipoDocumento.TabIndex = 2;
             // 
             // dgvClientes
             // 
@@ -290,7 +290,7 @@
             this.txtProducto.Location = new System.Drawing.Point(85, 122);
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.Size = new System.Drawing.Size(338, 20);
-            this.txtProducto.TabIndex = 60;
+            this.txtProducto.TabIndex = 66;
             // 
             // label6
             // 
@@ -330,7 +330,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(442, 152);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(81, 40);
-            this.btnAgregar.TabIndex = 65;
+            this.btnAgregar.TabIndex = 4;
             this.btnAgregar.Text = "agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -345,7 +345,7 @@
             this.cmbSerie.Location = new System.Drawing.Point(588, 32);
             this.cmbSerie.Name = "cmbSerie";
             this.cmbSerie.Size = new System.Drawing.Size(56, 21);
-            this.cmbSerie.TabIndex = 66;
+            this.cmbSerie.TabIndex = 3;
             this.cmbSerie.Text = "0001";
             this.cmbSerie.SelectedIndexChanged += new System.EventHandler(this.cmbSerie_SelectedIndexChanged);
             // 
@@ -355,7 +355,7 @@
             this.btnCargarProducto.Location = new System.Drawing.Point(442, 119);
             this.btnCargarProducto.Name = "btnCargarProducto";
             this.btnCargarProducto.Size = new System.Drawing.Size(81, 23);
-            this.btnCargarProducto.TabIndex = 69;
+            this.btnCargarProducto.TabIndex = 1;
             this.btnCargarProducto.Text = "----";
             this.btnCargarProducto.UseVisualStyleBackColor = true;
             this.btnCargarProducto.Click += new System.EventHandler(this.btnCargarProducto_Click);

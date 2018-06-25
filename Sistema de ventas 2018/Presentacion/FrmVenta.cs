@@ -241,6 +241,7 @@ namespace Sistema_de_ventas_2018.Presentacion
             mostrarOcultar(true);//habilitamos el metodo de mostrarOcultar
             habilitarBotones(false);//deshabilitamos el metodo de habilitarBotones
 
+            txtCliente.Focus();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
