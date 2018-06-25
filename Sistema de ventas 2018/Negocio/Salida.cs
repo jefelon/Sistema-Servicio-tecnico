@@ -13,6 +13,7 @@ namespace Sistema_de_ventas_2018.Negocio
         private DateTime _fechaSalida;
         private string _diagnostico;
         private string _estado;
+        private Ingreso _ingreso;
 
         public int Id
         {
@@ -47,6 +48,24 @@ namespace Sistema_de_ventas_2018.Negocio
             get { return _estado; }
 
             set { _estado = value; }
+        }
+
+        public Ingreso Ingreso
+        {
+            get
+            {
+                return _ingreso;
+            }
+
+            set
+            {
+                _ingreso = value;
+            }
+        }
+
+        public Salida ()
+        {
+            _ingreso = new Ingreso();
         }
     }
 }

@@ -27,6 +27,7 @@ namespace Sistema_de_ventas_2018.Datos
                 DBHelper.MakeParam("@FechaSalida",SqlDbType.DateTime,0,salida.FechaSalida),
                 DBHelper.MakeParam("@Diagnostico",SqlDbType.VarChar,0,salida.Diagnostico),
                 DBHelper.MakeParam("@Estado",SqlDbType.VarChar,0,salida.Estado)
+                DBHelper.MakeParam("@IngresoId",SqlDbType.VarChar,0,salida.Ingreso.Id)
             };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Datos_FSalida_Insertar", dbParams));
         }

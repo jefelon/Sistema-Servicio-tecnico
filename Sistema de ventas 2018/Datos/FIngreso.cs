@@ -31,7 +31,6 @@ namespace Sistema_de_ventas_2018.Datos
         {//Id, Numero, FechaIngreso, ObservacionExterna, ObservacionInterna, MotivoIngreso, FechaProbableReparacion, Adelanto, Estado, ClienteId, EquipoId
             SqlParameter[] dbParams = new SqlParameter[]
             {
-                DBHelper.MakeParam("@Numero",SqlDbType.Int,0,ingreso.Numero),
                 DBHelper.MakeParam("@FechaIngreso",SqlDbType.DateTime,0,ingreso.FechaIngreso),
                 DBHelper.MakeParam("@ObservacionExterna",SqlDbType.VarChar,0,ingreso.ObservacionExterna),
                 DBHelper.MakeParam("@ObservacionInterna",SqlDbType.VarChar,0,ingreso.ObservacionInterna),

@@ -112,6 +112,7 @@ namespace Sistema_de_ventas_2018.Presentacion
             mostrarOcultar(true);//habilitamos el metodo de mostrarOcultar
 
             txtId.Text = frm.idSalida.ToString();//el valor de txtId se mostrara en el otro formulario
+            txtNumero.Text = frm.idSalida.ToString();
 
             btnAgregarProductos.Enabled = true;//habilitamos el boton para agregar
             btnAgregarServicios.Enabled = true;//habilitamos el boton para agregar
@@ -164,15 +165,43 @@ namespace Sistema_de_ventas_2018.Presentacion
             {
                 MessageBox.Show("No existe, revice el número e ingrese nuévamente.", "NO EXISTE REGISTRO");
             }
-            if (dt.Rows.Count > 0)//si la tabla es mayo que cero
+
+           else if(dt.Rows.Count > 0 && dt.Rows[0]["Estado"].ToString()=="ENTREGADO")
             {
-                if (dt.Rows[0]["Razon_social"].ToString()!="")//si la tabla con el campo "Razon_social" es nulo e igual al vacío
+                MessageBox.Show("El equipo ya fué entregado", "Editando salida",MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                if (dt.Rows[0]["Razon_social"].ToString() != "")//si la tabla con el campo "Razon_social" tiene contenido
                 {
-                    txtNombreRS.Text = dt.Rows[0]["Razon_social"].ToString();//validar el campo con el valor de datagridview
+                    txtNombreRS.Text = dt.Rows[0]["Razon_social"].ToString();//asignamos la razon social
                 }
                 else//de lo contrario
                 {
-                    txtNombreRS.Text= dt.Rows[0]["Nombre"].ToString();//validar el campo con el valor de datagridview
+                    txtNombreRS.Text = dt.Rows[0]["Nombre"].ToString();// asignamos el valor de nombre
+                }
+                txtDireccion.Text = dt.Rows[0]["Direccion"].ToString();//validamos el campo con el valor de datagridview 
+                dtpFechaIngreso.Text = dt.Rows[0]["FechaIngreso"].ToString();//validamos el campo con el valos de datagridview
+                txtMotivoIngreso.Text = dt.Rows[0]["MotivoIngreso"].ToString();
+                txtObservacionExterna.Text = dt.Rows[0]["ObservacionExterna"].ToString();
+                txtObservacionInterna.Text = dt.Rows[0]["ObservacionInterna"].ToString();
+                txtAdelanto.Text = dt.Rows[0]["Adelanto"].ToString();
+                txtEstadoIngreso.Text = dt.Rows[0]["Estado"].ToString();
+
+                txtEquipo.Text = dt.Rows[0]["Descripcion"].ToString();
+                txtMarca.Text = dt.Rows[0]["Marca"].ToString();
+                textBox4.Text = dt.Rows[0]["Modelo"].ToString();
+
+                habilitarBotones(true);//habilitamos el metodo
+
+            }
+           else if (dt.Rows.Count > 0)//si la columna tiene contenido
+            {
+                if (dt.Rows[0]["Razon_social"].ToString()!="")//si la tabla con el campo "Razon_social" tiene contenido
+                {
+                    txtNombreRS.Text = dt.Rows[0]["Razon_social"].ToString();//asignamos la razon social
+                }
+                else//de lo contrario
+                {
+                    txtNombreRS.Text= dt.Rows[0]["Nombre"].ToString();// asignamos el valor de nombre
                 }
                 txtDireccion.Text= dt.Rows[0]["Direccion"].ToString();//validamos el campo con el valor de datagridview 
                 dtpFechaIngreso.Text= dt.Rows[0]["FechaIngreso"].ToString();//validamos el campo con el valos de datagridview

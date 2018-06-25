@@ -20,8 +20,6 @@ namespace Sistema_de_ventas_2018.Presentacion
         }
 
         public int idSalida;//variables
-        public int idTipoDocumeto;//variable
-        public string serie;//variable
         private void FrmGenerarSalida_Load(object sender, EventArgs e)
         {
             try

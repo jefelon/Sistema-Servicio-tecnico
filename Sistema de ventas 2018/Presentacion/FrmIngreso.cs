@@ -29,7 +29,6 @@ namespace Sistema_de_ventas_2018.Presentacion
                 {
                     Ingreso ingreso = new Ingreso();
                     // ingreso.Cliente.Id = Convert.ToInt32(txtClienteId.Text);
-                    ingreso.Numero = Convert.ToInt32(txtNumero.Text);
                     ingreso.FechaIngreso = dtpFechaIngreso.Value;
                     ingreso.ObservacionExterna = txtObservacionExterna.Text;
                     ingreso.ObservacionInterna = txtObservacionInterna.Text;
@@ -42,7 +41,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                     int returnId = FIngreso.Insertar(ingreso);
                     if (returnId > 0)
                     {
-                        MessageBox.Show("Se registro correctamente");
+                        MessageBox.Show("Se registro correctamente el ingreso"+returnId.ToString());
                         FrmIngreso_Load(null, null);
                     }
                 }
@@ -63,11 +62,6 @@ namespace Sistema_de_ventas_2018.Presentacion
         public string validarDatos()
         {//Id, Numero, FechaIngreso, ObservacionExterna, ObservacionInterna, MotivoIngreso, FechaProbableReparacion, Adelanto, Estado, ClienteId, EquipoId
             string resultado = "";
-            if (txtNumero.Text == "")
-            {
-                resultado = "El campo Numero est{a vacío";
-                txtNumero.Focus();
-            }
             if (txtObservacionExterna.Text == "")
             {
                 resultado = "El campo ObservacioExt. está vacío";
@@ -143,7 +137,6 @@ namespace Sistema_de_ventas_2018.Presentacion
             txtEstadoIngreso.Enabled = b;
             txtObservacionInterna.Enabled = b;
             txtObservacionExterna.Enabled = b;
-            txtNumero.Enabled = b;
             txtMotivoIngreso.Enabled = b;
             txtModelo.Enabled = b;
             txtMarca.Enabled = b;
@@ -164,7 +157,6 @@ namespace Sistema_de_ventas_2018.Presentacion
             txtEstadoIngreso.Text = "";
             txtObservacionInterna.Text = "";
             txtObservacionExterna.Text = "";
-            txtNumero.Text = "";
             txtMotivoIngreso.Text = "";
             txtModelo.Text = "";
             txtMarca.Text = "";

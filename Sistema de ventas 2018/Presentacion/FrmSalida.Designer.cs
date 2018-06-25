@@ -81,8 +81,8 @@
             this.txtBuscarIngreso = new System.Windows.Forms.TextBox();
             this.txtEstadoSalida = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtEstadoIngreso = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.txtEstadoIngreso = new System.Windows.Forms.ComboBox();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleProductoSalida)).BeginInit();
             this.groupBox8.SuspendLayout();
@@ -597,17 +597,6 @@
             this.label3.TabIndex = 71;
             this.label3.Text = "ESTADO:";
             // 
-            // txtEstadoIngreso
-            // 
-            this.txtEstadoIngreso.BackColor = System.Drawing.Color.Red;
-            this.txtEstadoIngreso.Enabled = false;
-            this.txtEstadoIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstadoIngreso.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.txtEstadoIngreso.Location = new System.Drawing.Point(118, 603);
-            this.txtEstadoIngreso.Name = "txtEstadoIngreso";
-            this.txtEstadoIngreso.Size = new System.Drawing.Size(181, 22);
-            this.txtEstadoIngreso.TabIndex = 74;
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -617,6 +606,18 @@
             this.label14.Size = new System.Drawing.Size(67, 16);
             this.label14.TabIndex = 73;
             this.label14.Text = "ESTADO:";
+            // 
+            // txtEstadoIngreso
+            // 
+            this.txtEstadoIngreso.FormattingEnabled = true;
+            this.txtEstadoIngreso.Items.AddRange(new object[] {
+            "PENDIENTE",
+            "ENTREGADO"});
+            this.txtEstadoIngreso.Location = new System.Drawing.Point(118, 606);
+            this.txtEstadoIngreso.Name = "txtEstadoIngreso";
+            this.txtEstadoIngreso.Size = new System.Drawing.Size(181, 21);
+            this.txtEstadoIngreso.TabIndex = 75;
+            this.txtEstadoIngreso.Text = "PENDIENTE";
             // 
             // FrmSalida
             // 
@@ -733,7 +734,7 @@
         private System.Windows.Forms.TextBox txtEstadoSalida;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvDetalleServicioSalida;
-        private System.Windows.Forms.TextBox txtEstadoIngreso;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox txtEstadoIngreso;
     }
 }
