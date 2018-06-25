@@ -19,6 +19,14 @@ namespace Sistema_de_ventas_2018.Datos
             };
             return DBHelper.ExecuteDataSet("usp_Datos_FIngreso_GetAll", dbParams);
         }
+        public static DataSet NumeroIngresoDetalle(int numeroIngresoDetalle)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+            {
+                DBHelper.MakeParam("@Numero",SqlDbType.Int,0,numeroIngresoDetalle),
+            };
+            return DBHelper.ExecuteDataSet("usp_Datos_FDetalleProductoSalida_Get", dbParams);
+        }
         public static DataSet Get(int numeroIngreso)
         {
             SqlParameter[] dbParams = new SqlParameter[]

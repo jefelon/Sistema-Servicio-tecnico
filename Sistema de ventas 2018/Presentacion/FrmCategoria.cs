@@ -38,7 +38,6 @@ namespace Sistema_de_ventas_2018.Presentacion
                             int returnId = FCategoria.Insertar(categoria);//insertamos la instanciacion con la clace  FCategoria 
                             if (returnId > 0)
                             {
-                                MessageBox.Show("Los datos se agregaron correctamente");
 
                                 FrmCategoria_Load(null,null);
                             }
@@ -52,7 +51,6 @@ namespace Sistema_de_ventas_2018.Presentacion
                          int returnId = FCategoria.Actualizar(categoria);//Actualizamos la instanciacion con la clace  FCategoria 
                         if (returnId > 0)
                          {
-                             MessageBox.Show("Los datos se actualizaron correctamente");
                              FrmCategoria_Load(null, null);
                          }                     
                     }
@@ -115,6 +113,7 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            txtDescripcion.Text = "";
             habilitarBotones(true);//el metodo habilitarBotones es verdadera 
             mostrarOcultar(true);
         }
@@ -160,6 +159,16 @@ namespace Sistema_de_ventas_2018.Presentacion
         }
 
         private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvDatos.CurrentRow != null)
+            {
+                //si esta seleccionado algun dato obtenemos el id del dato para pasar al otro formularion, para su respectiva edicion, en el otro form el texbox, su propiedad  modifier esta en publico, no es la manera mas correcta de hacerlo pero el mas facil
+                txtId.Text = dgvDatos.CurrentRow.Cells["Id"].Value.ToString();
+                txtDescripcion.Text = dgvDatos.CurrentRow.Cells["Descripcion"].Value.ToString();
+            }
+        }
+
+        private void dgvDatos_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvDatos.CurrentRow != null)
             {
