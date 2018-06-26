@@ -36,15 +36,32 @@ namespace Sistema_de_ventas_2018.Presentacion
                         int returnId = FSalida.Insertar(salida);//ejecutamos el procedimiento para Insertar
                         if (returnId > 0)
                         {
-                            FrmSalida_Load(null, null);//el formulario es nulo
+                            FrmSalida_Load(null, null);//recarga el formulario
                             habilitarBotones(false);//el metodo esta deshabilitado
+                        }
+                    }
+                    else
+                    {
+                        Salida salida = new Salida();//instanciamo nuestra clase Salida para rellenarle sus atributos
+                        salida.Id = Convert.ToInt32(txtId.Text);
+                        salida.Numero = Convert.ToInt32(txtNumero.Text);////validamos el campo del formulario
+                        salida.FechaSalida = dtpFecha.Value;
+                        salida.Diagnostico = txtDiagnostico.Text;
+                        salida.Estado = txtEstadoSalida.Text;
+
+                        int returnId = FSalida.Actualizar(salida);
+                        if (returnId > 0)
+                        {
+                            MessageBox.Show("Entrega finalizada","La salida o entrega con número" + txtNumero.Text);
+                            FrmSalida_Load(null, null);
+                            habilitarBotones(false);
                         }
                     }
                 }
                 else
                 {
                     MessageBox.Show("Error + \n" + sResultado);
-                    FrmSalida_Load(null, null);//el formulario es nulo
+
                 }
             }
             catch (Exception ex)
@@ -59,11 +76,6 @@ namespace Sistema_de_ventas_2018.Presentacion
             {
                 resultado = "El campo Numero está vacío";
                 txtNumero.Focus();
-            }
-            if (txtDiagnostico.Text == "")
-            {
-                resultado = "El campo Diagnostico está vacío";
-                txtDiagnostico.Focus();
             }
             if (txtEstadoSalida.Text == "")
             {
@@ -151,16 +163,9 @@ namespace Sistema_de_ventas_2018.Presentacion
         {
 
             DataTable dt = new DataTable();//variables para crear la tabla
-            mostrarOcultar(false);//deshabilitamos el metodo
             DataSet ds = FDetalleServicioSalida.GetAll(Convert.ToInt32(txtId.Text));//creamos un dataset, un contenedor de datos y hacemos una consulta con la clase y su método GetAll, en ella el Id         
             dt = ds.Tables[0];//asignamos los datos de datased a la tabla
             dgvDetalleServicioSalida.DataSource = dt;//pasamos los datos de la tabla al datagridview
-        }
-        private void cargarDetalle(int numeroIngresoDetalle)
-        {
-            //DataSet dsdp = FIngreso.NumeroIngresoDetalle(numeroIngresoDetalle);
-            //DataTable dtdp = dsdp.Tables[0];
-            //dgvDetalleProductoSalida.DataSource = dtdp.Rows[0]["NombreProducto"].ToString();
         }
 
         private void cargarIngreso(int numeroIngreso)
@@ -172,10 +177,8 @@ namespace Sistema_de_ventas_2018.Presentacion
                 MessageBox.Show("No existe, revice el número e ingrese nuévamente.", "NO EXISTE REGISTRO");
             }
 
-           else if(dt.Rows.Count > 0 && dt.Rows[0]["Estado"].ToString()=="ENTREGADO")
+           else if(dt.Rows.Count > 0)
             {
-                MessageBox.Show("El equipo ya fué entregado", "Editando salida",MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 txtIdIngreso.Text = dt.Rows[0]["Id"].ToString();
                 if (dt.Rows[0]["Razon_social"].ToString() != "")//si la tabla con el campo "Razon_social" tiene contenido
                 {
@@ -196,54 +199,10 @@ namespace Sistema_de_ventas_2018.Presentacion
                 txtEquipo.Text = dt.Rows[0]["Descripcion"].ToString();
                 txtMarca.Text = dt.Rows[0]["Marca"].ToString();
                 textBox4.Text = dt.Rows[0]["Modelo"].ToString();
-                
-                //detalle       
-                DataSet ds5 = FSalida.Get(Convert.ToInt32(txtIdIngreso.Text));
-                DataTable dt5 = ds5.Tables[0];
-                txtId.Text = dt5.Rows[0]["Id"].ToString();
-                txtEstadoSalida.Text = dt5.Rows[0]["Numero"].ToString();
-                txtDiagnostico.Text = dt5.Rows[0]["Diagnostico"].ToString();
-                dtpFecha.Text = dt5.Rows[0]["Fecha"].ToString();
-                txtEstadoSalida.Text = dt5.Rows[0]["Estado"].ToString();
+
+                cargarSalida();
 
                 habilitarBotones(true);//habilitamos el metodo
-
-            }
-           else if (dt.Rows.Count > 0)//si la columna tiene contenido
-            {
-                txtIdIngreso.Text = dt.Rows[0]["Id"].ToString();
-                if (dt.Rows[0]["Razon_social"].ToString()!="")//si la tabla con el campo "Razon_social" tiene contenido
-                {
-                    txtNombreRS.Text = dt.Rows[0]["Razon_social"].ToString();//asignamos la razon social
-                }
-                else//de lo contrario
-                {
-                    txtNombreRS.Text= dt.Rows[0]["Nombre"].ToString();// asignamos el valor de nombre
-                }
-                txtDireccion.Text= dt.Rows[0]["Direccion"].ToString();//validamos el campo con el valor de datagridview 
-                dtpFechaIngreso.Text= dt.Rows[0]["FechaIngreso"].ToString();//validamos el campo con el valos de datagridview
-                txtMotivoIngreso.Text = dt.Rows[0]["MotivoIngreso"].ToString();
-                txtObservacionExterna.Text = dt.Rows[0]["ObservacionExterna"].ToString();
-                txtObservacionInterna.Text = dt.Rows[0]["ObservacionInterna"].ToString();
-                txtAdelanto.Text = dt.Rows[0]["Adelanto"].ToString();
-                txtEstadoIngreso.Text = dt.Rows[0]["Estado"].ToString();
-
-                txtEquipo.Text= dt.Rows[0]["Descripcion"].ToString();
-                txtMarca.Text = dt.Rows[0]["Marca"].ToString();
-                textBox4.Text = dt.Rows[0]["Modelo"].ToString();
-
-                //detalle
-
-                DataSet ds5 = FSalida.Get(Convert.ToInt32(txtIdIngreso.Text));
-                DataTable dt5 = ds5.Tables[0];
-                txtId.Text = dt5.Rows[0]["Id"].ToString();
-                txtEstadoSalida.Text = dt5.Rows[0]["Numero"].ToString();
-                txtDiagnostico.Text = dt5.Rows[0]["Diagnostico"].ToString();
-                dtpFecha.Text = dt5.Rows[0]["FechaSalida"].ToString();
-                txtEstadoSalida.Text = dt5.Rows[0]["Estado"].ToString();
-
-                habilitarBotones(true);//habilitamos el metodo
-
             }
         }
 
@@ -256,6 +215,27 @@ namespace Sistema_de_ventas_2018.Presentacion
                //cargarDetalle(Convert.ToInt32(txtBuscarIngreso.Text));
             }
             
+        }
+
+        private void cargarSalida()
+        {
+            DataSet ds5 = FSalida.Get(Convert.ToInt32(txtIdIngreso.Text));
+            DataTable dt5 = ds5.Tables[0];
+
+            if(dt5.Rows.Count>0)
+            {
+                txtId.Text = dt5.Rows[0]["Id"].ToString();
+                txtNumero.Text = dt5.Rows[0]["Numero"].ToString();
+                txtDiagnostico.Text = dt5.Rows[0]["Diagnostico"].ToString();
+                dtpFecha.Text = dt5.Rows[0]["FechaSalida"].ToString();
+                txtEstadoSalida.Text = dt5.Rows[0]["Estado"].ToString();
+
+                cargarDetalleProductos();
+                cargarDetalleServicios();
+
+                btnNuevo.Enabled = false;
+            }
+
         }
 
     }

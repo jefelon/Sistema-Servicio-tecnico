@@ -79,11 +79,12 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtBuscarIngreso = new System.Windows.Forms.TextBox();
-            this.txtEstadoSalida = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.txtEstadoIngreso = new System.Windows.Forms.ComboBox();
             this.txtIdIngreso = new System.Windows.Forms.TextBox();
+            this.txtEstadoSalida = new System.Windows.Forms.ComboBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleProductoSalida)).BeginInit();
             this.groupBox8.SuspendLayout();
@@ -103,7 +104,7 @@
             this.txtNumero.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtNumero.Enabled = false;
             this.txtNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumero.Location = new System.Drawing.Point(438, 33);
+            this.txtNumero.Location = new System.Drawing.Point(495, 33);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(191, 26);
             this.txtNumero.TabIndex = 46;
@@ -114,15 +115,15 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(374, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(99, 13);
             this.label2.TabIndex = 45;
-            this.label2.Text = "NUMERO:";
+            this.label2.Text = "NUMERO SALIDA:";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(758, 571);
+            this.btnCancelar.Location = new System.Drawing.Point(757, 567);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 30);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 39);
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -130,9 +131,9 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(634, 571);
+            this.btnGuardar.Location = new System.Drawing.Point(633, 567);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 30);
+            this.btnGuardar.Size = new System.Drawing.Size(75, 39);
             this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -153,7 +154,6 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(26, 20);
             this.txtId.TabIndex = 41;
-            this.txtId.Visible = false;
             // 
             // label1
             // 
@@ -454,7 +454,6 @@
             this.txtAdelanto.Name = "txtAdelanto";
             this.txtAdelanto.Size = new System.Drawing.Size(181, 22);
             this.txtAdelanto.TabIndex = 65;
-            this.txtAdelanto.Text = "S/ 100.00";
             // 
             // label13
             // 
@@ -554,11 +553,11 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(519, 571);
+            this.btnNuevo.Location = new System.Drawing.Point(495, 571);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 30);
+            this.btnNuevo.Size = new System.Drawing.Size(99, 39);
             this.btnNuevo.TabIndex = 69;
-            this.btnNuevo.Text = "NUEVO";
+            this.btnNuevo.Text = "ENTREGAR EQUIPO";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click_1);
             // 
@@ -582,13 +581,6 @@
             this.txtBuscarIngreso.TabIndex = 0;
             this.txtBuscarIngreso.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscarIngreso_KeyDown);
             // 
-            // txtEstadoSalida
-            // 
-            this.txtEstadoSalida.Location = new System.Drawing.Point(857, 491);
-            this.txtEstadoSalida.Name = "txtEstadoSalida";
-            this.txtEstadoSalida.Size = new System.Drawing.Size(89, 20);
-            this.txtEstadoSalida.TabIndex = 72;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -610,6 +602,7 @@
             // 
             // txtEstadoIngreso
             // 
+            this.txtEstadoIngreso.Enabled = false;
             this.txtEstadoIngreso.FormattingEnabled = true;
             this.txtEstadoIngreso.Items.AddRange(new object[] {
             "PENDIENTE",
@@ -628,14 +621,36 @@
             this.txtIdIngreso.Size = new System.Drawing.Size(26, 20);
             this.txtIdIngreso.TabIndex = 41;
             // 
+            // txtEstadoSalida
+            // 
+            this.txtEstadoSalida.FormattingEnabled = true;
+            this.txtEstadoSalida.Items.AddRange(new object[] {
+            "REPARADO",
+            "ENTREGADO"});
+            this.txtEstadoSalida.Location = new System.Drawing.Point(857, 487);
+            this.txtEstadoSalida.Name = "txtEstadoSalida";
+            this.txtEstadoSalida.Size = new System.Drawing.Size(114, 21);
+            this.txtEstadoSalida.TabIndex = 75;
+            this.txtEstadoSalida.Text = "REPARADO";
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(857, 567);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(75, 39);
+            this.btnImprimir.TabIndex = 4;
+            this.btnImprimir.Text = "IMPRIMIR";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // FrmSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 652);
+            this.Controls.Add(this.txtEstadoSalida);
             this.Controls.Add(this.txtEstadoIngreso);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.txtEstadoSalida);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label5);
@@ -650,6 +665,7 @@
             this.Controls.Add(this.dtpFechaIngreso);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnGuardar);
@@ -741,11 +757,12 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtBuscarIngreso;
-        private System.Windows.Forms.TextBox txtEstadoSalida;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvDetalleServicioSalida;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox txtEstadoIngreso;
         private System.Windows.Forms.TextBox txtIdIngreso;
+        private System.Windows.Forms.ComboBox txtEstadoSalida;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }

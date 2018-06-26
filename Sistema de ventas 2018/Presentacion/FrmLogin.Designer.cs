@@ -52,6 +52,7 @@
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(185, 22);
             this.txtNombreUsuario.TabIndex = 0;
+            this.txtNombreUsuario.Text = "raul";
             // 
             // label2
             // 
@@ -70,6 +71,7 @@
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(185, 22);
             this.txtContrasena.TabIndex = 1;
+            this.txtContrasena.Text = "raul";
             this.txtContrasena.UseSystemPasswordChar = true;
             // 
             // btnIngresar

@@ -424,6 +424,7 @@
             // 
             // txtEstadoIngreso
             // 
+            this.txtEstadoIngreso.Enabled = false;
             this.txtEstadoIngreso.FormattingEnabled = true;
             this.txtEstadoIngreso.Items.AddRange(new object[] {
             "PENDIENTE"});
