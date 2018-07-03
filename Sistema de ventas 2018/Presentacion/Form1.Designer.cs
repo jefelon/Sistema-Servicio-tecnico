@@ -64,6 +64,8 @@
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteComprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pendientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.equiposPendientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnIngreso = new System.Windows.Forms.Button();
             this.btnSalida = new System.Windows.Forms.Button();
@@ -214,7 +216,8 @@
             this.comprasToolStripMenuItem,
             this.vistaVentaToolStripMenuItem,
             this.comprasGeneralesToolStripMenuItem,
-            this.clasificaciónToolStripMenuItem});
+            this.clasificaciónToolStripMenuItem,
+            this.pendientesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1004, 24);
@@ -397,6 +400,21 @@
             this.reporteComprasToolStripMenuItem.Text = "Reporte Compras";
             this.reporteComprasToolStripMenuItem.Click += new System.EventHandler(this.reporteComprasToolStripMenuItem_Click);
             // 
+            // pendientesToolStripMenuItem
+            // 
+            this.pendientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.equiposPendientesToolStripMenuItem});
+            this.pendientesToolStripMenuItem.Name = "pendientesToolStripMenuItem";
+            this.pendientesToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.pendientesToolStripMenuItem.Text = "Pendientes";
+            // 
+            // equiposPendientesToolStripMenuItem
+            // 
+            this.equiposPendientesToolStripMenuItem.Name = "equiposPendientesToolStripMenuItem";
+            this.equiposPendientesToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.equiposPendientesToolStripMenuItem.Text = "Equipos pendientes";
+            this.equiposPendientesToolStripMenuItem.Click += new System.EventHandler(this.equiposPendientesToolStripMenuItem_Click);
+            // 
             // toolTip1
             // 
             this.toolTip1.IsBalloon = true;
@@ -499,6 +517,8 @@
         private System.Windows.Forms.ToolStripMenuItem reporteVentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteComprasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pendientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem equiposPendientesToolStripMenuItem;
     }
 }
 

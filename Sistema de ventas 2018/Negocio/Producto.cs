@@ -15,7 +15,7 @@ namespace Sistema_de_ventas_2018.Negocio
         private UnidadMedida _unidadMedida;
         private Categoria _categoria;
         private Proveedor _proveedor;
-        private string _nombre, _ubicacion, _codigo;
+        private string _nombre, _ubicacion, _codigo,_descripcion;
         private double _precioCompra, _precioVenta, _stockMaximo, _stockMinimo;
         private DateTime _fechaRegistro;
         public int Id
@@ -197,6 +197,19 @@ namespace Sistema_de_ventas_2018.Negocio
             set
             {
                 _fechaRegistro = value;
+            }
+        }
+
+        public string Descripcion
+        {
+            get
+            {
+                return _descripcion;
+            }
+
+            set
+            {
+                _descripcion = value;
             }
         }
 

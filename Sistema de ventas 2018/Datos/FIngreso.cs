@@ -77,5 +77,13 @@ namespace Sistema_de_ventas_2018.Datos
             };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Datos_FIngreso_Actualizar", dbParams));
         }
+
+        public static DataSet GetPendientes()
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+            {
+            };
+            return DBHelper.ExecuteDataSet("usp_Datos_FIngreso_GetPendientes", dbParams);
+        }
     }
 }

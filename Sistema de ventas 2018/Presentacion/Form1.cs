@@ -237,5 +237,11 @@ namespace Sistema_de_ventas_2018
             FrmStock form = new FrmStock();
             form.Show();
         }
+
+        private void equiposPendientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPendientes pendientes = new FrmPendientes();
+            pendientes.Show();
+        }
     }
 }

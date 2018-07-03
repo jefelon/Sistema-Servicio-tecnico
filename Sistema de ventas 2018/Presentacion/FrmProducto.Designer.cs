@@ -64,6 +64,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtStockMáximo = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.gbDatos.SuspendLayout();
@@ -394,6 +396,7 @@
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(81, 22);
             this.txtPrecioCompra.TabIndex = 40;
+            this.txtPrecioCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCompra_KeyPress);
             // 
             // txtStockMinimo
             // 
@@ -441,6 +444,25 @@
             this.txtStockMáximo.Size = new System.Drawing.Size(81, 22);
             this.txtStockMáximo.TabIndex = 44;
             // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcion.Location = new System.Drawing.Point(934, 21);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(365, 147);
+            this.txtDescripcion.TabIndex = 40;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(826, 84);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(102, 16);
+            this.label15.TabIndex = 30;
+            this.label15.Text = "DESCRIPCIÓN:";
+            // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -449,6 +471,8 @@
             this.Controls.Add(this.gbDatos);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvDatos);
+            this.Controls.Add(this.txtDescripcion);
+            this.Controls.Add(this.label15);
             this.Name = "FrmProducto";
             this.Text = "FrmProducto";
             this.Load += new System.EventHandler(this.FrmProducto_Load);
@@ -457,6 +481,7 @@
             this.gbDatos.ResumeLayout(false);
             this.gbDatos.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -498,5 +523,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtStockMáximo;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.Label label15;
     }
 }

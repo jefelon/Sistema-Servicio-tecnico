@@ -382,7 +382,6 @@ namespace Sistema_de_ventas_2018.Presentacion
             frmComprobantes.SetParameterValue("Igv", igv);
             frmComprobantes.SetParameterValue("SubTotal", subtotal);
             frmComprobantes.Show();
-
             //borrado
         }
 

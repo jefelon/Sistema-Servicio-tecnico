@@ -197,6 +197,12 @@
     <Compile Include="Presentacion\FrmModelo.Designer.cs">
       <DependentUpon>FrmModelo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\FrmPendientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmPendientes.Designer.cs">
+      <DependentUpon>FrmPendientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\FrmProducto-Vista.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -321,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmModelo.resx">
       <DependentUpon>FrmModelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmPendientes.resx">
+      <DependentUpon>FrmPendientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmProducto-Vista.resx">
       <DependentUpon>FrmProducto-Vista.cs</DependentUpon>

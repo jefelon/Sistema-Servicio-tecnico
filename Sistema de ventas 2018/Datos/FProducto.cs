@@ -46,7 +46,8 @@ namespace Sistema_de_ventas_2018.Datos
                      DBHelper.MakeParam("@CategoriaId", SqlDbType.Int, 0, producto.Categoria.Id),
                      DBHelper.MakeParam("@ProveedorId", SqlDbType.Int, 0, producto.Proveedor.Id),
                      DBHelper.MakeParam("@Ubicacion", SqlDbType.VarChar, 0, producto.Ubicacion),
-                     DBHelper.MakeParam("@FechaRegistro", SqlDbType.VarChar, 0, producto.FechaRegistro)
+                     DBHelper.MakeParam("@FechaRegistro", SqlDbType.DateTime, 0, producto.FechaRegistro),
+                     DBHelper.MakeParam("@Descripcion", SqlDbType.VarChar, 0, producto.Descripcion)
                 };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Datos_FProducto_Insertar", dbParams));
 
@@ -70,7 +71,8 @@ namespace Sistema_de_ventas_2018.Datos
                      DBHelper.MakeParam("@CategoriaId", SqlDbType.Int, 0, producto.Categoria.Id),
                      DBHelper.MakeParam("@ProveedorId", SqlDbType.Int, 0, producto.Proveedor.Id),
                      DBHelper.MakeParam("@Ubicacion", SqlDbType.VarChar, 0, producto.Ubicacion),
-                     DBHelper.MakeParam("@FechaRegistro", SqlDbType.VarChar, 0, producto.FechaRegistro)
+                     DBHelper.MakeParam("@FechaRegistro", SqlDbType.DateTime, 0, producto.FechaRegistro),
+                     DBHelper.MakeParam("@Descripcion", SqlDbType.VarChar, 0, producto.Descripcion)
                 };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Datos_FProducto_Actualizar", dbParams));
 

@@ -73,31 +73,32 @@ namespace Sistema_de_ventas_2018.Presentacion
                 if (sResultado == "")
                 {
                     //Id, Codigo, Nombre, PrecioCompra, PrecioVenta, StockMinimo, StockMaximo, MarcaId, ModeloId, UnidadMedidaId, CategoriaId, ProveedorId, Ubicacion, FechaRegistro
-                    if (txtId.Text == "")
-                        {
-                            Producto producto = new Producto();
-                            producto.Codigo = txtCodigo.Text;
-                            producto.Nombre = txtNombre.Text;
-                            producto.PrecioCompra = Convert.ToDouble(txtPrecioCompra.Text);
-                            producto.PrecioVenta = Convert.ToDouble(txtPrecioVenta.Text);
-                            producto.StockMinimo = Convert.ToDouble(txtStockMinimo.Text);
-                            producto.StockMaximo = Convert.ToDouble(txtStockMáximo.Text);
-                            producto.Marca.Id = Convert.ToInt32(cmbMarca.SelectedValue);
-                            producto.Modelo.Id = Convert.ToInt32(cmbModelo.SelectedValue);
-                            producto.UnidadMedida.Id = Convert.ToInt32(cmbUnidadMedia.SelectedValue);
-                            producto.Categoria.Id = Convert.ToInt32(cmbCategoria.SelectedValue);
-                            producto.Proveedor.Id = Convert.ToInt32(cmbProveedor.SelectedValue);
-                            producto.Ubicacion = txtUbicacion.Text;
-                            producto.FechaRegistro = dtpFechaRegistro.Value;
-                            int returnId = FProducto.Insertar(producto);
-                            if (returnId > 0)
+                        if (txtId.Text == "")
                             {
-                                FrmProducto_Load(null, null);
-                                habilitarBotones(false);
+                                Producto producto = new Producto();
+                                producto.Codigo = txtCodigo.Text;
+                                producto.Nombre = txtNombre.Text;
+                                producto.PrecioCompra = Convert.ToDouble(txtPrecioCompra.Text);
+                                producto.PrecioVenta = Convert.ToDouble(txtPrecioVenta.Text);
+                                producto.StockMinimo = Convert.ToDouble(txtStockMinimo.Text);
+                                producto.StockMaximo = Convert.ToDouble(txtStockMáximo.Text);
+                                producto.Marca.Id = Convert.ToInt32(cmbMarca.SelectedValue);
+                                producto.Modelo.Id = Convert.ToInt32(cmbModelo.SelectedValue);
+                                producto.UnidadMedida.Id = Convert.ToInt32(cmbUnidadMedia.SelectedValue);
+                                producto.Categoria.Id = Convert.ToInt32(cmbCategoria.SelectedValue);
+                                producto.Proveedor.Id = Convert.ToInt32(cmbProveedor.SelectedValue);
+                                producto.Ubicacion = txtUbicacion.Text;
+                                producto.FechaRegistro = dtpFechaRegistro.Value;
+                                producto.Descripcion = txtDescripcion.Text;
+                                int returnId = FProducto.Insertar(producto);
+                                if (returnId > 0)
+                                {
+                                    FrmProducto_Load(null, null);
+                                    habilitarBotones(false);
+                                }
                             }
-                        }
-                else
-                {
+                        else
+                        {
                             Producto producto = new Producto();
                             producto.Id = Convert.ToInt32(txtId.Text);
                             producto.Codigo = txtCodigo.Text;
@@ -113,7 +114,8 @@ namespace Sistema_de_ventas_2018.Presentacion
                             producto.Proveedor.Id = Convert.ToInt32(cmbProveedor.SelectedValue);
                             producto.Ubicacion = txtUbicacion.Text;
                             producto.FechaRegistro = dtpFechaRegistro.Value;
-                            int returId = FProducto.Actualizar(producto);
+                            producto.Descripcion = txtDescripcion.Text;
+                        int returId = FProducto.Actualizar(producto);
                             if (returId > 0)
                             {
                                 FrmProducto_Load(null, null);
@@ -229,6 +231,7 @@ namespace Sistema_de_ventas_2018.Presentacion
             cmbProveedor.Enabled = b;
             txtUbicacion.Enabled = b;
             dtpFechaRegistro.Enabled = b;
+            txtDescripcion.Enabled = b;
         }
         public void habilitarBotones(bool b)
         {
@@ -259,6 +262,7 @@ namespace Sistema_de_ventas_2018.Presentacion
             cmbProveedor.Text = "";
             txtUbicacion.Text = "";
             dtpFechaRegistro.Text = "";
+            txtDescripcion.Text = "";
             habilitarBotones(true);
             mostrarOcultar(true);
         }
@@ -288,6 +292,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                     if (returnId > 0)
                     {
                         FrmProducto_Load(null, null);
+                        MessageBox.Show("Producto eliminado");
                     }
                     else
                     {
@@ -318,6 +323,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                 cmbProveedor.Text = dgvDatos.CurrentRow.Cells["Proveedor"].Value.ToString();
                 txtUbicacion.Text = dgvDatos.CurrentRow.Cells["Ubicacion"].Value.ToString();
                 dtpFechaRegistro.Text = dgvDatos.CurrentRow.Cells["FechaRegistro"].Value.ToString();
+                txtDescripcion.Text = dgvDatos.CurrentRow.Cells["Descripcion"].Value.ToString();
 
             }
         }
@@ -338,6 +344,22 @@ namespace Sistema_de_ventas_2018.Presentacion
             dgvDatos.DataSource = dtb1;
         }
 
-       
+        private void txtPrecioCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Para obligar a que sólo se introduzcan números 
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar)) //permitir teclas de control como retroceso 
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                //el resto de teclas pulsadas se desactivan 
+                e.Handled = true;
+            }
+        }
     }
 }
