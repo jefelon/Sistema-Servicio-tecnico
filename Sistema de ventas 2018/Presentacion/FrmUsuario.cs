@@ -24,12 +24,30 @@ namespace Sistema_de_ventas_2018.Presentacion
         {
 
             mostrarOcultar(false);
-            cbTipo.Items[1] = "Administrador";
-            cbTipo.Items[2] = "Usuario";
-            DataSet ds1 = FUsuario.GetAll();
-            dt1 = ds1.Tables[0];
-            dgvDatos.DataSource = dt1;
-            dgvDatos.Columns["Id"].Visible = false;
+
+            
+
+            if (Usuario.Tipo == "ADMINISTRADOR")
+            {
+                DataSet ds1 = FUsuario.GetAll();
+                dt1 = ds1.Tables[0];
+                dgvDatos.DataSource = dt1;
+                dgvDatos.Columns["Id"].Visible = false;
+            }
+            else if (Usuario.Tipo == "VENDEDOR")
+            {
+                DataSet ds1 = FUsuario.Get(Usuario.Id);
+                dt1 = ds1.Tables[0];
+                dgvDatos.DataSource = dt1;
+                dgvDatos.Columns["Id"].Visible = false;
+
+                cmbTipo.Items.Clear();
+                cmbTipo.Items.Add("VENDEDOR");
+            }
+            else
+            {
+                MessageBox.Show("No tiene privilegios");
+            }
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -44,6 +62,10 @@ namespace Sistema_de_ventas_2018.Presentacion
                 {//Nombre, Apellidos,Dni, Direccion, Celular, NombreUsuario, Contrasena, Tipo
                     if (txtId.Text == "")
                     {
+                        string usuariot = txtNombreUsuario.Text;
+                        string contrasenat = txtContrasena.Text;
+                        string hash = FUsuario.Helper.EncodePassword(string.Concat(usuariot, contrasenat));
+
                         Usuario usuario = new Usuario();
                         Usuario.Nombre = txtNombre.Text;
                         Usuario.Apellidos = txtApellidos.Text;
@@ -51,17 +73,24 @@ namespace Sistema_de_ventas_2018.Presentacion
                         usuario.Direccion = txtDierccion.Text;
                         usuario.Celular = Convert.ToInt32(txtCelular.Text);
                         Usuario.NombreUsuario = txtNombreUsuario.Text;
-                        Usuario.Contrasena = txtContrasena.Text;
-                        string hash = FUsuario.Helper.EncodePassword(string.Concat(contrasena));
-                        Usuario.Tipo = txtTipo.Text;
+                        Usuario.Contrasena = hash;              
+                        Usuario.Tipo = cmbTipo.Text;
+
                         int retunrId = FUsuario.Insertar(usuario);
                         if (retunrId > 0)
                         {
                             FrmUsuario_Load(null, null);
+                            habilitarBotones(false);
+                            MessageBox.Show("Usuario "+ txtNombreUsuario.Text+" Fué insertado correctamente");
                         }
+
                     }
                     else
-                    {
+                    {                                       
+                        string usuariot = txtNombreUsuario.Text;
+                        string contrasenat = txtContrasena.Text;
+                        string hash = FUsuario.Helper.EncodePassword(string.Concat(usuariot, contrasenat));
+
                         Usuario usuario = new Usuario();
                         Usuario.Id = Convert.ToInt32(txtId.Text);
                         Usuario.Nombre = txtNombre.Text;
@@ -70,12 +99,15 @@ namespace Sistema_de_ventas_2018.Presentacion
                         usuario.Direccion = txtDierccion.Text;
                         usuario.Celular = Convert.ToInt32(txtCelular.Text);
                         Usuario.NombreUsuario = txtNombreUsuario.Text;
-                        Usuario.Contrasena = txtContrasena.Text;
-                        Usuario.Tipo = txtTipo.Text;
+                        Usuario.Contrasena = hash;
+                        Usuario.Tipo = cmbTipo.Text;
+
                         int returnId = FUsuario.Actualizar(usuario);
                         if(returnId > 0)
                         {
                             FrmUsuario_Load(null, null);
+                            habilitarBotones(false);
+                            MessageBox.Show("Los datos del usuario " + txtNombreUsuario.Text + " se editaron correctamente");
                         }
                     }            
                     
@@ -100,40 +132,10 @@ namespace Sistema_de_ventas_2018.Presentacion
                 resultado = "El campo Nombre está vacío";
                 txtNombre.Focus();       
             }
-            if (txtApellidos.Text == "")
-            {
-                resultado = "El campo Apellidos está vacío";
-                txtNombre.Focus();
-            }
-            if (txtDni.Text == "")
-            {
-                resultado = "El campo Dni está vacío";
-                txtDni.Focus();
-            }
-            if (txtDierccion.Text == "")
-            {
-                resultado = "El campo Direccióin está vacío";
-                txtDierccion.Focus();
-            }
-            if (txtCelular.Text == "")
-            {
-                resultado = "El campo Celular está vacío";
-                txtCelular.Focus();
-            }
             if (txtNombreUsuario.Text == "")
             {
                 resultado = "El campo Usuario está vacío";
                 txtNombreUsuario.Focus();
-            }
-            //if (txtContrasena.Text == "")
-            //{
-            //    resultado = "El campo Contraseña está vacío";
-            //    txtContrasena.Focus();
-            //}
-            if (txtTipo.Text == "")
-            {
-                resultado = "El campo Tipo está vacío";
-                txtTipo.Focus();
             }
             return resultado;
         }
@@ -146,7 +148,7 @@ namespace Sistema_de_ventas_2018.Presentacion
             txtDni.Enabled = b;
             txtNombre.Enabled = b;
             txtNombreUsuario.Enabled = b;
-            txtTipo.Enabled = b;
+            cmbTipo.Enabled = b;
         }
         private void habilitarBotones(bool b)
         {
@@ -167,7 +169,6 @@ namespace Sistema_de_ventas_2018.Presentacion
             txtDni.Text = "";
             txtNombre.Text = "";
             txtNombreUsuario.Text = "";
-            txtTipo.Text = "";
             mostrarOcultar(true);
             habilitarBotones(true);
         }
@@ -182,6 +183,7 @@ namespace Sistema_de_ventas_2018.Presentacion
         {
             mostrarOcultar(true);
             habilitarBotones(true);
+            txtContrasena.Text = "";
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -196,6 +198,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                     int returnId = FUsuario.Eliminar(usuario);
                     if(returnId > 0)
                     {
+                        MessageBox.Show("Eliminado");
                         FrmUsuario_Load(null, null);
                     }
                 }
@@ -220,7 +223,8 @@ namespace Sistema_de_ventas_2018.Presentacion
                 txtDierccion.Text = dgvDatos.CurrentRow.Cells["Direccion"].Value.ToString();
                 txtCelular.Text = dgvDatos.CurrentRow.Cells["Celular"].Value.ToString();
                 txtNombreUsuario.Text = dgvDatos.CurrentRow.Cells["NombreUsuario"].Value.ToString();
-                txtTipo.Text = dgvDatos.CurrentRow.Cells["Tipo"].Value.ToString();
+                txtContrasena.Text = "***********";
+                cmbTipo.Text = dgvDatos.CurrentRow.Cells["Tipo"].Value.ToString();
             }
         }
 
