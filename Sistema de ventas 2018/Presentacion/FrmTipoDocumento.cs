@@ -48,8 +48,8 @@ namespace Sistema_de_ventas_2018.Presentacion
                         tipodocumento.Id = Convert.ToInt32(txtId.Text);
                         tipodocumento.Nombre = txtNombre.Text;
                         tipodocumento.Descripcion = txtDescripcion.Text;
-                        int returId = FTipoDocumento.Actualizar(tipodocumento);
-                        if(returId > 0)
+                        int returnId = FTipoDocumento.Actualizar(tipodocumento);
+                        if(returnId > 0)
                         {
                             FrmTipoDocumento_Load(null, null);
                             habilitarBotones(false);
