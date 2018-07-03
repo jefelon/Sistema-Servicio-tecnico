@@ -24,11 +24,11 @@ namespace Sistema_de_ventas_2018
         private void Form1_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-            if(Usuario.Tipo=="1")
+            if(Usuario.Tipo=="ADMINISTRADOR")
             {
 
             }
-            else if(Usuario.Tipo == "2")
+            else if(Usuario.Tipo == "VENDEDOR")
             {
                 btnTpv.Visible = false;
                 clasificaciónToolStripMenuItem.Enabled = false;
@@ -248,6 +248,11 @@ namespace Sistema_de_ventas_2018
         {
             FrmUsuario form = new FrmUsuario();
             form.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

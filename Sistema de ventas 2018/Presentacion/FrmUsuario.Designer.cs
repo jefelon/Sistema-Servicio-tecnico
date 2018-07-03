@@ -52,7 +52,7 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.cbTipo = new System.Windows.Forms.ComboBox();
+            this.cmbTipo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
@@ -176,6 +176,7 @@
             // 
             this.txtContrasena.Location = new System.Drawing.Point(432, 107);
             this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(120, 20);
             this.txtContrasena.TabIndex = 97;
             // 
@@ -276,20 +277,24 @@
             this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
             this.dgvDatos.SelectionChanged += new System.EventHandler(this.dgvDatos_SelectionChanged);
             // 
-            // cbTipo
+            // cmbTipo
             // 
-            this.cbTipo.FormattingEnabled = true;
-            this.cbTipo.Location = new System.Drawing.Point(401, 81);
-            this.cbTipo.Name = "cbTipo";
-            this.cbTipo.Size = new System.Drawing.Size(151, 21);
-            this.cbTipo.TabIndex = 101;
+            this.cmbTipo.FormattingEnabled = true;
+            this.cmbTipo.Items.AddRange(new object[] {
+            "ADMINISTRADOR",
+            "VENDEDOR"});
+            this.cmbTipo.Location = new System.Drawing.Point(401, 81);
+            this.cmbTipo.Name = "cmbTipo";
+            this.cmbTipo.Size = new System.Drawing.Size(151, 21);
+            this.cmbTipo.TabIndex = 101;
+            this.cmbTipo.Text = "ADMINISTRADOR";
             // 
             // FrmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 438);
-            this.Controls.Add(this.cbTipo);
+            this.Controls.Add(this.cmbTipo);
             this.Controls.Add(this.dgvDatos);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtNombreUsuario);
@@ -344,6 +349,6 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DataGridView dgvDatos;
-        private System.Windows.Forms.ComboBox cbTipo;
+        private System.Windows.Forms.ComboBox cmbTipo;
     }
 }
