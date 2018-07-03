@@ -10,7 +10,9 @@ namespace Sistema_de_ventas_2018.Negocio
     {
         private static int _id;
         private static string _nombre, _apellidos, _nombreUsuario, _contrasena,_tipo;
-
+        private decimal _dni;
+        private string _direccion;
+        private int _celular;
         public static int Id
         {
             get
@@ -86,6 +88,45 @@ namespace Sistema_de_ventas_2018.Negocio
             set
             {
                 _tipo = value;
+            }
+        }
+
+        public decimal Dni
+        {
+            get
+            {
+                return _dni;
+            }
+
+            set
+            {
+                _dni = value;
+            }
+        }
+
+        public string Direccion
+        {
+            get
+            {
+                return _direccion;
+            }
+
+            set
+            {
+                _direccion = value;
+            }
+        }
+
+        public int Celular
+        {
+            get
+            {
+                return _celular;
+            }
+
+            set
+            {
+                _celular = value;
             }
         }
     }

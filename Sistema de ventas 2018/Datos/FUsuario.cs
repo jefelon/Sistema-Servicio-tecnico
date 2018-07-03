@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sistema_de_ventas_2018.Negocio;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -40,51 +41,63 @@ namespace Sistema_de_ventas_2018.Datos
             return DBHelper.ExecuteDataSet("usp_Datos_FUsuario_GetAll", dbParams);//procedimiento de la base de daatos que trae todos los registros
 
         }
-        public static int Insertar(string sUsuario, string sContrasena, string sNombre, string sApellidoPaterno, string sApellidoMaterno, string sEmail, string sTelefono, string sCelular, string sDireccion, string sDni, string sRol)//Como una clase est+atica no se puede modificar durante el modo de  ejecucion, pasamos sus atributos directamente
+        public static int InsertarUsuario(string sNombre, string sApellidos,  string sCelular, string sDireccion, string sDni, string sNombreUsuario, string sContrasena, string sTipo )
+
         {
             SqlParameter[] dbParams = new SqlParameter[]
-                {
-                    DBHelper.MakeParam("@Usuario", SqlDbType.VarChar, 0, sUsuario),
-                    DBHelper.MakeParam("@Contrasena", SqlDbType.VarChar, 0, sContrasena),
+                {//Id, Nombre, Apellidos, Dni, Direccion, Celular, NombreUsuario, Contrasena, Tipo
                     DBHelper.MakeParam("@Nombre", SqlDbType.VarChar, 0,sNombre ),
-                    DBHelper.MakeParam("@ApellidoPaterno", SqlDbType.VarChar, 0, sApellidoPaterno),
-                    DBHelper.MakeParam("@ApellidoMaterno", SqlDbType.VarChar, 0, sApellidoMaterno),
-                    DBHelper.MakeParam("@Email", SqlDbType.VarChar, 0, sEmail),
-                    DBHelper.MakeParam("@Telefono", SqlDbType.VarChar, 0,sTelefono),
-                    DBHelper.MakeParam("@Celular", SqlDbType.VarChar, 0,sCelular),
-                    DBHelper.MakeParam("@Direccion", SqlDbType.VarChar, 0, sDireccion),
+                    DBHelper.MakeParam("@Apellidos", SqlDbType.VarChar, 0, sApellidos),
                     DBHelper.MakeParam("@Dni", SqlDbType.Decimal, 0, sDni),
-                    DBHelper.MakeParam("@Rol", SqlDbType.VarChar, 0, sRol)
+                    DBHelper.MakeParam("@Direccion", SqlDbType.VarChar, 0, sDireccion),
+                    DBHelper.MakeParam("@Celular", SqlDbType.VarChar, 0,sCelular),
+                    DBHelper.MakeParam("@NombreUsuario", SqlDbType.VarChar, 0, sNombreUsuario),
+                    DBHelper.MakeParam("@Contrasena", SqlDbType.VarChar, 0, sContrasena),
+                    DBHelper.MakeParam("@Tipo", SqlDbType.VarChar, 0, sTipo)
                 };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Datos_FUsuario_Insertar", dbParams));
 
         }
-        public static int Actualizar(int iId, string sUsuario, string sContrasena, string sNombre, string sApellidoPaterno, string sApellidoMaterno, string sEmail, string sTelefono, string sCelular, string sDireccion, string sDni, string sRol)//Como una clase est+atica no se puede modificar durante el modo de  ejecucion, pasamos sus atributos directamente
+
+        public static int Insertar(Usuario usuario)
+
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+                {//Id, Nombre, Apellidos, Dni, Direccion, Celular, NombreUsuario, Contrasena, Tipo
+                    DBHelper.MakeParam("@Nombre", SqlDbType.VarChar, 0,Usuario.Nombre),
+                    DBHelper.MakeParam("@Apellidos", SqlDbType.VarChar, 0, Usuario.Apellidos),
+                    DBHelper.MakeParam("@Dni", SqlDbType.NChar, 0,usuario.Dni),
+                    DBHelper.MakeParam("@Direccion", SqlDbType.VarChar, 0, usuario.Direccion),
+                    DBHelper.MakeParam("@Celular", SqlDbType.NChar, 0,usuario.Celular),
+                    DBHelper.MakeParam("@NombreUsuario", SqlDbType.VarChar, 0, Usuario.NombreUsuario),
+                    DBHelper.MakeParam("@Contrasena", SqlDbType.VarChar, 0, Usuario.Contrasena),
+                    DBHelper.MakeParam("@Tipo", SqlDbType.VarChar, 0, Usuario.Tipo)
+                };
+            return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Datos_FUsuario_Insertar", dbParams));
+        }
+        public static int Actualizar(Usuario usuario)//Como una clase est+atica no se puede modificar durante el modo de  ejecucion, pasamos sus atributos directamente
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
-                    DBHelper.MakeParam("@Id", SqlDbType.Int, 0, iId),
-                    DBHelper.MakeParam("@Usuario", SqlDbType.VarChar, 0, sUsuario),
-                    DBHelper.MakeParam("@Contrasena", SqlDbType.VarChar, 0, sContrasena),
-                    DBHelper.MakeParam("@Nombre", SqlDbType.VarChar, 0,sNombre ),
-                    DBHelper.MakeParam("@ApellidoPaterno", SqlDbType.VarChar, 0, sApellidoPaterno),
-                    DBHelper.MakeParam("@ApellidoMaterno", SqlDbType.VarChar, 0, sApellidoMaterno),
-                    DBHelper.MakeParam("@Email", SqlDbType.VarChar, 0, sEmail),
-                    DBHelper.MakeParam("@Telefono", SqlDbType.VarChar, 0,sTelefono),
-                    DBHelper.MakeParam("@Celular", SqlDbType.VarChar, 0,sCelular),
-                    DBHelper.MakeParam("@Direccion", SqlDbType.VarChar, 0, sDireccion),
-                    DBHelper.MakeParam("@Dni", SqlDbType.Decimal, 0, sDni),
-                    DBHelper.MakeParam("@Rol", SqlDbType.VarChar, 0, sRol)
+                    DBHelper.MakeParam("@Id", SqlDbType.Int, 0, Usuario.Id),
+                    DBHelper.MakeParam("@Nombre", SqlDbType.VarChar, 0,Usuario.Nombre),
+                    DBHelper.MakeParam("@Apellidos", SqlDbType.VarChar, 0, Usuario.Apellidos),
+                    DBHelper.MakeParam("@Dni", SqlDbType.Decimal, 0,usuario.Dni),
+                    DBHelper.MakeParam("@Direccion", SqlDbType.VarChar, 0, usuario.Direccion),
+                    DBHelper.MakeParam("@Celular", SqlDbType.VarChar, 0,usuario.Celular),
+                    DBHelper.MakeParam("@NombreUsuario", SqlDbType.VarChar, 0, Usuario.NombreUsuario),
+                    DBHelper.MakeParam("@Contrasena", SqlDbType.VarChar, 0, Usuario.Contrasena),
+                    DBHelper.MakeParam("@Tipo", SqlDbType.VarChar, 0, Usuario.Tipo)
                 };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Datos_FUsuario_Actualizar", dbParams));
 
         }
 
-        public static int Eliminar(int iId)//Editar datos como enteros
+        public static int Eliminar(Usuario usuario)//Editar datos como enteros
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
-                    DBHelper.MakeParam("@Id", SqlDbType.Int, 0, iId)
+                    DBHelper.MakeParam("@Id", SqlDbType.Int, 0,Usuario.Id)
                 };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Datos_FUsuario_Eliminar", dbParams));
 

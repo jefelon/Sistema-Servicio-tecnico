@@ -69,6 +69,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnIngreso = new System.Windows.Forms.Button();
             this.btnSalida = new System.Windows.Forms.Button();
+            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -238,9 +239,10 @@
             this.salidaToolStripMenuItem,
             this.ingresoEquiposToolStripMenuItem,
             this.salidaEquiposToolStripMenuItem,
-            this.stockToolStripMenuItem});
+            this.stockToolStripMenuItem,
+            this.usuarioToolStripMenuItem});
             this.tablasToolStripMenuItem.Name = "tablasToolStripMenuItem";
-            this.tablasToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.tablasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.tablasToolStripMenuItem.Text = "Tablas";
             // 
             // categoriasToolStripMenuItem
@@ -344,7 +346,7 @@
             // ventasToolStripMenuItem
             // 
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
-            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.ventasToolStripMenuItem.Text = "Ventas";
             this.ventasToolStripMenuItem.Click += new System.EventHandler(this.ventasToolStripMenuItem_Click);
             // 
@@ -358,7 +360,7 @@
             // vistaVentaToolStripMenuItem
             // 
             this.vistaVentaToolStripMenuItem.Name = "vistaVentaToolStripMenuItem";
-            this.vistaVentaToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
+            this.vistaVentaToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
             this.vistaVentaToolStripMenuItem.Text = "Ventas Generales";
             this.vistaVentaToolStripMenuItem.Click += new System.EventHandler(this.vistaVentaToolStripMenuItem_Click_1);
             // 
@@ -445,6 +447,13 @@
             this.btnSalida.UseVisualStyleBackColor = true;
             this.btnSalida.Click += new System.EventHandler(this.btnSalida_Click);
             // 
+            // usuarioToolStripMenuItem
+            // 
+            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.usuarioToolStripMenuItem.Text = "Usuario";
+            this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -519,6 +528,7 @@
         private System.Windows.Forms.ToolStripMenuItem stockToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pendientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem equiposPendientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
     }
 }
 

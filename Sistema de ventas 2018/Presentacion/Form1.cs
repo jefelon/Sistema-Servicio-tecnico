@@ -243,5 +243,11 @@ namespace Sistema_de_ventas_2018
             FrmPendientes pendientes = new FrmPendientes();
             pendientes.Show();
         }
+
+        private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmUsuario form = new FrmUsuario();
+            form.Show();
+        }
     }
 }

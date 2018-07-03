@@ -110,3 +110,5 @@ D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema-Servicio-tecnico\
 D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema de ventas 2018.exe
 D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema de ventas 2018.pdb
 D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmPendientes.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmPendientes.resources
+F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmUsuario.resources
