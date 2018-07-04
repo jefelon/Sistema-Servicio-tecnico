@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/15/2018 15:39:18" ReportInfo.Modified="07/03/2018 18:06:40" ReportInfo.CreatorVersion="2018.1.4.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqPF4IyY6Q6qJcDVeoVH6CNyMX5/uorhULEwj97E4evbP0gdsz+QQx6PCuFiFdpwskOeIZ+kkBqq5XbDld57OoDrnYiXnp3nrjSeXkk0d62NFB6D53GHdyfULLr+eHjgxKxVzloeU/V4dPxT5+HhuMqiab5x9gc7WtZm81LNHq/L7TLTuBpUKh01x3NoIs9/n/ALSniNnmGbAtG8HDlCagBg==">
+      <TableDataSource Name="Table" Alias="ReporteIngreso" DataType="System.Int32" Enabled="true" SelectCommand="SELECT        dbo.tblIngreso.Id, dbo.tblIngreso.Numero, dbo.tblIngreso.FechaIngreso, dbo.tblIngreso.ObservacionExterna, dbo.tblIngreso.ObservacionInterna, dbo.tblIngreso.MotivoIngreso, dbo.tblIngreso.FechaProbableReparacion, &#13;&#10;                         dbo.tblIngreso.Adelanto, dbo.tblIngreso.Estado, dbo.tblCliente.Dni, dbo.tblCliente.Razon_social, dbo.tblCliente.Nombre, dbo.tblCliente.Direccion, dbo.tblEquipo.Descripcion, dbo.tblMarca.Nombre AS Marca, &#13;&#10;                         dbo.tblModelo.Nombre AS Modelo&#13;&#10;FROM            dbo.tblIngreso INNER JOIN&#13;&#10;                         dbo.tblCliente ON dbo.tblIngreso.ClienteId = dbo.tblCliente.Id INNER JOIN&#13;&#10;                         dbo.tblEquipo ON dbo.tblIngreso.EquipoId = dbo.tblEquipo.Id INNER JOIN&#13;&#10;                         dbo.tblMarca ON dbo.tblEquipo.MarcaId = dbo.tblMarca.Id AND dbo.tblEquipo.MarcaId = dbo.tblMarca.Id INNER JOIN&#13;&#10;                         dbo.tblModelo ON dbo.tblEquipo.ModeloId = dbo.tblModelo.Id AND dbo.tblEquipo.ModeloId = dbo.tblModelo.Id&#13;&#10;WHERE dbo.tblIngreso.Numero=@Numero">
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="Dni" DataType="System.String"/>
+        <Column Name="Numero" DataType="System.Int32"/>
+        <Column Name="FechaIngreso" DataType="System.DateTime"/>
+        <Column Name="ObservacionExterna" DataType="System.String"/>
+        <Column Name="ObservacionInterna" DataType="System.String"/>
+        <Column Name="MotivoIngreso" DataType="System.String"/>
+        <Column Name="FechaProbableReparacion" DataType="System.DateTime"/>
+        <Column Name="Adelanto" DataType="System.Decimal"/>
+        <Column Name="Estado" DataType="System.String"/>
+        <Column Name="Razon_social" DataType="System.String"/>
+        <Column Name="Nombre" DataType="System.String"/>
+        <Column Name="Direccion" DataType="System.String"/>
+        <Column Name="Descripcion" DataType="System.String"/>
+        <Column Name="Marca" DataType="System.String"/>
+        <Column Name="Modelo" DataType="System.String"/>
+        <CommandParameter Name="Numero" DataType="22" Expression="[Numero]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="Numero" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="302.4">
+      <TextObject Name="Text1" Left="18.9" Top="66.15" Width="198.45" Height="18.9" Text="[ReporteIngreso.FechaIngreso]" Format="Date" Format.Format="d"/>
+      <TextObject Name="Text2" Left="255.15" Top="122.85" Width="198.45" Height="37.8" Text="[ReporteIngreso.MotivoIngreso]"/>
+      <TextObject Name="Text3" Left="481.95" Top="113.4" Width="94.5" Height="18.9" Text="[ReporteIngreso.FechaProbableReparacion]" Format="Date" Format.Format="d"/>
+      <TextObject Name="Text4" Left="18.9" Top="18.9" Width="94.5" Height="18.9" Text="[ReporteIngreso.Numero]"/>
+      <TextObject Name="Text5" Left="18.9" Top="113.4" Width="141.75" Height="18.9" Text="MOTIVO INGRESO:" Font="Arial, 10pt, style=Bold" TextFill.Color="255, 0, 255"/>
+    </ReportTitleBand>
+    <PageFooterBand Name="PageFooter1" Top="306.4" Width="718.2" Height="85.05"/>
+  </ReportPage>
+</Report>

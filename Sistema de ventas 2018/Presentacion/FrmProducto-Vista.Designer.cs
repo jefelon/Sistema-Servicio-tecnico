@@ -31,7 +31,9 @@
             this.dgvDatosProducto = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtBuscarNombre = new System.Windows.Forms.TextBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.cmbBuscar = new System.Windows.Forms.ComboBox();
+            this.lblDatosNoEncontrados = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosProducto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +49,9 @@
             this.dgvDatosProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatosProducto.Size = new System.Drawing.Size(1173, 294);
             this.dgvDatosProducto.TabIndex = 15;
+            this.dgvDatosProducto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatosProducto_CellContentClick);
             this.dgvDatosProducto.DoubleClick += new System.EventHandler(this.dgvDatos_DoubleClick);
+            this.dgvDatosProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvDatosProducto_KeyDown);
             // 
             // label1
             // 
@@ -69,20 +73,45 @@
             this.label2.TabIndex = 17;
             this.label2.Text = "Buscar Nombre:";
             // 
-            // txtBuscarNombre
+            // txtBuscar
             // 
-            this.txtBuscarNombre.Location = new System.Drawing.Point(105, 32);
-            this.txtBuscarNombre.Name = "txtBuscarNombre";
-            this.txtBuscarNombre.Size = new System.Drawing.Size(197, 20);
-            this.txtBuscarNombre.TabIndex = 18;
-            this.txtBuscarNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscarNombre_KeyDown);
+            this.txtBuscar.Location = new System.Drawing.Point(243, 31);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(197, 20);
+            this.txtBuscar.TabIndex = 18;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscarNombre_TextChanged);
+            this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscarNombre_KeyDown);
+            // 
+            // cmbBuscar
+            // 
+            this.cmbBuscar.FormattingEnabled = true;
+            this.cmbBuscar.Items.AddRange(new object[] {
+            "Codigo",
+            "Nombre"});
+            this.cmbBuscar.Location = new System.Drawing.Point(116, 30);
+            this.cmbBuscar.Name = "cmbBuscar";
+            this.cmbBuscar.Size = new System.Drawing.Size(121, 21);
+            this.cmbBuscar.TabIndex = 19;
+            this.cmbBuscar.Text = "Nombre";
+            // 
+            // lblDatosNoEncontrados
+            // 
+            this.lblDatosNoEncontrados.AutoSize = true;
+            this.lblDatosNoEncontrados.Location = new System.Drawing.Point(472, 193);
+            this.lblDatosNoEncontrados.Name = "lblDatosNoEncontrados";
+            this.lblDatosNoEncontrados.Size = new System.Drawing.Size(136, 13);
+            this.lblDatosNoEncontrados.TabIndex = 20;
+            this.lblDatosNoEncontrados.Text = "No se encontró el producto";
+            this.lblDatosNoEncontrados.Visible = false;
             // 
             // FrmProducto_Vista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1197, 362);
-            this.Controls.Add(this.txtBuscarNombre);
+            this.Controls.Add(this.lblDatosNoEncontrados);
+            this.Controls.Add(this.cmbBuscar);
+            this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvDatosProducto);
@@ -100,6 +129,8 @@
         private System.Windows.Forms.DataGridView dgvDatosProducto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtBuscarNombre;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.ComboBox cmbBuscar;
+        private System.Windows.Forms.Label lblDatosNoEncontrados;
     }
 }

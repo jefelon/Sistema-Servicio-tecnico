@@ -43,6 +43,9 @@ namespace Sistema_de_ventas_2018.Presentacion
 
                 cmbTipo.Items.Clear();
                 cmbTipo.Items.Add("VENDEDOR");
+
+                btnNuevo.Enabled = false;
+                btnEliminar.Enabled = false;
             }
             else
             {
@@ -59,29 +62,19 @@ namespace Sistema_de_ventas_2018.Presentacion
             {
                 string sResultado = validarDatos();
                 if (sResultado == "")
-                {//Nombre, Apellidos,Dni, Direccion, Celular, NombreUsuario, Contrasena, Tipo
+                {
                     if (txtId.Text == "")
                     {
                         string usuariot = txtNombreUsuario.Text;
                         string contrasenat = txtContrasena.Text;
                         string hash = FUsuario.Helper.EncodePassword(string.Concat(usuariot, contrasenat));
 
-                        Usuario usuario = new Usuario();
-                        Usuario.Nombre = txtNombre.Text;
-                        Usuario.Apellidos = txtApellidos.Text;
-                        usuario.Dni = Convert.ToDecimal(txtDni.Text);
-                        usuario.Direccion = txtDierccion.Text;
-                        usuario.Celular = Convert.ToInt32(txtCelular.Text);
-                        Usuario.NombreUsuario = txtNombreUsuario.Text;
-                        Usuario.Contrasena = hash;              
-                        Usuario.Tipo = cmbTipo.Text;
-
-                        int retunrId = FUsuario.Insertar(usuario);
+                        int retunrId = FUsuario.Insertar(txtNombre.Text, txtApellidos.Text, txtDni.Text,txtDierccion.Text,txtCelular.Text,txtNombreUsuario.Text,hash,cmbTipo.Text);
                         if (retunrId > 0)
                         {
+                            MessageBox.Show("Usuario "+ txtNombreUsuario.Text+" Fué insertado correctamente");
                             FrmUsuario_Load(null, null);
                             habilitarBotones(false);
-                            MessageBox.Show("Usuario "+ txtNombreUsuario.Text+" Fué insertado correctamente");
                         }
 
                     }
@@ -91,23 +84,12 @@ namespace Sistema_de_ventas_2018.Presentacion
                         string contrasenat = txtContrasena.Text;
                         string hash = FUsuario.Helper.EncodePassword(string.Concat(usuariot, contrasenat));
 
-                        Usuario usuario = new Usuario();
-                        Usuario.Id = Convert.ToInt32(txtId.Text);
-                        Usuario.Nombre = txtNombre.Text;
-                        Usuario.Apellidos = txtApellidos.Text;
-                        usuario.Dni = Convert.ToDecimal(txtDni.Text);
-                        usuario.Direccion = txtDierccion.Text;
-                        usuario.Celular = Convert.ToInt32(txtCelular.Text);
-                        Usuario.NombreUsuario = txtNombreUsuario.Text;
-                        Usuario.Contrasena = hash;
-                        Usuario.Tipo = cmbTipo.Text;
-
-                        int returnId = FUsuario.Actualizar(usuario);
+                        int returnId = FUsuario.Actualizar(Convert.ToInt32(txtId.Text),txtNombre.Text, txtApellidos.Text, txtDni.Text, txtDierccion.Text, txtCelular.Text, txtNombreUsuario.Text, hash, cmbTipo.Text);
                         if(returnId > 0)
                         {
+                            MessageBox.Show("Los datos del usuario " + txtNombreUsuario.Text + " se editaron correctamente");
                             FrmUsuario_Load(null, null);
                             habilitarBotones(false);
-                            MessageBox.Show("Los datos del usuario " + txtNombreUsuario.Text + " se editaron correctamente");
                         }
                     }            
                     
@@ -156,7 +138,17 @@ namespace Sistema_de_ventas_2018.Presentacion
             btnEditar.Enabled = !b;
             btnEliminar.Enabled = !b;
             btnGuardar.Enabled = b;
-            btnNuevo.Enabled = !b;
+
+            if (Usuario.Tipo=="ADMINISTRADOR")
+            {
+                btnNuevo.Enabled = !b;
+            }
+            else if (Usuario.Tipo == "VENDEDOR")
+            {
+                btnNuevo.Enabled = false;
+                btnEliminar.Enabled = false;
+            }
+           
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)

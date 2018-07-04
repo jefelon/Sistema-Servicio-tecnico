@@ -1,8 +1,10 @@
-﻿using Sistema_de_ventas_2018.Datos;
+﻿using FastReport;
+using Sistema_de_ventas_2018.Datos;
 using Sistema_de_ventas_2018.Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -238,5 +240,16 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         }
 
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            if (txtId.Text != "")
+            {
+                Report frmComprobantes = new Report();
+                frmComprobantes.Load(@"Reportes/ReporteSalida.frx");
+                frmComprobantes.Dictionary.Connections[0].ConnectionString = ConfigurationManager.AppSettings.Get("connectionString");
+                frmComprobantes.SetParameterValue("Numero", Convert.ToInt32(txtId.Text));
+                frmComprobantes.Show();
+            }
+        }
     }
 }
