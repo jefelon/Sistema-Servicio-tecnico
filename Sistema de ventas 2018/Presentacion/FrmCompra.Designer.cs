@@ -59,7 +59,10 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnImprimir = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbUnidadMedia = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtConversion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.SuspendLayout();
@@ -101,7 +104,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(441, 179);
+            this.btnAgregar.Location = new System.Drawing.Point(702, 182);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(64, 40);
             this.btnAgregar.TabIndex = 92;
@@ -111,15 +114,15 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(110, 190);
+            this.txtCantidad.Location = new System.Drawing.Point(332, 194);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(116, 20);
+            this.txtCantidad.Size = new System.Drawing.Size(63, 20);
             this.txtCantidad.TabIndex = 91;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(36, 193);
+            this.label8.Location = new System.Drawing.Point(261, 198);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 13);
             this.label8.TabIndex = 90;
@@ -127,15 +130,15 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(298, 190);
+            this.txtPrecio.Location = new System.Drawing.Point(618, 193);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(137, 20);
+            this.txtPrecio.Size = new System.Drawing.Size(62, 20);
             this.txtPrecio.TabIndex = 89;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(242, 193);
+            this.label6.Location = new System.Drawing.Point(562, 196);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 13);
             this.label6.TabIndex = 88;
@@ -260,7 +263,7 @@
             this.dgvDetalle.Name = "dgvDetalle";
             this.dgvDetalle.ReadOnly = true;
             this.dgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalle.Size = new System.Drawing.Size(675, 207);
+            this.dgvDetalle.Size = new System.Drawing.Size(709, 207);
             this.dgvDetalle.TabIndex = 73;
             // 
             // ProductoId
@@ -348,22 +351,46 @@
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // btnImprimir
+            // label10
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(600, 457);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(113, 52);
-            this.btnImprimir.TabIndex = 99;
-            this.btnImprimir.Text = "IMPRIMIR";
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(33, 196);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(97, 13);
+            this.label10.TabIndex = 90;
+            this.label10.Text = "UNIDAD MEDIDA:";
+            // 
+            // cmbUnidadMedia
+            // 
+            this.cmbUnidadMedia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUnidadMedia.FormattingEnabled = true;
+            this.cmbUnidadMedia.Location = new System.Drawing.Point(136, 193);
+            this.cmbUnidadMedia.Name = "cmbUnidadMedia";
+            this.cmbUnidadMedia.Size = new System.Drawing.Size(119, 21);
+            this.cmbUnidadMedia.TabIndex = 100;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(420, 196);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(62, 13);
+            this.label11.TabIndex = 90;
+            this.label11.Text = "CONVERS:";
+            // 
+            // txtConversion
+            // 
+            this.txtConversion.Location = new System.Drawing.Point(488, 193);
+            this.txtConversion.Name = "txtConversion";
+            this.txtConversion.Size = new System.Drawing.Size(54, 20);
+            this.txtConversion.TabIndex = 91;
             // 
             // FrmCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 539);
-            this.Controls.Add(this.btnImprimir);
+            this.ClientSize = new System.Drawing.Size(788, 539);
+            this.Controls.Add(this.cmbUnidadMedia);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnNuevo);
@@ -371,7 +398,10 @@
             this.Controls.Add(this.btnCargarProducto);
             this.Controls.Add(this.dgvProveedor);
             this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.txtConversion);
             this.Controls.Add(this.txtCantidad);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.label6);
@@ -428,11 +458,14 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnNuevo;
         public System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductoId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cmbUnidadMedia;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtConversion;
     }
 }

@@ -33,9 +33,18 @@ namespace Sistema_de_ventas_2018.Presentacion
                 cargarCompras(Convert.ToInt32(txtId.Text));
                 dgvProveedor.Visible = false;
             }
-            //hola
+
+            cargar_UnidadMedida();
         }
 
+        public void cargar_UnidadMedida()
+        {
+            DataSet ds = FUnidadMedida.GetAll();
+            DataTable dt3 = ds.Tables[0];
+            cmbUnidadMedia.ValueMember = "Id";
+            cmbUnidadMedia.DisplayMember = "Nombre";
+            cmbUnidadMedia.DataSource = dt3;
+        }
         private void cargarCompras(int id)
         {
             DataTable dtp1 = new DataTable();
@@ -227,7 +236,8 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            dgvDetalle.Rows.Add(txtProductoId.Text, txtProducto.Text, txtCantidad.Text, txtPrecio.Text, Convert.ToDecimal(txtPrecio.Text) * Convert.ToDecimal(txtCantidad.Text));
+
+            dgvDetalle.Rows.Add(txtProductoId.Text, txtProducto.Text, Convert.ToDecimal(txtConversion.Text)* Convert.ToDecimal(txtCantidad.Text), txtPrecio.Text, Convert.ToDecimal(txtConversion.Text) * (Convert.ToDecimal(txtPrecio.Text) * Convert.ToDecimal(txtCantidad.Text)));
         }
 
         private void btnCargarProducto_Click(object sender, EventArgs e)
@@ -237,7 +247,6 @@ namespace Sistema_de_ventas_2018.Presentacion
             form.ShowDialog();
             txtProductoId.Text = form.productoId;
             txtProducto.Text = form.descripcion;
-            txtPrecio.Text = form.precio;
 
 
         }

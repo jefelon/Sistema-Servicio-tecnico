@@ -70,11 +70,6 @@ namespace Sistema_de_ventas_2018.Presentacion
         public string validarDatos()
         {
             string resultado = "";
-            if (txtDescripcion.Text == "")
-            {
-                resultado = "El campo esta vacio";
-                txtDescripcion.Focus();
-            }
             if (txtNombre.Text == "")
             {
                 resultado = "El campo esta vacio";

@@ -28,20 +28,15 @@ namespace Sistema_de_ventas_2018.Presentacion
                 {
                     if ( txtId.Text=="")
                     {
-
-                   
-                        if (txtDescripcion.Text != "")
-                        {
-                            Categoria categoria = new Categoria();// instanciamos a la clace Categoria 
+                             Categoria categoria = new Categoria();// instanciamos a la clace Categoria 
                             categoria.Descripcion = txtDescripcion.Text;//validamos el campo del formulario
 
                             int returnId = FCategoria.Insertar(categoria);//insertamos la instanciacion con la clace  FCategoria 
                             if (returnId > 0)
                             {
-
+                                habilitarBotones(false);
                                 FrmCategoria_Load(null,null);
-                            }
-                        }
+                            }                        
                     }
                     else
                     {  
@@ -51,7 +46,8 @@ namespace Sistema_de_ventas_2018.Presentacion
                          int returnId = FCategoria.Actualizar(categoria);//Actualizamos la instanciacion con la clace  FCategoria 
                         if (returnId > 0)
                          {
-                             FrmCategoria_Load(null, null);
+                            habilitarBotones(false);
+                            FrmCategoria_Load(null, null);
                          }                     
                     }
                 }
@@ -104,8 +100,8 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void habilitarBotones(bool b)//habilitamos los botones del formulariocone le metodo
         {
-            btnNuevo.Enabled = b;
-            btnEditar.Enabled = b;
+            btnNuevo.Enabled = !b;
+            btnEditar.Enabled = !b;
             btnGuardar.Enabled = b;
             btnEliminar.Enabled = !b;
             btnCancelar.Enabled = b;
@@ -113,6 +109,7 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            txtId.Text = "";
             txtDescripcion.Text = "";
             habilitarBotones(true);//el metodo habilitarBotones es verdadera 
             mostrarOcultar(true);
@@ -120,7 +117,7 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnCancelar_Click(object sender, EventArgs e)//botones de
         {
-            habilitarBotones(true);//el metodo habilitarBotones es verdadera 
+            habilitarBotones(false);//el metodo habilitarBotones es verdadera 
             mostrarOcultar(true);//el metodo mostrarOcultar es verdadera 
         }
 
@@ -158,7 +155,7 @@ namespace Sistema_de_ventas_2018.Presentacion
             }
         }
 
-        private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void asinarDatos()        
         {
             if (dgvDatos.CurrentRow != null)
             {
@@ -170,12 +167,12 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void dgvDatos_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvDatos.CurrentRow != null)
-            {
-                //si esta seleccionado algun dato obtenemos el id del dato para pasar al otro formularion, para su respectiva edicion, en el otro form el texbox, su propiedad  modifier esta en publico, no es la manera mas correcta de hacerlo pero el mas facil
-                txtId.Text = dgvDatos.CurrentRow.Cells["Id"].Value.ToString();
-                txtDescripcion.Text = dgvDatos.CurrentRow.Cells["Descripcion"].Value.ToString();
-            }
+            asinarDatos();
+        }
+
+        private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            asinarDatos();
         }
     }
 }

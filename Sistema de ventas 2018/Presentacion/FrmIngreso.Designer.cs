@@ -62,9 +62,11 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.txtEstadoIngreso = new System.Windows.Forms.ComboBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.lblNumero = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -404,14 +406,6 @@
             this.label12.Text = "ID";
             this.label12.Visible = false;
             // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(48, 23);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(20, 20);
-            this.txtId.TabIndex = 7;
-            this.txtId.Visible = false;
-            // 
             // btnNuevo
             // 
             this.btnNuevo.Location = new System.Drawing.Point(265, 558);
@@ -434,14 +428,45 @@
             this.txtEstadoIngreso.TabIndex = 9;
             this.txtEstadoIngreso.Text = "PENDIENTE";
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(527, 558);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(83, 32);
+            this.btnImprimir.TabIndex = 10;
+            this.btnImprimir.Text = "IMPRIMIR";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click_1);
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(48, 23);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(20, 20);
+            this.txtId.TabIndex = 7;
+            this.txtId.Visible = false;
+            // 
+            // lblNumero
+            // 
+            this.lblNumero.AutoSize = true;
+            this.lblNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumero.ForeColor = System.Drawing.Color.Green;
+            this.lblNumero.Location = new System.Drawing.Point(342, 9);
+            this.lblNumero.Name = "lblNumero";
+            this.lblNumero.Size = new System.Drawing.Size(79, 24);
+            this.lblNumero.TabIndex = 7;
+            this.lblNumero.Text = "Numero";
+            // 
             // FrmIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(796, 602);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.txtEstadoIngreso);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.txtId);
+            this.Controls.Add(this.lblNumero);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
@@ -510,8 +535,10 @@
         public System.Windows.Forms.TextBox txtMarca;
         public System.Windows.Forms.TextBox txtEquipoId;
         private System.Windows.Forms.Label label12;
-        public System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.ComboBox txtEstadoIngreso;
+        private System.Windows.Forms.Button btnImprimir;
+        public System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label lblNumero;
     }
 }

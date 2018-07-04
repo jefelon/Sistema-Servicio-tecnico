@@ -1,7 +1,9 @@
-﻿using Sistema_de_ventas_2018.Datos;
+﻿using FastReport;
+using Sistema_de_ventas_2018.Datos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -32,6 +34,24 @@ namespace Sistema_de_ventas_2018.Presentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private void dgvPendientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Report frmComprobantes = new Report();
+            frmComprobantes.Load(@"Reportes/ReporteIngreso.frx");
+            frmComprobantes.Dictionary.Connections[0].ConnectionString = ConfigurationManager.AppSettings.Get("connectionString");
+            frmComprobantes.SetParameterValue("Numero", dgvPendientes.CurrentRow.Cells["Numero"].Value.ToString());
+            frmComprobantes.Show();
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            Report frmComprobantes = new Report();
+            frmComprobantes.Load(@"Reportes/ReporteIngreso.frx");
+            frmComprobantes.Dictionary.Connections[0].ConnectionString = ConfigurationManager.AppSettings.Get("connectionString");
+            frmComprobantes.SetParameterValue("Numero", dgvPendientes.CurrentRow.Cells["Numero"].Value.ToString());
+            frmComprobantes.Show();
         }
     }
 }

@@ -111,9 +111,9 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(75, 22);
+            this.txtNombre.Location = new System.Drawing.Point(98, 25);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(149, 20);
+            this.txtNombre.Size = new System.Drawing.Size(222, 20);
             this.txtNombre.TabIndex = 21;
             // 
             // txtDescripcion
@@ -130,6 +130,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(32, 20);
             this.txtId.TabIndex = 19;
+            this.txtId.Visible = false;
             // 
             // label3
             // 
@@ -157,6 +158,7 @@
             this.label1.Size = new System.Drawing.Size(21, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "ID:";
+            this.label1.Visible = false;
             // 
             // dgvDatos
             // 

@@ -26,6 +26,7 @@ namespace Sistema_de_ventas_2018.Presentacion
             cmbMarca.ValueMember = "Id";
             cmbMarca.DisplayMember = "Nombre";
             cmbMarca.DataSource = dt1;
+            
         }
         DataTable dt2 = new DataTable();
         public void cargar_Modelo()
@@ -159,38 +160,13 @@ namespace Sistema_de_ventas_2018.Presentacion
             }
             if (txtStockMinimo.Text == "")
             {
-                resultado = "el campo stock minimo está vacío";
-
+                resultado = "El campo precioventa está vacío";
+                txtStockMinimo.Focus();
             }
-            if (cmbMarca.Text == "")
+            if (txtStockMáximo.Text == "")
             {
-                resultado = "Falta seleccionar Marca";
-                cmbMarca.Focus();
-            }
-            if (cmbModelo.Text == "")
-            {
-                resultado = "Falta seleccionar Modelo";
-                cmbModelo.Focus();
-            }
-            if (cmbUnidadMedia.Text == "")
-            {
-                resultado = "Falta selecionar UnidadMedida";
-                cmbUnidadMedia.Focus();
-            }
-            if (cmbCategoria.Text == "")
-            {
-                resultado = "Falta seleccionar Categoría";
-                cmbCategoria.Focus();
-            }
-            if (cmbProveedor.Text == "")
-            {
-                resultado = "Falta selecionar Proveedor";
-                cmbProveedor.Focus();
-            }
-            if (txtUbicacion.Text == "")
-            {
-                resultado = "El campo ubicacion está vacío";
-                txtUbicacion.Focus();
+                resultado = "El campo precioventa está vacío";
+                txtStockMáximo .Focus();
             }
             return resultado;
         }

@@ -59,35 +59,35 @@ namespace Sistema_de_ventas_2018.Datos
 
         }
 
-        public static int Insertar(Usuario usuario)
+        public static int Insertar(string nombre,string apellidos, string dni, string direccion, string celular, string nombreUsuario, string contrasena, string tipo)
 
         {
             SqlParameter[] dbParams = new SqlParameter[]
-                {//Id, Nombre, Apellidos, Dni, Direccion, Celular, NombreUsuario, Contrasena, Tipo
-                    DBHelper.MakeParam("@Nombre", SqlDbType.VarChar, 0,Usuario.Nombre),
-                    DBHelper.MakeParam("@Apellidos", SqlDbType.VarChar, 0, Usuario.Apellidos),
-                    DBHelper.MakeParam("@Dni", SqlDbType.NChar, 0,usuario.Dni),
-                    DBHelper.MakeParam("@Direccion", SqlDbType.VarChar, 0, usuario.Direccion),
-                    DBHelper.MakeParam("@Celular", SqlDbType.NChar, 0,usuario.Celular),
-                    DBHelper.MakeParam("@NombreUsuario", SqlDbType.VarChar, 0, Usuario.NombreUsuario),
-                    DBHelper.MakeParam("@Contrasena", SqlDbType.VarChar, 0, Usuario.Contrasena),
-                    DBHelper.MakeParam("@Tipo", SqlDbType.VarChar, 0, Usuario.Tipo)
+                {
+                    DBHelper.MakeParam("@Nombre", SqlDbType.VarChar, 0,nombre),
+                    DBHelper.MakeParam("@Apellidos", SqlDbType.VarChar, 0, apellidos),
+                    DBHelper.MakeParam("@Dni", SqlDbType.NChar, 0,dni),
+                    DBHelper.MakeParam("@Direccion", SqlDbType.VarChar, 0, direccion),
+                    DBHelper.MakeParam("@Celular", SqlDbType.NChar, 0,celular),
+                    DBHelper.MakeParam("@NombreUsuario", SqlDbType.VarChar, 0, nombreUsuario),
+                    DBHelper.MakeParam("@Contrasena", SqlDbType.VarChar, 0, contrasena),
+                    DBHelper.MakeParam("@Tipo", SqlDbType.VarChar, 0, tipo)
                 };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Datos_FUsuario_Insertar", dbParams));
         }
-        public static int Actualizar(Usuario usuario)//Como una clase est+atica no se puede modificar durante el modo de  ejecucion, pasamos sus atributos directamente
+        public static int Actualizar(int id,string nombre, string apellidos, string dni, string direccion, string celular, string nombreUsuario, string contrasena, string tipo)//Como una clase est+atica no se puede modificar durante el modo de  ejecucion, pasamos sus atributos directamente
         {
             SqlParameter[] dbParams = new SqlParameter[]
                 {
-                    DBHelper.MakeParam("@Id", SqlDbType.Int, 0, Usuario.Id),
-                    DBHelper.MakeParam("@Nombre", SqlDbType.VarChar, 0,Usuario.Nombre),
-                    DBHelper.MakeParam("@Apellidos", SqlDbType.VarChar, 0, Usuario.Apellidos),
-                    DBHelper.MakeParam("@Dni", SqlDbType.Decimal, 0,usuario.Dni),
-                    DBHelper.MakeParam("@Direccion", SqlDbType.VarChar, 0, usuario.Direccion),
-                    DBHelper.MakeParam("@Celular", SqlDbType.VarChar, 0,usuario.Celular),
-                    DBHelper.MakeParam("@NombreUsuario", SqlDbType.VarChar, 0, Usuario.NombreUsuario),
-                    DBHelper.MakeParam("@Contrasena", SqlDbType.VarChar, 0, Usuario.Contrasena),
-                    DBHelper.MakeParam("@Tipo", SqlDbType.VarChar, 0, Usuario.Tipo)
+                    DBHelper.MakeParam("@Id", SqlDbType.Int, 0, id),
+                    DBHelper.MakeParam("@Nombre", SqlDbType.VarChar, 0,nombre),
+                    DBHelper.MakeParam("@Apellidos", SqlDbType.VarChar, 0, apellidos),
+                    DBHelper.MakeParam("@Dni", SqlDbType.NChar, 0,dni),
+                    DBHelper.MakeParam("@Direccion", SqlDbType.VarChar, 0, direccion),
+                    DBHelper.MakeParam("@Celular", SqlDbType.NChar, 0,celular),
+                    DBHelper.MakeParam("@NombreUsuario", SqlDbType.VarChar, 0, nombreUsuario),
+                    DBHelper.MakeParam("@Contrasena", SqlDbType.VarChar, 0, contrasena),
+                    DBHelper.MakeParam("@Tipo", SqlDbType.VarChar, 0, tipo)
                 };
             return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Datos_FUsuario_Actualizar", dbParams));
 

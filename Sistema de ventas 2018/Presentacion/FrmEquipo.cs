@@ -100,20 +100,10 @@ namespace Sistema_de_ventas_2018.Presentacion
                 resultado = "El campo está vacio";
                 txtDescripcion.Focus();
             }
-            if(cmbModelo.Text=="")
-            {
-                resultado = "Falta seleccionar Modelo";
-                cmbModelo.Focus();
-            }
             if(txtSerie.Text=="")
             {
                 resultado = "El campo está vacío";
                 txtSerie.Focus();
-            }
-            if (cmbMarca.Text == "")
-            {
-                resultado = "Falta seleccionar Marca";
-                cmbMarca.Focus();
             }
             return resultado;
         }

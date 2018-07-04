@@ -279,6 +279,7 @@
             // 
             // cmbTipo
             // 
+            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipo.FormattingEnabled = true;
             this.cmbTipo.Items.AddRange(new object[] {
             "ADMINISTRADOR",
@@ -287,7 +288,6 @@
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(151, 21);
             this.cmbTipo.TabIndex = 101;
-            this.cmbTipo.Text = "ADMINISTRADOR";
             // 
             // FrmUsuario
             // 

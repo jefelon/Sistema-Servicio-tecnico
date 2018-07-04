@@ -83,27 +83,7 @@ namespace Sistema_de_ventas_2018.Presentacion
             {
                 resultado = "El campo está vacío";
                 txtNombre.Focus();
-            }
-            if (txtRuc.Text == "")
-            {
-                resultado = "El campo está vacío";
-                txtRuc.Focus();
-            }
-            if (txtDireccion.Text == "")
-            {
-                resultado = "El campo está vacío";
-                txtDireccion.Focus();
-            }
-            if (txtTelefono.Text == "")
-            {
-                resultado = "El campo está vacío";
-                txtTelefono.Focus();
-            }
-            if (txtEmail.Text == "")
-            {
-                resultado = "El campo está vacío";
-                txtEmail.Focus();
-            }
+            }           
             return resultado;
         }
         private static DataTable dt = new DataTable();

@@ -1,8 +1,10 @@
-﻿using Sistema_de_ventas_2018.Datos;
+﻿using FastReport;
+using Sistema_de_ventas_2018.Datos;
 using Sistema_de_ventas_2018.Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -42,18 +44,20 @@ namespace Sistema_de_ventas_2018.Presentacion
                     if (returnId > 0)
                     {
                         MessageBox.Show("Se registro correctamente el ingreso"+returnId.ToString());
+
+                        txtId.Text = returnId.ToString();
+                        lblNumero.Text = returnId.ToString();
+
+                        Report frmComprobantes = new Report();
+                        frmComprobantes.Load(@"Reportes/ReporteIngreso.frx");
+                        frmComprobantes.Dictionary.Connections[0].ConnectionString = ConfigurationManager.AppSettings.Get("connectionString");
+                        frmComprobantes.SetParameterValue("Numero", returnId.ToString());
+                        frmComprobantes.Show();
+
                         FrmIngreso_Load(null, null);
                     }
-                }
-                //string sResultado = validarDatos();
-                //if (sResultado == "")
-                //{//Id, Numero, FechaIngreso, ObservacionExterna, ObservacionInterna, MotivoIngreso, FechaProbableReparacion, Adelanto, Estado, ClienteId, EquipoId
-                //    if (txtId.Text == "")
-                //    {
-                        
-                    }
-            //    }
-            //}
+                }                  
+            }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
@@ -61,22 +65,8 @@ namespace Sistema_de_ventas_2018.Presentacion
         }
         public string validarDatos()
         {//Id, Numero, FechaIngreso, ObservacionExterna, ObservacionInterna, MotivoIngreso, FechaProbableReparacion, Adelanto, Estado, ClienteId, EquipoId
-            string resultado = "";
-            if (txtObservacionExterna.Text == "")
-            {
-                resultado = "El campo ObservacioExt. está vacío";
-                txtObservacionExterna.Focus();
-            }
-            if (txtObservacionInterna.Text == "")
-            {
-                resultado = "El campo ObservacionInt. está vacío";
-                txtObservacionInterna.Focus();
-            }
-            if (txtAdento.Text == "")
-            {
-                resultado = "El campo Adelanto está vacío";
-                txtAdento.Focus();
-            }
+            string resultado = "";     
+          
             if (txtEstadoIngreso.Text == "")
             {
                 resultado = "El campo Estado está vacío";
@@ -154,13 +144,13 @@ namespace Sistema_de_ventas_2018.Presentacion
             txtNombre.Text = "";
             txtDNI.Text = "";
             txtEquipoId.Text = "";
-            txtEstadoIngreso.Text = "";
             txtObservacionInterna.Text = "";
             txtObservacionExterna.Text = "";
             txtMotivoIngreso.Text = "";
             txtModelo.Text = "";
             txtMarca.Text = "";
             txtAdento.Text = "";
+            lblNumero.Text = "";
             //dtpFechaIngreso.Text = "";
             dtpFechaProbableReparacion.Text = "";
             mostrarOcultar(true);
@@ -169,6 +159,19 @@ namespace Sistema_de_ventas_2018.Presentacion
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnImprimir_Click_1(object sender, EventArgs e)
+        {
+            if (txtId.Text!="")
+            {
+                Report frmComprobantes = new Report();
+                frmComprobantes.Load(@"Reportes/ReporteIngreso.frx");
+                frmComprobantes.Dictionary.Connections[0].ConnectionString = ConfigurationManager.AppSettings.Get("connectionString");
+                frmComprobantes.SetParameterValue("Numero", Convert.ToInt32(txtId.Text));
+                frmComprobantes.Show();
+            }
+
         }
     }
 }

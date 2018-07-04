@@ -44,17 +44,64 @@ namespace Sistema_de_ventas_2018.Presentacion
             dgvDatosProducto.DataSource = dt;
         }
 
+        private void dgvDatosProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtBuscarNombre_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DataView dv = new DataView(dt.Copy()); //dt es la tabla que creamos al inicio de esta hoja
+                dv.RowFilter = cmbBuscar.Text + " Like '" + txtBuscar.Text + "%'";
+                dgvDatosProducto.DataSource = dv;
+
+                if (dv.Count == 0)
+                {
+                    lblDatosNoEncontrados.Visible = true;
+                }
+                else
+                {
+                    lblDatosNoEncontrados.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void dgvDatosProducto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+
+                pasarProductos();
+            }
+        }
+
         private void txtBuscarNombre_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                cargarProducto((txtBuscarNombre.Text));
+                cargarProducto((txtBuscar.Text));
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                dgvDatosProducto.Focus();
             }
         }
 
 
         private void dgvDatos_DoubleClick(object sender, EventArgs e)
+        {
+            pasarProductos();
+        }
+
+        private void pasarProductos()
         {
             try
             {
