@@ -22,8 +22,6 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
                 string sResultado = validarDatos();
                 if (sResultado == "")
                 {
@@ -69,12 +67,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                 {
                     MessageBox.Show("Error + \n" + sResultado);
                     FrmProveedor_Load(null, null);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                }            
         }
         public string validarDatos()
         {
@@ -91,16 +84,12 @@ namespace Sistema_de_ventas_2018.Presentacion
         private void FrmProveedor_Load(object sender, EventArgs e)
         {
             mostrarOcultar(false);
-            try {
+
                 DataSet ds = FProveedor.GetAll();
                 dt = ds.Tables[0];
                 dgvDatos.DataSource = dt;
                 dgvDatos.Columns["Id"].Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+            
         }
         private void mostrarOcultar(bool b)
         {
@@ -146,14 +135,14 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (txtId.Text != "")
             {
                 if (MessageBox.Show("¿Está seguro de eliminar el dato seleccionados ? ", "Eliminando...",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                                   MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     Proveedor proveedor = new Proveedor();
-                    proveedor.Id = Convert.ToInt32(dgvDatos.CurrentRow.Cells["Id"].Value.ToString());
-                    if(FProveedor.Eliminar(proveedor) > 0)
+                    proveedor.Id = Convert.ToInt32(txtId.Text);
+                    if (FProveedor.Eliminar(proveedor) > 0)
                     {
                         FrmProveedor_Load(null, null);
                     }
@@ -162,11 +151,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                         MessageBox.Show("No se pudo eliminar, talvez no hay proveedor registrado", "No se puede eliminar");
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+            }                          
         }
 
         

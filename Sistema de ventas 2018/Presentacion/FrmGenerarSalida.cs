@@ -22,8 +22,6 @@ namespace Sistema_de_ventas_2018.Presentacion
         public int idSalida, ingresoId;//variables
         private void FrmGenerarSalida_Load(object sender, EventArgs e)
         {
-            try
-            {
                 Salida salida = new Salida();//instanciamo nuestra clase Salida para rellenarle sus atributos
                 salida.Numero = idSalida;//validar el campo en el formulario
                 salida.FechaSalida = DateTime.Now.Date;
@@ -35,12 +33,7 @@ namespace Sistema_de_ventas_2018.Presentacion
               {
                     idSalida = returnId;//igualamos variable
                     lblNumeroSalida.Text = returnId.ToString();
-              }                  
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+              }          
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

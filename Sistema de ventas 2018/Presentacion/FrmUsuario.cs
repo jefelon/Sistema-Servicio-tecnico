@@ -57,13 +57,9 @@ namespace Sistema_de_ventas_2018.Presentacion
             }
         }
         private void btnGuardar_Click(object sender, EventArgs e)
-        {
-
-          
+        {          
             string contrasena = txtContrasena.Text.Trim();
            
-            try
-            {
                 string sResultado = validarDatos();
                 if (sResultado == "")
                 {
@@ -103,12 +99,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                     {
                        MessageBox.Show("Error: \n" + sResultado);
                     }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                }           
         }
         public string validarDatos()
         {
@@ -185,29 +176,26 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (txtId.Text != "")
             {
-                if(MessageBox.Show("¿Está seguro de eliminar el dato seleccionados ? ", "Eliminado",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                if (MessageBox.Show("¿Está seguro de eliminar el dato seleccionados ? ", "Eliminado",
+                               MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     Usuario usuario = new Usuario();
-                    Usuario.Id =Convert.ToInt32(dgvDatos.CurrentRow.Cells["Id"].Value.ToString());
+                    Usuario.Id = Convert.ToInt32(txtId.Text);
                     int returnId = FUsuario.Eliminar(usuario);
-                    if(returnId > 0)
+                    if (returnId > 0)
                     {
-                        MessageBox.Show("Eliminado");
                         FrmUsuario_Load(null, null);
                     }
-                }
-                else
-                {
-                    MessageBox.Show("No se pudo eliminar, talvez no hay modelo registrado", "No se puede eliminar");
+
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar, talvez no hay modelo registrado", "No se puede eliminar");
+                    }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                   
         }
         private void asignarDatos()
         {

@@ -33,9 +33,6 @@ namespace Sistema_de_ventas_2018.Presentacion
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
-            try
-            {
                 string sResultado = validarDatos();
                 if (sResultado == "")
                 {
@@ -87,11 +84,6 @@ namespace Sistema_de_ventas_2018.Presentacion
                 {
                     MessageBox.Show("Error + \n" + sResultado);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
         }
         public string validarDatos()
         {
@@ -148,32 +140,6 @@ namespace Sistema_de_ventas_2018.Presentacion
         {
             FrmDetalleProductoSalida_Load(null, null);
             habilitarBotones(false);
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (MessageBox.Show("¿Está seguro de eliminar el dato seleccionados ? ", "Eliminando...",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                {
-                    DetalleProductoSalida detalleprodcutosalida = new DetalleProductoSalida();
-                    detalleprodcutosalida.Id = Convert.ToInt32(dgvDatos.CurrentRow.Cells["Id"].Value.ToString());
-                    int returnId = FDetalleProductoSalida.Eliminar(detalleprodcutosalida);
-                    if (returnId > 0)
-                    {
-                        FrmDetalleProductoSalida_Load(null, null);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("No se pudo eliminar, talvez no hay aquipos registrados", "No se puede eliminar");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
         }
 
         private void dgvDatos_SelectionChanged(object sender, EventArgs e)

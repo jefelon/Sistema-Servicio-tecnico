@@ -38,8 +38,6 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void cargarComprobante(int id)
         {
-            try
-            {
                 DataTable dt2 = new DataTable();
                 DataSet ds4 = FVenta.Get(id);//mostramos todos los datos registrados 
                 dt2 = ds4.Tables[0];//asignamos los datos del datased a la tabla
@@ -65,40 +63,25 @@ namespace Sistema_de_ventas_2018.Presentacion
                 dgvDetalle.Columns["Id"].Visible = false;
                 dgvDetalle.Columns["VentaId"].Visible = false;
                 dgvDetalle.Columns["ProductoId"].Visible = false;
-                dgvDetalle.Columns["TipoDocumento"].Visible = false;
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                dgvDetalle.Columns["TipoDocumento"].Visible = false;                
+           
         }
 
         DataTable dt2 = new DataTable();//varaiables para crear la tabla
         DataTable dt5 = new DataTable();
         public void cargar_Datos()//mostramos en el cmbTipoDocumento los Tipos de documentos registrados 
         {
-            try
-            {
                 DataSet ds = FTipoDocumento.GetAll();//mostramos todos los datos registrados 
                 dt2 = ds.Tables[0];//asignamos los datos del datased a la tabla
                 cmbTipoDocumento.ValueMember = "Id";//visualizamos el id de tabla de TipoDocumento 
                 cmbTipoDocumento.DisplayMember = "Nombre";//visualizamos el Nombre de tabla de TipoDocumento
                 cmbTipoDocumento.DataSource = dt2;//los se mostraran en el cmbTipoDocumento
                 cmbTipoDocumento.SelectedIndex = 1;//del cmbTipoDocumento su valor inicial es 1
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-
+            
         }
         
         public void listarClientes()
         {
-            try
-
-            {
                 DataSet ds = FCliente.Buscar(txtCliente.Text);//instanciamos nuestra clase para buscar sus atributos
                  DataTable dt = ds.Tables[0];//asignamos los datos del datased a la tabla
 
@@ -122,18 +105,11 @@ namespace Sistema_de_ventas_2018.Presentacion
                     dgvClientes.Columns["Numero_Doc"].Visible = false;
                     dgvClientes.Visible = true;//se muestran los clientes en el dgvCliente
 
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                }            
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
                 string sResultado = validarDatos();
                 if (sResultado == "")
                 {
@@ -184,12 +160,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                 {
                     MessageBox.Show("Error + \n" + sResultado);//mensaje de error al no insertar un campo en el formulario
                     FrmVenta_Load(null, null);//el fomulario es nulo
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                }            
         }
        
         public string validarDatos()//validamos todos los campos del formulario para que no se registren vacios 

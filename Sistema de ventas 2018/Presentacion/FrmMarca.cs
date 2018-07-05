@@ -21,8 +21,6 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
                 string sResultado = validarDatos();
                 if (sResultado == "")
                 {
@@ -58,13 +56,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                 {
                     MessageBox.Show("Error + \n" + sResultado);
                     FrmMarca_Load(null, null);
-                }
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                }            
 
         }
         public string validarDatos()
@@ -82,17 +74,12 @@ namespace Sistema_de_ventas_2018.Presentacion
         private void FrmMarca_Load(object sender, EventArgs e)
         {
             mostrarOcultar(false);
-            try
-            {
+          
                 DataSet ds = FMarca.GetAll();
                 dt = ds.Tables[0];
                 dgvDatos.DataSource = dt;
                 dgvDatos.Columns["Id"].Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+            
         }
         public void mostrarOcultar(bool b)
         {
@@ -129,15 +116,15 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (txtId.Text != "")
             {
                 if (MessageBox.Show("¿Está seguro de eliminar el dato seleccionados ? ", "Eliminando...",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                                   MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     Marca marca = new Marca();
-                    marca.Id = Convert.ToInt32(dgvDatos.CurrentRow.Cells["Id"].Value.ToString());
+                    marca.Id = Convert.ToInt32(txtId.Text);
                     int returnId = FMarca.Eliminar(marca);
-                    if(returnId > 0)
+                    if (returnId > 0)
                     {
                         FrmMarca_Load(null, null);
                     }
@@ -146,11 +133,8 @@ namespace Sistema_de_ventas_2018.Presentacion
                         MessageBox.Show("No se pudo eliminar, talvez no hay marca registrada", "No se puede eliminar");
                     }
                 }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+            }              
+            
         }
         public void asignarDatos()
         {

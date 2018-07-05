@@ -22,8 +22,6 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
                 string sResultado = validarDatos();
                 if (sResultado == "")
                 {
@@ -60,12 +58,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                 {
                     MessageBox.Show("Error + \n" + sResultado);
                     FrmTipoDocumento_Load(null, null);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                }            
         }
         public string validarDatos()
         {
@@ -82,17 +75,12 @@ namespace Sistema_de_ventas_2018.Presentacion
         private void FrmTipoDocumento_Load(object sender, EventArgs e)
         {
             mostrarOcultar(false);
-            try
-            {
+           
                 DataSet ds = FTipoDocumento.GetAll();
                 dt=ds.Tables[0];
                 dgvDatos.DataSource = dt;
                 dgvDatos.Columns["Id"].Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+            
         }
         private void mostrarOcultar(bool b)
         {
@@ -131,26 +119,26 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (txtId.Text != "")
             {
-                TipoDocumento tipodocumento = new TipoDocumento();
-                tipodocumento.Id = Convert.ToInt32(dgvDatos.CurrentRow.Cells["Id"].Value.ToString());
-                if(FTipoDocumento.Eliminar(tipodocumento) > 0)
+                if (MessageBox.Show("¿Está seguro de eliminar el dato seleccionados ? ", "Eliminado",
+                                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    FrmTipoDocumento_Load(null, null);
+                    TipoDocumento tipodocumento = new TipoDocumento();
+                    tipodocumento.Id = Convert.ToInt32(txtId.Text);
+                    if (FTipoDocumento.Eliminar(tipodocumento) > 0)
+                    {
+                        FrmTipoDocumento_Load(null, null);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar, talvez no hay tipo de documento registrados", "No se puede eliminar");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("No se pudo eliminar, talvez no hay tipo de documento registrados", "No se puede eliminar");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+            }          
+            
         }
-
-       
+               
         private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             asignarDatos();

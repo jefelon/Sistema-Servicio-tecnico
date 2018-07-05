@@ -21,8 +21,6 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
                 string sResultado = validarDatos();
                 if (sResultado == "")
                 {
@@ -57,11 +55,6 @@ namespace Sistema_de_ventas_2018.Presentacion
                     MessageBox.Show("Error + \n" + sResultado);
                     FrmServicio_Load(null, null);
                 }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
         }
         public string validarDatos()
         {
@@ -82,18 +75,12 @@ namespace Sistema_de_ventas_2018.Presentacion
         private void FrmServicio_Load(object sender, EventArgs e)
         {
             mostrarOcultar(false);
-            try
-            {
+            
                 DataSet ds= FServicio.GetAll();
                 dt1 = ds.Tables[0];
                 dgvDatos.DataSource = dt1;
                 dgvDatos.Columns["Id"].Visible = false;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        
+                   
         }
         public void mostrarOcultar(bool b)
         {
@@ -132,28 +119,25 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (txtId.Text != "")
             {
-                if(MessageBox.Show("¿Está seguro de eliminar el dato seleccionados ? ", "Eliminado",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                if (MessageBox.Show("¿Está seguro de eliminar el dato seleccionados ? ", "Eliminado",
+             MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     Servicio servicio = new Servicio();
-                    servicio.Id = Convert.ToInt32(dgvDatos.CurrentRow.Cells["Id"].Value.ToString());
+                    servicio.Id = Convert.ToInt32(txtId.Text);
                     int returnId = FServicio.Eliminar(servicio);
                     if (returnId > 0)
                     {
-                        FrmServicio_Load(null,null);
+                        FrmServicio_Load(null, null);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar, talvez no hay modelo registrado", "No se puede eliminar");
                     }
                 }
-                else
-                {
-                    MessageBox.Show("No se pudo eliminar, talvez no hay modelo registrado", "No se puede eliminar");
-                }
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                  
         }
         public void asignarDatos()
         {

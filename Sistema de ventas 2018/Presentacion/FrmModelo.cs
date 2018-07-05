@@ -21,8 +21,6 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
                 string sResultado = validarDatos();
                 if (sResultado == "")
                 {
@@ -57,12 +55,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                 {
                     MessageBox.Show("Error + \n" + sResultado);
                     FrmModelo_Load(null, null);
-                 }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                 }           
         }
         public string validarDatos()
         {
@@ -79,17 +72,12 @@ namespace Sistema_de_ventas_2018.Presentacion
         private void FrmModelo_Load(object sender, EventArgs e)
         {
             mostrarOcultar(false);
-            try
-            {
+            
                 DataSet ds =  FModelo.GetAll();
                 dt = ds.Tables[0];
                 dgvDatos.DataSource= dt;
                 dgvDatos.Columns["Id"].Visible = false;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+            
         }
         public void mostrarOcultar(bool b)
         {
@@ -126,28 +114,25 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (txtId.Text != "")
             {
                 if (MessageBox.Show("¿Está seguro de eliminar el dato seleccionados ? ", "Eliminado",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                               MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     Modelo modelo = new Modelo();
                     modelo.Id = Convert.ToInt32(dgvDatos.CurrentRow.Cells["Id"].Value.ToString());
                     int returnId = FModelo.Eliminar(modelo);
-                    if(returnId > 0)
+                    if (returnId > 0)
                     {
                         FrmModelo_Load(null, null);
                     }
-                }
-                else
-                {
-                    MessageBox.Show("No se pudo eliminar, talvez no hay modelo registrado", "No se puede eliminar");
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar, talvez no hay modelo registrado", "No se puede eliminar");
+                    }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                   
         }
         private void asignarDatos()
         {

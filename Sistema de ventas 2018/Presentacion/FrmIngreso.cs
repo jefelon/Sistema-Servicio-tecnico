@@ -24,8 +24,6 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
                 string sResultado = validarDatos();
                 if (sResultado == "")
                 {
@@ -56,12 +54,8 @@ namespace Sistema_de_ventas_2018.Presentacion
 
                         FrmIngreso_Load(null, null);
                     }
-                }                  
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                }                 
+            
         }
         public string validarDatos()
         {//Id, Numero, FechaIngreso, ObservacionExterna, ObservacionInterna, MotivoIngreso, FechaProbableReparacion, Adelanto, Estado, ClienteId, EquipoId

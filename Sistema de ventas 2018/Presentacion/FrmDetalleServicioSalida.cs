@@ -32,8 +32,6 @@ namespace Sistema_de_ventas_2018.Presentacion
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
                 string sResultad = validarDatos();
                 if (sResultad == "")
                 {
@@ -70,12 +68,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                 else
                 {
                     MessageBox.Show("Error + \n" + sResultad);//muestra error falta ingresar el campo
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                }           
         }
         public string validarDatos()//validamos todos los campos del formulario para que no se registren vacios 
         {
@@ -165,6 +158,6 @@ namespace Sistema_de_ventas_2018.Presentacion
         {
             habilitarBotones(true);//habilitamos el metodo
             mostrarOcultar(true);//habilitamos el metodo
-        }
+        }        
     }
 }

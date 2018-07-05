@@ -165,19 +165,19 @@ namespace Sistema_de_ventas_2018.Datos
 
             cn.Open();
 
-            try
-            {
+            //try
+            //{
                 retVal = cmd.ExecuteScalar();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
+            //}
+            //catch (Exception)
+            //{
+            //    throw;
+            //}
+            //finally
+            //{
                 if (null != cn)
                     cn.Close();
-            }
+            //}
 
             return retVal;
         }

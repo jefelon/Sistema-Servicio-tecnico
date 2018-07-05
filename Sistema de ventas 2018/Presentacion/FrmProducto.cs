@@ -68,8 +68,7 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         { //Id, Codigo, Nombre, PrecioCompra, PrecioVenta, StockMinimo, StockMaximo, MarcaId, ModeloId, UnidadMedidaId, CategoriaId, ProveedorId, Ubicacion, FechaRegistro
-            try
-            {
+            
                 string sResultado = validarDatos();
                 if (sResultado == "")
                 {
@@ -128,12 +127,6 @@ namespace Sistema_de_ventas_2018.Presentacion
                     {
                         MessageBox.Show("Error + \n" + sResultado);
                     }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
         }
         public string validarDatos()
         {
@@ -180,17 +173,12 @@ namespace Sistema_de_ventas_2018.Presentacion
             cargar_Modelo();
             cargar_Proveedor();
             cargar_UnidadMedida();
-            try
-            {
+                        
                 DataSet ds = FProducto.GetAll();
                 dt0 = ds.Tables[0];
                 dgvDatos.DataSource = dt0;
                 dgvDatos.Columns["Id"].Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+           
         }
         public void mostrarOcultar(bool b)
         {//Id, Codigo, Nombre, PrecioCompra, PrecioVenta, StockMinimo, StockMaximo, MarcaId, ModeloId, UnidadMedidaId, CategoriaId, ProveedorId, Ubicacion, FechaRegistro
@@ -257,10 +245,10 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (txtId.Text != "")
             {
                 if (MessageBox.Show("¿Está seguro de eliminar el dato seleccionados ? ", "Eliminando...",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     Producto producto = new Producto();
                     producto.Id = Convert.ToInt32(txtId.Text);
@@ -274,12 +262,9 @@ namespace Sistema_de_ventas_2018.Presentacion
                     {
                         MessageBox.Show("No se pudo eliminar, talvez no hay marca registrada", "No se puede eliminar");
                     }
-                } 
-           }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                }
+            }                
+           
         }
         public void asignarDatos()
         {

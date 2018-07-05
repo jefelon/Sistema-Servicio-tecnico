@@ -88,9 +88,6 @@ namespace Sistema_de_ventas_2018.Presentacion
         }
         public void listarProveedor()
         {
-            try
-
-            {
                 DataSet ds = FCompra.Buscar(txtProveedor.Text);
                 DataTable dt = ds.Tables[0];
 
@@ -115,16 +112,10 @@ namespace Sistema_de_ventas_2018.Presentacion
                     dgvProveedor.Visible = true;
 
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+          
         }
         private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            try
-            {
+        {            
                 string sResultado = validarDatos();
                 if (sResultado == "")
                 {//Id, ProveedorId, UsuarioId, TipoDocumentoId, Nro_comprobante, Fecha
@@ -167,12 +158,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                 {
                     MessageBox.Show("Error + \n" + sResultado);
                     FrmCompra_Load (null, null);
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                }           
         }
         public string validarDatos()
         {//Id, ProveedorId, UsuarioId, TipoDocumentoId, Nro_comprobante, Fecha

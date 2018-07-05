@@ -30,24 +30,17 @@ namespace Sistema_de_ventas_2018.Presentacion
         private void FrmStock_Load(object sender, EventArgs e)
         {
             mostrarOcultar(false);
-            try
-            {
+
                 DataSet ds1 = FStock.GetAll();
                 dt1 = ds1.Tables[0];
                 dgvDatos.DataSource = dt1;
                 dgvDatos.Columns["Id"].Visible = false;
                 dgvDatos.Columns["ProductoId"].Visible = false;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+            
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
                 string sResultado = validarDatos();
                 if (sResultado == "")
                 {
@@ -79,11 +72,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                 {
                     MessageBox.Show("Error + \n" + sResultado);
                 }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+            
         }
         public string validarDatos()
         {

@@ -112,18 +112,13 @@ namespace Sistema_de_ventas_2018.Presentacion
         {
             cargar_Modelo();
             cargar_Marca();
-            mostrarOcultar(false);
-            try
-            {
-                DataSet ds = FEquipo.GetAll(); 
-                dt = ds.Tables[0]; 
-                dgvDatos.DataSource = dt;
-                dgvDatos.Columns["Id"].Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+            mostrarOcultar(false);  
+                      
+            DataSet ds = FEquipo.GetAll(); 
+            dt = ds.Tables[0]; 
+            dgvDatos.DataSource = dt;
+            dgvDatos.Columns["Id"].Visible = false;
+            
         }
         private void mostrarOcultar(bool b)
         {
@@ -166,14 +161,14 @@ namespace Sistema_de_ventas_2018.Presentacion
         
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (txtId.Text != "")
             {
                 if (MessageBox.Show("¿Está seguro de eliminar el dato seleccionados ? ", "Eliminando...",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     Equipo equipo = new Equipo();
-                    equipo.Id = Convert.ToInt32(dgvDatos.CurrentRow.Cells["Id"].Value.ToString()); 
-                    if(FEquipo.Eliminar(equipo) > 0 )
+                    equipo.Id = Convert.ToInt32(txtId.Text);
+                    if (FEquipo.Eliminar(equipo) > 0)
                     {
                         FrmEquipo_Load(null, null);
                     }
@@ -182,11 +177,8 @@ namespace Sistema_de_ventas_2018.Presentacion
                         MessageBox.Show("No se pudo eliminar, talvez no hay aquipos registrados", "No se puede eliminar");
                     }
                 }
-              }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+            }         
+                          
         }
 
         private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)

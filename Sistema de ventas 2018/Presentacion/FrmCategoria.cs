@@ -79,17 +79,17 @@ namespace Sistema_de_ventas_2018.Presentacion
         {
             mostrarOcultar(false);
             //una consulta a la base de datos siempre trataremos de omar el control, por si pasa algun error y se cierre la aplicación
-            try
-            {
+            //try
+            //{
                 DataSet ds = FCategoria.GetAll();//creamos un dataset, un contenedor de datos y hacemos una consulta con la clase FCategoria y su método GetAll
                 dt = ds.Tables[0]; //asignamos los datos del datased a la tabla
                 dgvDatos.DataSource = dt; //propiamente dicho al datagridview le pasamos los datos de la tabla
                 dgvDatos.Columns["Id"].Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message + ex.StackTrace);
+            //}
         }
 
         private void mostrarOcultar(bool b)
@@ -129,14 +129,14 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (txtId.Text !="")
             {
                 if (MessageBox.Show("¿Está seguro de eliminar el dato seleccionados?", "Eliminando...",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                        MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
 
                     Categoria categoria = new Categoria();// instanciamo nuestra clase para rellenarle sus atributos
-                    categoria.Id = Convert.ToInt32(dgvDatos.CurrentRow.Cells["Id"].Value.ToString());// para eliminar solo le pasaremos su atributo id
+                    categoria.Id = Convert.ToInt32(txtId.Text);// para eliminar solo le pasaremos su atributo id
 
                     if (FCategoria.Eliminar(categoria) > 0)// Ejecutamos el procedimiento almacenado para eliminar, si se pudo eliminar... recargamos el formulario
                     {
@@ -149,10 +149,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                
         }
 
         private void asinarDatos()        

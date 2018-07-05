@@ -21,8 +21,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
+            
                 string sResultado = valitarDatos();
                 if (sResultado == "")
                 {
@@ -82,64 +81,30 @@ namespace Sistema_de_ventas_2018.Presentacion
                     MessageBox.Show("Error + \n" + sResultado);
                     FrmCliente_Load(null, null);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+            
         }
         public string valitarDatos()
         {
             string resultado = "";
-            if (txtTipodoc.Text == "")
-            {
-                resultado = "El campo Tipo Doc está vacío";
-                txtTipodoc.Focus();
-            }
-            //if (txtRuc.Text == "")
-            //{
-            //    resultado = "El campo Ruc está vacío";
-            //    txtRuc.Focus();
-            //}
-            //if (txtDni.Text == "")
-            //{
-            //    resultado = "El campo Dni está vacío";
-            //    txtDni.Focus();
-            //}
-            if (txtNumerodoc.Text == "")
-            {
-                resultado = "El campo N° Doc está vacío";
-                txtNumerodoc.Focus();
-            }
-            if (txtRazonsocial.Text == "")
-            {
-                resultado = "El campo Razon Social está vacío";
-                txtRazonsocial.Focus();
-            }
+            
             if (txtNombre.Text == "")
             {
                 resultado = "El campo Nombre está vacío";
                 txtNombre.Focus();
             }
-
-
+            
             return resultado;
          }
         private static DataTable dt = new DataTable();
         private void FrmCliente_Load(object sender, EventArgs e)
         {
             mostrarOcultar(false);
-            try
-            {
+            
                 DataSet ds = FCliente.GetAll();
                 dt = ds.Tables[0];
                 dgvDatos.DataSource = dt;
                 dgvDatos.Columns["Id"].Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+            
         }
         public void mostrarOcultar(bool b)
         {
@@ -195,28 +160,26 @@ namespace Sistema_de_ventas_2018.Presentacion
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (txtId.Text != "")
             {
                 if (MessageBox.Show("¿Está seguro de eliminar el dato seleccionados ? ", "Eliminando...",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     Cliente cliente = new Cliente();
-                    cliente.Id = Convert.ToInt32(dgvDatos.CurrentRow.Cells["Id"].Value.ToString());
+                    cliente.Id = Convert.ToInt32(txtId.Text);
                     int returnId = FCliente.Eliminar(cliente);
-                    if(returnId > 0) 
+                    if (returnId > 0)
                     {
                         FrmCliente_Load(null, null);
                     }
-                }
-                else
-                {
-                    MessageBox.Show("No se pudo eliminar, talvez no hay proveedor registrado", "No se puede eliminar");
+
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar, talvez no hay proveedor registrado", "No se puede eliminar");
+                    }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                   
         }
         private void asignarDatos()
         {
