@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.btnTpv = new System.Windows.Forms.Button();
-            this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnproveedores = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnCompras = new System.Windows.Forms.Button();
@@ -88,18 +87,6 @@
             this.btnTpv.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnTpv.UseVisualStyleBackColor = true;
             this.btnTpv.Click += new System.EventHandler(this.btnTpv_Click);
-            // 
-            // btnUsuarios
-            // 
-            this.btnUsuarios.Image = global::Sistema_de_ventas_2018.Properties.Resources.closed_purse;
-            this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnUsuarios.Location = new System.Drawing.Point(21, 411);
-            this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Size = new System.Drawing.Size(103, 67);
-            this.btnUsuarios.TabIndex = 0;
-            this.btnUsuarios.Text = "SEGURIDAD";
-            this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnUsuarios.UseVisualStyleBackColor = true;
             // 
             // btnproveedores
             // 
@@ -243,7 +230,7 @@
             this.stockToolStripMenuItem,
             this.usuarioToolStripMenuItem});
             this.tablasToolStripMenuItem.Name = "tablasToolStripMenuItem";
-            this.tablasToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.tablasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.tablasToolStripMenuItem.Text = "Tablas";
             // 
             // categoriasToolStripMenuItem
@@ -354,7 +341,7 @@
             // ventasToolStripMenuItem
             // 
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
-            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.ventasToolStripMenuItem.Text = "Ventas";
             this.ventasToolStripMenuItem.Click += new System.EventHandler(this.ventasToolStripMenuItem_Click);
             // 
@@ -368,7 +355,7 @@
             // vistaVentaToolStripMenuItem
             // 
             this.vistaVentaToolStripMenuItem.Name = "vistaVentaToolStripMenuItem";
-            this.vistaVentaToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
+            this.vistaVentaToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
             this.vistaVentaToolStripMenuItem.Text = "Ventas Generales";
             this.vistaVentaToolStripMenuItem.Click += new System.EventHandler(this.vistaVentaToolStripMenuItem_Click_1);
             // 
@@ -467,7 +454,6 @@
             this.Controls.Add(this.btnTpv);
             this.Controls.Add(this.btnSalida);
             this.Controls.Add(this.btnIngreso);
-            this.Controls.Add(this.btnUsuarios);
             this.Controls.Add(this.btnproveedores);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnCompras);
@@ -493,7 +479,6 @@
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnTpv;
         private System.Windows.Forms.Button btnproveedores;
-        private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;

@@ -43,7 +43,9 @@ namespace Sistema_de_ventas_2018.Presentacion
 
                 cmbTipo.Items.Clear();
                 cmbTipo.Items.Add("VENDEDOR");
+
                 cmbTipo.SelectedIndex = 0;
+
 
 
                 btnNuevo.Enabled = false;
