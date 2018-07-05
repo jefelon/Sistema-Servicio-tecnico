@@ -41,23 +41,6 @@ namespace Sistema_de_ventas_2018.Datos
             return DBHelper.ExecuteDataSet("usp_Datos_FUsuario_GetAll", dbParams);//procedimiento de la base de daatos que trae todos los registros
 
         }
-        public static int InsertarUsuario(string sNombre, string sApellidos,  string sCelular, string sDireccion, string sDni, string sNombreUsuario, string sContrasena, string sTipo )
-
-        {
-            SqlParameter[] dbParams = new SqlParameter[]
-                {//Id, Nombre, Apellidos, Dni, Direccion, Celular, NombreUsuario, Contrasena, Tipo
-                    DBHelper.MakeParam("@Nombre", SqlDbType.VarChar, 0,sNombre ),
-                    DBHelper.MakeParam("@Apellidos", SqlDbType.VarChar, 0, sApellidos),
-                    DBHelper.MakeParam("@Dni", SqlDbType.Decimal, 0, sDni),
-                    DBHelper.MakeParam("@Direccion", SqlDbType.VarChar, 0, sDireccion),
-                    DBHelper.MakeParam("@Celular", SqlDbType.VarChar, 0,sCelular),
-                    DBHelper.MakeParam("@NombreUsuario", SqlDbType.VarChar, 0, sNombreUsuario),
-                    DBHelper.MakeParam("@Contrasena", SqlDbType.VarChar, 0, sContrasena),
-                    DBHelper.MakeParam("@Tipo", SqlDbType.VarChar, 0, sTipo)
-                };
-            return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Datos_FUsuario_Insertar", dbParams));
-
-        }
 
         public static int Insertar(string nombre,string apellidos, string dni, string direccion, string celular, string nombreUsuario, string contrasena, string tipo)
 
