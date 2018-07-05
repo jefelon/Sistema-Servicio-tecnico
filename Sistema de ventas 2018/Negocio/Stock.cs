@@ -10,7 +10,7 @@ namespace Sistema_de_ventas_2018.Negocio
     {
         private int _id;
         private int _cantidadStock;
-        private Producto _productoId;
+        private Producto _producto;
 
         public int Id
         {
@@ -19,11 +19,11 @@ namespace Sistema_de_ventas_2018.Negocio
             set{ _id = value;}
         }
 
-        public Producto ProductoId
+        public Producto Producto
         {
-            get { return _productoId; }
+            get { return _producto; }
 
-            set { _productoId = value; }
+            set { _producto = value; }
         }
 
         public int CantidadStock
@@ -35,7 +35,7 @@ namespace Sistema_de_ventas_2018.Negocio
         }
         public Stock()
         {
-            _productoId = new Producto();
+            _producto = new Producto();
         }
     }
 }

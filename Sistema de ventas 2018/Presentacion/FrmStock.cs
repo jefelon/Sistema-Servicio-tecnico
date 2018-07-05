@@ -47,7 +47,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                     if (txtId.Text == "")
                     {
                         Stock stock = new Stock();
-                        stock.ProductoId.Id= Convert.ToInt32(txtProductoId.Text);
+                        stock.Producto.Id= Convert.ToInt32(txtProductoId.Text);
                         stock.CantidadStock = Convert.ToInt32(txtStock.Text);
                         int returnId = FStock.Insertar(stock);
                         if (returnId > 0)
@@ -59,7 +59,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                     {
                         Stock stock = new Stock();
                         stock.Id = Convert.ToInt32(txtId.Text);
-                        stock.ProductoId.Id = Convert.ToInt32(txtProductoId.Text);
+                        stock.Producto.Id = Convert.ToInt32(txtProductoId.Text);
                         stock.CantidadStock = Convert.ToInt32(txtStock.Text);
                         int returnId = FStock.Actualizar(stock);
                         if (returnId > 0)
