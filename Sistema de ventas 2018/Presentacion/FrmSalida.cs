@@ -144,7 +144,7 @@ namespace Sistema_de_ventas_2018.Presentacion
             dt = ds.Tables[0];//asignamos los datos del datased a la tabla
             dgvDetalleProductoSalida.DataSource = dt; //pasamos los datos de la tabla al datagridview
             dgvDetalleProductoSalida.Columns["ProductoId"].Visible = false;
-            dgvDetalleProductoSalida.Columns["Id"].Visible = false;
+            //dgvDetalleProductoSalida.Columns["Id"].Visible = false;
         }
 
         private void btnAgregarServicios_Click(object sender, EventArgs e)
@@ -242,7 +242,9 @@ namespace Sistema_de_ventas_2018.Presentacion
                 Report frmComprobantes = new Report();
                 frmComprobantes.Load(@"Reportes/ReporteSalida.frx");
                 frmComprobantes.Dictionary.Connections[0].ConnectionString = ConfigurationManager.AppSettings.Get("connectionString");
-                frmComprobantes.SetParameterValue("Numero", Convert.ToInt32(txtId.Text));
+                frmComprobantes.SetParameterValue("Numero", Convert.ToInt32(txtBuscarIngreso.Text));
+                frmComprobantes.SetParameterValue("IngresoId", Convert.ToInt32(txtIdIngreso.Text));
+                frmComprobantes.SetParameterValue("SalidaId", Convert.ToInt32(txtId.Text));
                 frmComprobantes.Show();
             }
         }

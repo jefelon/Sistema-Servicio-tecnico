@@ -43,20 +43,13 @@ namespace Sistema_de_ventas_2018.Presentacion
 
                 cmbTipo.Items.Clear();
                 cmbTipo.Items.Add("VENDEDOR");
-<<<<<<< HEAD
-<<<<<<< HEAD
+
                 cmbTipo.SelectedIndex = 0;
 
-=======
+
 
                 btnNuevo.Enabled = false;
                 btnEliminar.Enabled = false;
->>>>>>> 138b88afa8752cb410cede66b7fdfbcaea97869d
-=======
-
-                btnNuevo.Enabled = false;
-                btnEliminar.Enabled = false;
->>>>>>> 138b88afa8752cb410cede66b7fdfbcaea97869d
             }
             else
             {

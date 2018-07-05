@@ -55,13 +55,13 @@ namespace Sistema_de_ventas_2018.Presentacion
                 {
                     MessageBox.Show("Error: \n" + sResultado);
                 }//fin validacion datos
-            }
+        }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
 
-        }
+}
 
         public string validarDatos()//validamos todos los campos del formulario, para que no se registren vacios 
         {
