@@ -94,7 +94,14 @@ namespace Sistema_de_ventas_2018.Presentacion
                                 int returnId = FProducto.Insertar(producto);
                                 if (returnId > 0)
                                 {
-                                    FrmProducto_Load(null, null);
+
+                                  Stock stock = new Stock();
+                                  stock.Producto.Id = returnId;
+                                  stock.CantidadStock = 0;
+
+                                 FStock.Insertar(stock);
+
+                            FrmProducto_Load(null, null);
                                     habilitarBotones(false);
                                 }
                             }
