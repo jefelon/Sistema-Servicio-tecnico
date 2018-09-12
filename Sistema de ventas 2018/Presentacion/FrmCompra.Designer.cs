@@ -53,7 +53,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -63,6 +63,12 @@
             this.cmbUnidadMedia = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtConversion = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtSubTotal = new System.Windows.Forms.TextBox();
+            this.txtIgv = new System.Windows.Forms.TextBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.SuspendLayout();
@@ -258,7 +264,7 @@
             this.Column2,
             this.Column3,
             this.Column4,
-            this.Column1});
+            this.PrecioCompra});
             this.dgvDetalle.Location = new System.Drawing.Point(57, 234);
             this.dgvDetalle.Name = "dgvDetalle";
             this.dgvDetalle.ReadOnly = true;
@@ -297,11 +303,11 @@
             this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // Column1
+            // PrecioCompra
             // 
-            this.Column1.HeaderText = "PrecioCompra";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.PrecioCompra.HeaderText = "PrecioCompra";
+            this.PrecioCompra.Name = "PrecioCompra";
+            this.PrecioCompra.ReadOnly = true;
             // 
             // label4
             // 
@@ -323,7 +329,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(452, 457);
+            this.btnCancelar.Location = new System.Drawing.Point(452, 485);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(113, 52);
             this.btnCancelar.TabIndex = 98;
@@ -333,17 +339,17 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(273, 457);
+            this.btnGuardar.Location = new System.Drawing.Point(273, 485);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(122, 52);
             this.btnGuardar.TabIndex = 97;
-            this.btnGuardar.Text = "GUARDAR VENTA";
+            this.btnGuardar.Text = "GUARDARN COMPRA";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(82, 457);
+            this.btnNuevo.Location = new System.Drawing.Point(82, 485);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(126, 52);
             this.btnNuevo.TabIndex = 96;
@@ -385,11 +391,62 @@
             this.txtConversion.Size = new System.Drawing.Size(54, 20);
             this.txtConversion.TabIndex = 91;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(605, 450);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(67, 13);
+            this.label12.TabIndex = 101;
+            this.label12.Text = "SUBTOTAL:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(644, 474);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(28, 13);
+            this.label13.TabIndex = 101;
+            this.label13.Text = "IGV:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(630, 498);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(42, 13);
+            this.label14.TabIndex = 101;
+            this.label14.Text = "TOTAL";
+            // 
+            // txtSubTotal
+            // 
+            this.txtSubTotal.Location = new System.Drawing.Point(678, 447);
+            this.txtSubTotal.Name = "txtSubTotal";
+            this.txtSubTotal.Size = new System.Drawing.Size(88, 20);
+            this.txtSubTotal.TabIndex = 89;
+            // 
+            // txtIgv
+            // 
+            this.txtIgv.Location = new System.Drawing.Point(678, 471);
+            this.txtIgv.Name = "txtIgv";
+            this.txtIgv.Size = new System.Drawing.Size(88, 20);
+            this.txtIgv.TabIndex = 89;
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Location = new System.Drawing.Point(678, 495);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(88, 20);
+            this.txtTotal.TabIndex = 89;
+            // 
             // FrmCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(788, 539);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.cmbUnidadMedia);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
@@ -403,6 +460,9 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.txtIgv);
+            this.Controls.Add(this.txtSubTotal);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtProducto);
@@ -458,14 +518,20 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnNuevo;
         public System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductoId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbUnidadMedia;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtConversion;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        public System.Windows.Forms.TextBox txtSubTotal;
+        public System.Windows.Forms.TextBox txtIgv;
+        public System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductoId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioCompra;
     }
 }

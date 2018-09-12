@@ -48,7 +48,7 @@ namespace Sistema_de_ventas_2018.Datos
             {
                 DBHelper.MakeParam("@Id",SqlDbType.Int,0,detalleProductoSalida.Id)               
             };
-            return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Datos_FDetalleProdcutoSalida_Eliminar", dbParams));
+            return Convert.ToInt32(DBHelper.ExecuteScalar("usp_Datos_FDetalleProductoSalida_Eliminar", dbParams));
         }
     }
 }

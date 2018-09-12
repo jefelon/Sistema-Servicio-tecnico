@@ -107,6 +107,12 @@
     <Compile Include="Presentacion\FrmCompra-Vista.Designer.cs">
       <DependentUpon>FrmCompra-Vista.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\FrmEquiposEstados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmEquiposEstados.Designer.cs">
+      <DependentUpon>FrmEquiposEstados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\FrmGenerarSalida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,12 @@
     </Compile>
     <Compile Include="Presentacion\FrmInventario.Designer.cs">
       <DependentUpon>FrmInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmKardex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmKardex.Designer.cs">
+      <DependentUpon>FrmKardex.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\FrmListaEquipos.cs">
       <SubType>Form</SubType>
@@ -289,11 +301,17 @@
     <EmbeddedResource Include="Presentacion\FrmCompra-Vista.resx">
       <DependentUpon>FrmCompra-Vista.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmEquiposEstados.resx">
+      <DependentUpon>FrmEquiposEstados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmGenerarSalida.resx">
       <DependentUpon>FrmGenerarSalida.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmInventario.resx">
       <DependentUpon>FrmInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmKardex.resx">
+      <DependentUpon>FrmKardex.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmListaEquipos.resx">
       <DependentUpon>FrmListaEquipos.cs</DependentUpon>

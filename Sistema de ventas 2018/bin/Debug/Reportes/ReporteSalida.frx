@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<Report ScriptLanguage="CSharp" ReportInfo.Created="06/15/2018 15:39:18" ReportInfo.Modified="07/04/2018 16:24:07" ReportInfo.CreatorVersion="2018.1.4.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/15/2018 15:39:18" ReportInfo.Modified="07/18/2018 13:15:11" ReportInfo.CreatorVersion="2018.1.4.0">
   <ScriptText>using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,12 +23,7 @@ namespace FastReport
 }
 </ScriptText>
   <Dictionary>
-    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqPF4IyY6Q6qJcDVeoVH6CNyMX5/uorhULEwj97E4evbP0gdsz+QQx6PCuFiFdpwskOeIZ+kkBqq5XbDld57OoDrnYiXnp3nrjSeXkk0d62NFB6D53GHdyfULLr+eHjgxKxVzloeU/V4dPxT5+HhuMqiab5x9gc7WtZm81LNHq/L7TLTuBpUKh01x3NoIs9/n/QouVbmHFssXcSBKOQvQVbw==">
-=======
-<Report ScriptLanguage="CSharp" ReportInfo.Created="06/15/2018 15:39:18" ReportInfo.Modified="07/03/2018 20:39:44" ReportInfo.CreatorVersion="2018.1.4.0">
-  <Dictionary>
-    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqPF4IyY6Q6qJcDVeoVH6CNyMX5/uorhULEwj97E4evbP0gdsz+QQx6PCuFiFdpwskOeIZ+kkBqq5XbDld57OoDrnYiXnp3nrjSeXkk0d62NFB6D53GHdyfULLr+eHjgxKxVzloeU/V4dPxT5+HhuMqiab5x9gc7WtZm81LNHq/L7TLTuBpUKh01x3NoIs9/n/d1uMP9JNzZXw+BFhWg34Pg==">
->>>>>>> 4289d7976600478ac65bf224a6a5587fb6acf001
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqPF4IyY6Q6qJcDVeoVH6CNyMX5/uorhULEwj97E4evbP0gdsz+QQx6PCuFiFdpwskOeIZ+kkBqq5XbDld57OoDrnYiXnp3nrjSeXkk0d62NFB6D53GHdyfULLr+eHjgxKxVzloeU/V4dPxT5+HhuMqiab5x9gc7WtZm81LNHq/L7TLTuBpUKh01x3NoIs9/n/wQ8PyGJvoCWkHgMvDCl5nA==">
       <TableDataSource Name="Table" Alias="ReporteIngreso" DataType="System.Int32" Enabled="true" SelectCommand="SELECT        dbo.tblIngreso.Id, dbo.tblIngreso.Numero, dbo.tblIngreso.FechaIngreso, dbo.tblIngreso.ObservacionExterna, dbo.tblIngreso.ObservacionInterna, dbo.tblIngreso.MotivoIngreso, dbo.tblIngreso.FechaProbableReparacion, &#13;&#10;                         dbo.tblIngreso.Adelanto, dbo.tblIngreso.Estado, dbo.tblCliente.Dni, dbo.tblCliente.Razon_social, dbo.tblCliente.Nombre, dbo.tblCliente.Direccion, dbo.tblEquipo.Descripcion, dbo.tblMarca.Nombre AS Marca, &#13;&#10;                         dbo.tblModelo.Nombre AS Modelo&#13;&#10;FROM            dbo.tblIngreso INNER JOIN&#13;&#10;                         dbo.tblCliente ON dbo.tblIngreso.ClienteId = dbo.tblCliente.Id INNER JOIN&#13;&#10;                         dbo.tblEquipo ON dbo.tblIngreso.EquipoId = dbo.tblEquipo.Id INNER JOIN&#13;&#10;                         dbo.tblMarca ON dbo.tblEquipo.MarcaId = dbo.tblMarca.Id AND dbo.tblEquipo.MarcaId = dbo.tblMarca.Id INNER JOIN&#13;&#10;                         dbo.tblModelo ON dbo.tblEquipo.ModeloId = dbo.tblModelo.Id AND dbo.tblEquipo.ModeloId = dbo.tblModelo.Id&#13;&#10;WHERE dbo.tblIngreso.Numero=@Numero">
         <Column Name="Id" DataType="System.Int32"/>
         <Column Name="Dni" DataType="System.String"/>
@@ -47,11 +41,7 @@ namespace FastReport
         <Column Name="Descripcion" DataType="System.String"/>
         <Column Name="Marca" DataType="System.String"/>
         <Column Name="Modelo" DataType="System.String"/>
-<<<<<<< HEAD
         <CommandParameter Name="Numero" DataType="8" Expression="[Numero]"/>
-=======
-        <CommandParameter Name="Numero" DataType="22" Expression="[Numero]"/>
->>>>>>> 4289d7976600478ac65bf224a6a5587fb6acf001
       </TableDataSource>
       <TableDataSource Name="Table1" Alias="ReporteSalida" DataType="System.Int32" Enabled="true" SelectCommand="SELECT        dbo.tblSalida.Id, dbo.tblSalida.Numero, dbo.tblSalida.FechaSalida, dbo.tblSalida.Diagnostico, dbo.tblSalida.Estado&#13;&#10;FROM            dbo.tblSalida INNER JOIN&#13;&#10;                         dbo.tblIngreso ON dbo.tblSalida.IngresoId = dbo.tblIngreso.Id&#13;&#10;		where dbo.tblSalida.IngresoId=@IngresoId">
         <Column Name="Id" DataType="System.Int32"/>
@@ -61,7 +51,6 @@ namespace FastReport
         <Column Name="Estado" DataType="System.String"/>
         <CommandParameter Name="IngresoId" DataType="8" Expression="[IngresoId]"/>
       </TableDataSource>
-<<<<<<< HEAD
       <TableDataSource Name="Table2" Alias="DetalleProductoSalida" DataType="System.Int32" Enabled="true" SelectCommand="&#13;&#10;		SELECT        dbo.tblDetalleProductoSalida.Id,&#13;&#10;					 dbo.tblProducto.Nombre AS NombreProducto, dbo.tblProducto.Id AS ProductoId, dbo.tblDetalleProductoSalida.Cantidad,dbo.tblDetalleProductoSalida.Precio, dbo.tblDetalleProductoSalida.Cantidad*tblDetalleProductoSalida.Precio as Importe&#13;&#10;FROM            dbo.tblDetalleProductoSalida INNER JOIN&#13;&#10;                         dbo.tblProducto ON dbo.tblDetalleProductoSalida.ProductoId = dbo.tblProducto.Id INNER JOIN&#13;&#10;                         dbo.tblSalida ON dbo.tblDetalleProductoSalida.SalidaId = dbo.tblSalida.Id &#13;&#10;		WHERE tblDetalleProductoSalida.SalidaId=@SalidaId&#13;&#10;order by Id Desc">
         <Column Name="Id" DataType="System.Int32"/>
         <Column Name="NombreProducto" DataType="System.String"/>
@@ -83,91 +72,65 @@ namespace FastReport
     <Parameter Name="Numero" DataType="System.String"/>
     <Parameter Name="IngresoId" DataType="System.Int32"/>
     <Parameter Name="SalidaId" DataType="System.String"/>
+    <Total Name="Total" Expression="[DetalleServicioSalida.Importe]+[DetalleProductoSalida.Importe]" Evaluator="Data1"/>
   </Dictionary>
-  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210">
-    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="302.4">
-      <LineObject Name="Line1" Left="481.95" Height="283.5" Diagonal="true"/>
-      <TextObject Name="Text6" Left="160.65" Top="9.45" Width="151.2" Height="18.9" Text="REPORTE INGRESO" HorzAlign="Center" TextFill.Color="Red"/>
-      <TextObject Name="Text7" Left="699.3" Top="9.45" Width="151.2" Height="18.9" Text="REPORTE SALIDA" HorzAlign="Center" TextFill.Color="Green"/>
-      <TextObject Name="Text8" Left="670.95" Top="56.7" Width="189" Height="18.9" Text="[ReporteSalida.Numero]" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text11" Left="670.95" Top="198.45" Width="198.45" Height="18.9" Text="[ReporteSalida.FechaSalida]" Format="Date" Format.Format="d" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text12" Left="670.95" Top="103.95" Width="198.45" Height="18.9" Text="[ReporteSalida.Diagnostico]" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text13" Left="670.95" Top="151.2" Width="160.65" Height="18.9" Text="[ReporteSalida.Estado]" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text29" Left="557.55" Top="56.7" Width="94.5" Height="18.9" Text="Número:" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text30" Left="557.55" Top="198.45" Width="113.4" Height="18.9" Text="Fecha Entrega:" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text31" Left="557.55" Top="103.95" Width="94.5" Height="18.9" Text="Diagnostico:" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text32" Left="557.55" Top="151.2" Width="94.5" Height="18.9" Text="Estado:" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text1" Left="151.2" Top="47.25" Width="226.8" Height="18.9" Text="[ReporteIngreso.Numero]" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text2" Left="151.2" Top="151.2" Width="274.05" Height="18.9" Text="[ReporteIngreso.FechaIngreso]" Format="Date" Format.Format="d" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text3" Left="151.2" Top="75.6" Width="274.05" Height="37.8" Text="[ReporteIngreso.ObservacionInterna]" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text4" Left="151.2" Top="113.4" Width="274.05" Height="37.8" Text="[ReporteIngreso.MotivoIngreso]" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text5" Left="9.45" Top="47.25" Width="141.75" Height="18.9" Text="Número:" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text33" Left="9.45" Top="75.6" Width="141.75" Height="37.8" Text="Observación Inter:" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text34" Left="9.45" Top="113.4" Width="141.75" Height="37.8" Text="Motivo Ingres:" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text35" Left="9.45" Top="151.2" Width="141.75" Height="18.9" Text="Fecha Ingreso:" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text38" Left="151.2" Top="207.9" Width="226.8" Height="18.9" Text="[ReporteIngreso.Nombre]" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text39" Left="151.2" Top="245.7" Width="274.05" Height="28.35" Text="[ReporteIngreso.Direccion]" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text43" Left="9.45" Top="189" Width="368.55" Height="28.35" Text="Cliente:" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text44" Left="9.45" Top="245.7" Width="141.75" Height="28.35" Text="Dirección:" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text45" Left="9.45" Top="207.9" Width="141.75" Height="18.9" Text="Nombre:" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text46" Left="9.45" Top="283.5" Width="368.55" Height="18.9" Text="Equipo:" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text14" Left="151.2" Top="226.8" Width="226.8" Height="18.9" Text="[ReporteIngreso.Dni]" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text50" Left="9.45" Top="226.8" Width="141.75" Height="18.9" Text="DNI:" Font="Arial, 10pt, style=Bold"/>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="270" PaperHeight="210">
+    <ReportTitleBand Name="ReportTitle1" Width="945" Height="406.35" Border.Lines="Right">
+      <TextObject Name="Text6" Left="9.45" Top="9.45" Width="415.8" Height="28.35" Border.Lines="All" Text="REPORTE INGRESO" HorzAlign="Center" VertAlign="Center" TextFill.Color="Red"/>
+      <TextObject Name="Text7" Left="538.65" Top="9.45" Width="359.1" Height="28.35" Border.Lines="All" Text="REPORTE SALIDA" HorzAlign="Center" TextFill.Color="Green"/>
+      <TextObject Name="Text8" Left="652.05" Top="37.8" Width="245.7" Height="28.35" Border.Lines="All" Text="[ReporteSalida.Numero]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text11" Left="652.05" Top="179.55" Width="245.7" Height="28.35" Border.Lines="All" Text="[ReporteSalida.FechaSalida]" Format="Date" Format.Format="d" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text12" Left="652.05" Top="66.15" Width="245.7" Height="85.05" Border.Lines="All" Text="[ReporteSalida.Diagnostico]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text13" Left="652.05" Top="151.2" Width="245.7" Height="28.35" Border.Lines="All" Text="[ReporteSalida.Estado]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text29" Left="538.65" Top="37.8" Width="113.4" Height="28.35" Border.Lines="All" Text="Número:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text30" Left="538.65" Top="179.55" Width="113.4" Height="28.35" Border.Lines="All" Text="Fecha Entrega:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text31" Left="538.65" Top="66.15" Width="113.4" Height="85.05" Border.Lines="All" Text="Diagnostico:" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text32" Left="538.65" Top="151.2" Width="113.4" Height="28.35" Border.Lines="All" Text="Estado:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text1" Left="151.2" Top="37.8" Width="274.05" Height="28.35" Border.Lines="All" Text="[ReporteIngreso.Numero]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Left="151.2" Top="141.75" Width="274.05" Height="18.9" Border.Lines="All" Text="[ReporteIngreso.FechaIngreso]" Format="Date" Format.Format="d" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text3" Left="151.2" Top="66.15" Width="274.05" Height="37.8" Border.Lines="All" Text="[ReporteIngreso.ObservacionInterna]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text4" Left="151.2" Top="103.95" Width="274.05" Height="37.8" Border.Lines="All" Text="[ReporteIngreso.MotivoIngreso]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text5" Left="9.45" Top="37.8" Width="141.75" Height="28.35" Border.Lines="All" Text="Número:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text33" Left="9.45" Top="66.15" Width="141.75" Height="37.8" Border.Lines="All" Text="Observación Inter:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text34" Left="9.45" Top="103.95" Width="141.75" Height="37.8" Border.Lines="All" Text="Motivo Ingres:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text35" Left="9.45" Top="141.75" Width="141.75" Height="18.9" Border.Lines="All" Text="Fecha Ingreso:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text38" Left="151.2" Top="217.35" Width="274.05" Height="18.9" Border.Lines="All" Text="[ReporteIngreso.Nombre]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text39" Left="151.2" Top="255.15" Width="274.05" Height="28.35" Border.Lines="All" Text="[ReporteIngreso.Direccion]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text43" Left="9.45" Top="189" Width="415.8" Height="28.35" Border.Lines="All" Text="Cliente:" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text44" Left="9.45" Top="255.15" Width="141.75" Height="28.35" Border.Lines="All" Text="Dirección:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text45" Left="9.45" Top="217.35" Width="141.75" Height="18.9" Border.Lines="All" Text="Nombre:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text46" Left="9.45" Top="292.95" Width="415.8" Height="28.35" Border.Lines="All" Text="Equipo:" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text14" Left="151.2" Top="236.25" Width="274.05" Height="18.9" Border.Lines="All" Text="[ReporteIngreso.Dni]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text50" Left="9.45" Top="236.25" Width="141.75" Height="18.9" Border.Lines="All" Text="DNI:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text47" Left="9.45" Top="321.3" Width="141.75" Height="18.9" Border.Lines="All" Text="Descripción:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text40" Left="151.2" Top="321.3" Width="274.05" Height="18.9" Border.Lines="All" Text="[ReporteIngreso.Descripcion]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text41" Left="151.2" Top="340.2" Width="274.05" Height="18.9" Border.Lines="All" Text="[ReporteIngreso.Marca]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text48" Left="9.45" Top="340.2" Width="141.75" Height="18.9" Border.Lines="All" Text="Marca:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text42" Left="151.2" Top="359.1" Width="274.05" Height="18.9" Border.Lines="All" Text="[ReporteIngreso.Modelo]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text49" Left="9.45" Top="359.1" Width="141.75" Height="18.9" Border.Lines="All" Text="Modelo:" Font="Arial, 10pt, style=Bold"/>
     </ReportTitleBand>
-    <ColumnHeaderBand Name="ColumnHeader1" Top="306.4" Width="1047.06" Height="18.9">
-      <TextObject Name="Text40" Left="151.2" Width="217.35" Height="18.9" Text="[ReporteIngreso.Descripcion]" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text47" Left="9.45" Width="141.75" Height="18.9" Text="Descripción:" Font="Arial, 10pt, style=Bold"/>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="410.65" Width="945" Height="18.9">
+      <TextObject Name="Text10" Left="9.45" Width="94.5" Height="18.9" Border.Lines="All" Text="Cantidad"/>
+      <TextObject Name="Text16" Left="103.95" Width="576.45" Height="18.9" Border.Lines="All" Text="NombreProducto"/>
+      <TextObject Name="Text20" Left="680.4" Width="94.5" Height="18.9" Border.Lines="All" Text="Precio"/>
+      <TextObject Name="Text22" Left="774.9" Width="94.5" Height="18.9" Border.Lines="All" Text="Importe" Format="Number" Format.UseLocale="true"/>
     </ColumnHeaderBand>
-    <DataBand Name="Data1" Top="352.2" Width="1047.06" Height="85.05" DataSource="Table3">
-      <TextObject Name="Text10" Left="519.75" Width="170.1" Height="18.9" Border.Lines="All" Text="[DetalleServicioSalida.DescripcionServicio]"/>
-      <TextObject Name="Text21" Left="689.85" Width="113.4" Height="18.9" Border.Lines="All" Text="[DetalleServicioSalida.Cantidad]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Trimming="EllipsisCharacter"/>
-      <TextObject Name="Text23" Left="803.25" Width="103.95" Height="18.9" Border.Lines="All" Text="[DetalleServicioSalida.Precio]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Trimming="EllipsisCharacter"/>
-      <TextObject Name="Text25" Left="907.2" Width="103.95" Height="18.9" Border.Lines="All" Text="[DetalleServicioSalida.Importe]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Trimming="EllipsisCharacter"/>
-      <TextObject Name="Text42" Left="151.2" Width="170.1" Height="18.9" Text="[ReporteIngreso.Modelo]" Font="Arial, 10pt, style=Bold"/>
-      <TextObject Name="Text49" Left="9.45" Width="141.75" Height="18.9" Text="Modelo:" Font="Arial, 10pt, style=Bold"/>
-      <DataHeaderBand Name="DataHeader2" Top="329.3" Width="1047.06" Height="18.9">
-        <TextObject Name="Text24" Left="803.25" Width="103.95" Height="18.9" Border.Lines="All" Text="Precio" Font="Arial, 10pt, style=Bold"/>
-        <TextObject Name="Text22" Left="689.85" Width="113.4" Height="18.9" Border.Lines="All" Text="Cantidad" Font="Arial, 10pt, style=Bold"/>
-        <TextObject Name="Text26" Left="907.2" Width="103.95" Height="18.9" Border.Lines="All" Text="Importe" Font="Arial, 10pt, style=Bold"/>
-        <TextObject Name="Text17" Left="519.75" Width="170.1" Height="18.9" Border.Lines="All" Text="Detalle Servicio Salida" Font="Arial, 10pt, style=Bold"/>
-        <TextObject Name="Text41" Left="151.2" Width="170.1" Height="18.9" Text="[ReporteIngreso.Marca]" Font="Arial, 10pt, style=Bold"/>
-        <TextObject Name="Text48" Left="9.45" Width="141.75" Height="18.9" Text="Marca:" Font="Arial, 10pt, style=Bold"/>
-      </DataHeaderBand>
-      <DataBand Name="Data2" Top="464.15" Width="1047.06" Height="18.9" CanGrow="true" DataSource="Table2">
-        <TextObject Name="Text9" Left="519.75" Width="170.1" Height="18.9" Border.Lines="All" Text="[DetalleProductoSalida.NombreProducto]"/>
-        <TextObject Name="Text15" Left="689.85" Width="113.4" Height="18.9" Border.Lines="All" Text="[DetalleProductoSalida.Cantidad]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Trimming="EllipsisCharacter"/>
-        <TextObject Name="Text19" Left="803.25" Width="103.95" Height="18.9" Border.Lines="All" Text="[DetalleProductoSalida.Precio]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Trimming="EllipsisCharacter"/>
-        <TextObject Name="Text27" Left="907.2" Width="103.95" Height="18.9" Border.Lines="All" Text="[DetalleProductoSalida.Importe]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Trimming="EllipsisCharacter"/>
-        <DataHeaderBand Name="DataHeader1" Top="441.25" Width="1047.06" Height="18.9">
-          <TextObject Name="Text16" Left="689.85" Width="113.4" Height="18.9" Border.Lines="All" Text="Cantidad" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
-          <TextObject Name="Text18" Left="519.75" Width="170.1" Height="18.9" Border.Lines="All" Text="Detalle Producto Salida" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
-          <TextObject Name="Text20" Left="803.25" Width="103.95" Height="18.9" Border.Lines="All" Text="Precio" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
-          <TextObject Name="Text28" Left="907.2" Width="103.95" Height="18.9" Border.Lines="All" Text="Importe" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
-        </DataHeaderBand>
-      </DataBand>
+    <DataBand Name="Data1" Top="433.85" Width="945" Height="18.9" DataSource="Table2">
+      <TextObject Name="Text9" Left="9.45" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="DarkGray" Text="[DetalleProductoSalida.Cantidad]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text15" Left="103.95" Width="576.45" Height="18.9" Border.Lines="All" Border.Color="DarkGray" Text="[DetalleProductoSalida.NombreProducto]"/>
+      <TextObject Name="Text19" Left="680.4" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="DarkGray" Text="[DetalleProductoSalida.Precio]" Format="Currency" Format.UseLocale="true" WordWrap="false" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text21" Left="774.9" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="DarkGray" Text="[DetalleProductoSalida.Importe]" Format="Number" Format.UseLocale="true" WordWrap="false" Trimming="EllipsisCharacter"/>
     </DataBand>
-    <PageFooterBand Name="PageFooter1" Top="487.05" Width="1047.06" Height="85.05"/>
-=======
-    </MsSqlDataConnection>
-    <Parameter Name="Numero" DataType="System.String"/>
-    <Parameter Name="IngresoId" DataType="System.Int32"/>
-  </Dictionary>
-  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210">
-    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="302.4">
-      <TextObject Name="Text1" Left="18.9" Top="103.95" Width="198.45" Height="18.9" Text="[ReporteIngreso.FechaIngreso]" Format="Date" Format.Format="d"/>
-      <TextObject Name="Text2" Left="9.45" Top="189" Width="198.45" Height="37.8" Text="[ReporteIngreso.MotivoIngreso]"/>
-      <TextObject Name="Text3" Left="9.45" Top="255.15" Width="94.5" Height="18.9" Text="[ReporteIngreso.FechaProbableReparacion]" Format="Date" Format.Format="d"/>
-      <TextObject Name="Text4" Left="18.9" Top="56.7" Width="94.5" Height="18.9" Text="[ReporteIngreso.Numero]"/>
-      <TextObject Name="Text5" Left="18.9" Top="151.2" Width="141.75" Height="18.9" Text="MOTIVO INGRESO:" Font="Arial, 10pt, style=Bold" TextFill.Color="Magenta"/>
-      <LineObject Name="Line1" Left="481.95" Height="283.5" Diagonal="true"/>
-      <TextObject Name="Text6" Left="160.65" Top="9.45" Width="151.2" Height="18.9" Text="REPORTE INGRESO" HorzAlign="Center" TextFill.Color="Red"/>
-      <TextObject Name="Text7" Left="699.3" Top="9.45" Width="151.2" Height="18.9" Text="REPORTE SALIDA" HorzAlign="Center" TextFill.Color="Green"/>
-    </ReportTitleBand>
-    <ColumnHeaderBand Name="ColumnHeader1" Top="307.11" Width="1047.06" Height="37.8">
-      <ChildBand Name="Child1" Top="349.61" Width="1047.06" Height="37.8"/>
-    </ColumnHeaderBand>
-    <DataBand Name="Data1" Top="392.12" Width="1047.06" Height="37.8"/>
-    <PageFooterBand Name="PageFooter1" Top="434.62" Width="1047.06" Height="85.05"/>
->>>>>>> 4289d7976600478ac65bf224a6a5587fb6acf001
+    <DataBand Name="Data2" Top="457.05" Width="945" Height="18.9" DataSource="Table3">
+      <TextObject Name="Text17" Left="9.45" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="DarkGray" Text="[DetalleServicioSalida.Cantidad]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text18" Left="103.95" Width="576.45" Height="18.9" Border.Lines="All" Border.Color="DarkGray" Text="[DetalleServicioSalida.DescripcionServicio]"/>
+      <TextObject Name="Text23" Left="680.4" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="DarkGray" Text="[DetalleServicioSalida.Precio]" Format="Currency" Format.UseLocale="true" WordWrap="false" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text24" Left="774.9" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="DarkGray" Text="[DetalleServicioSalida.Importe]" Format="Number" Format.UseLocale="true" WordWrap="false" Trimming="EllipsisCharacter"/>
+      <DataFooterBand Name="DataFooter1" Top="480.25" Width="945" Height="37.8">
+        <TextObject Name="Text25" Left="774.9" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total]" Format="Number" Format.UseLocale="true" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text26" Left="680.4" Width="94.5" Height="18.9" Border.Lines="All" Border.Color="DarkGray" Text="TOTAL:" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      </DataFooterBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="522.36" Width="945" Height="85.05"/>
   </ReportPage>
 </Report>

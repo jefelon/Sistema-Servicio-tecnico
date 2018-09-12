@@ -38,8 +38,8 @@ namespace Sistema_de_ventas_2018.Datos
             SqlParameter[] dbParams = new SqlParameter[]
             {
                 DBHelper.MakeParam("@ProductoId",SqlDbType.Int,0,inventario.Producto.Id),
-                DBHelper.MakeParam("@Entrada",SqlDbType.Int,0,inventario.Entrada),
-                DBHelper.MakeParam("@Salida",SqlDbType.Int,0,inventario.Salida),
+                DBHelper.MakeParam("@Entrada",SqlDbType.Decimal,0,inventario.Entrada),
+                DBHelper.MakeParam("@Salida",SqlDbType.Decimal,0,inventario.Salida),
                 DBHelper.MakeParam("@DetalleVentaId",SqlDbType.Int,0,inventario.DetalleVentaId),
                 DBHelper.MakeParam("@DetalleCompraId",SqlDbType.Int,0,inventario.DetalleCompraId),
                 DBHelper.MakeParam("@DetalleProductoSalidaId",SqlDbType.Int,0,inventario.DetalleProductoSalidaId)

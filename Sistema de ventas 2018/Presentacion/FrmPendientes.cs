@@ -38,11 +38,9 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void dgvPendientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Report frmComprobantes = new Report();
-            frmComprobantes.Load(@"Reportes/ReporteIngreso.frx");
-            frmComprobantes.Dictionary.Connections[0].ConnectionString = ConfigurationManager.AppSettings.Get("connectionString");
-            frmComprobantes.SetParameterValue("Numero", dgvPendientes.CurrentRow.Cells["Numero"].Value.ToString());
-            frmComprobantes.Show();
+            FrmSalida salida = new FrmSalida();
+            salida.txtBuscarIngreso.Text= dgvPendientes.CurrentRow.Cells["Numero"].Value.ToString();
+            salida.Show();
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)

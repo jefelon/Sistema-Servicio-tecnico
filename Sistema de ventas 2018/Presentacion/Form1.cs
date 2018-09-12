@@ -254,5 +254,32 @@ namespace Sistema_de_ventas_2018
         {
             Close();
         }
+
+        private void pendientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void equiposReparadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEquiposEstados pendientes = new FrmEquiposEstados();
+            pendientes.Show();
+        }
+
+        private void clasificaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kardexDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmKardex kardex = new FrmKardex();
+            kardex.Show();
+        }
+
+        private void stockDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

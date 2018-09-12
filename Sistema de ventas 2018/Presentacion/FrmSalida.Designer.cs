@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.txtNumero = new System.Windows.Forms.TextBox();
+            this.txtNumeroSalida = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -76,7 +76,7 @@
             this.btnAgregarServicios = new System.Windows.Forms.Button();
             this.btnAgregarProductos = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnEntregarEquipo = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtBuscarIngreso = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -85,6 +85,11 @@
             this.txtIdIngreso = new System.Windows.Forms.TextBox();
             this.txtEstadoSalida = new System.Windows.Forms.ComboBox();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtTotalProducto = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtTotalServicio = new System.Windows.Forms.TextBox();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleProductoSalida)).BeginInit();
             this.groupBox8.SuspendLayout();
@@ -99,16 +104,16 @@
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtNumero
+            // txtNumeroSalida
             // 
-            this.txtNumero.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtNumero.Enabled = false;
-            this.txtNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumero.Location = new System.Drawing.Point(495, 33);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(191, 26);
-            this.txtNumero.TabIndex = 46;
-            this.toolTip1.SetToolTip(this.txtNumero, "Ingrese el numero de ingreso...");
+            this.txtNumeroSalida.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtNumeroSalida.Enabled = false;
+            this.txtNumeroSalida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroSalida.Location = new System.Drawing.Point(495, 33);
+            this.txtNumeroSalida.Name = "txtNumeroSalida";
+            this.txtNumeroSalida.Size = new System.Drawing.Size(191, 26);
+            this.txtNumeroSalida.TabIndex = 46;
+            this.toolTip1.SetToolTip(this.txtNumeroSalida, "Ingrese el numero de ingreso...");
             // 
             // label2
             // 
@@ -144,7 +149,7 @@
             this.txtDiagnostico.Location = new System.Drawing.Point(18, 24);
             this.txtDiagnostico.Multiline = true;
             this.txtDiagnostico.Name = "txtDiagnostico";
-            this.txtDiagnostico.Size = new System.Drawing.Size(560, 63);
+            this.txtDiagnostico.Size = new System.Drawing.Size(560, 48);
             this.txtDiagnostico.TabIndex = 42;
             // 
             // txtId
@@ -154,6 +159,8 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(26, 20);
             this.txtId.TabIndex = 41;
+            this.txtId.Visible = false;
+            this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             // 
             // label1
             // 
@@ -168,7 +175,7 @@
             // dtpFecha
             // 
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha.Location = new System.Drawing.Point(599, 491);
+            this.dtpFecha.Location = new System.Drawing.Point(599, 523);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(132, 20);
             this.dtpFecha.TabIndex = 53;
@@ -177,7 +184,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(367, 495);
+            this.label9.Location = new System.Drawing.Point(367, 527);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(207, 16);
             this.label9.TabIndex = 59;
@@ -186,7 +193,7 @@
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.dgvDetalleProductoSalida);
-            this.groupBox9.Location = new System.Drawing.Point(370, 347);
+            this.groupBox9.Location = new System.Drawing.Point(370, 361);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(601, 123);
             this.groupBox9.TabIndex = 55;
@@ -203,11 +210,12 @@
             this.dgvDetalleProductoSalida.ReadOnly = true;
             this.dgvDetalleProductoSalida.Size = new System.Drawing.Size(547, 82);
             this.dgvDetalleProductoSalida.TabIndex = 0;
+            this.dgvDetalleProductoSalida.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvDetalleProductoSalida_KeyDown);
             // 
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.dgvDetalleServicioSalida);
-            this.groupBox8.Location = new System.Drawing.Point(370, 190);
+            this.groupBox8.Location = new System.Drawing.Point(370, 176);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(601, 123);
             this.groupBox8.TabIndex = 56;
@@ -225,11 +233,12 @@
             this.dgvDetalleServicioSalida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetalleServicioSalida.Size = new System.Drawing.Size(545, 97);
             this.dgvDetalleServicioSalida.TabIndex = 73;
+            this.dgvDetalleServicioSalida.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvDetalleServicioSalida_KeyDown);
             // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.dataGridView1);
-            this.groupBox7.Location = new System.Drawing.Point(370, 190);
+            this.groupBox7.Location = new System.Drawing.Point(370, 176);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(601, 123);
             this.groupBox7.TabIndex = 57;
@@ -275,7 +284,7 @@
             this.groupBox6.Controls.Add(this.txtDiagnostico);
             this.groupBox6.Location = new System.Drawing.Point(370, 71);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(601, 97);
+            this.groupBox6.Size = new System.Drawing.Size(601, 83);
             this.groupBox6.TabIndex = 58;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "DIAGNOSTICO";
@@ -528,7 +537,7 @@
             // btnAgregarServicios
             // 
             this.btnAgregarServicios.Enabled = false;
-            this.btnAgregarServicios.Location = new System.Drawing.Point(857, 174);
+            this.btnAgregarServicios.Location = new System.Drawing.Point(857, 160);
             this.btnAgregarServicios.Name = "btnAgregarServicios";
             this.btnAgregarServicios.Size = new System.Drawing.Size(114, 23);
             this.btnAgregarServicios.TabIndex = 1;
@@ -539,7 +548,7 @@
             // btnAgregarProductos
             // 
             this.btnAgregarProductos.Enabled = false;
-            this.btnAgregarProductos.Location = new System.Drawing.Point(857, 331);
+            this.btnAgregarProductos.Location = new System.Drawing.Point(857, 345);
             this.btnAgregarProductos.Name = "btnAgregarProductos";
             this.btnAgregarProductos.Size = new System.Drawing.Size(114, 23);
             this.btnAgregarProductos.TabIndex = 1;
@@ -551,15 +560,15 @@
             // 
             this.toolTip1.IsBalloon = true;
             // 
-            // btnNuevo
+            // btnEntregarEquipo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(495, 571);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(99, 39);
-            this.btnNuevo.TabIndex = 69;
-            this.btnNuevo.Text = "ENTREGAR EQUIPO";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click_1);
+            this.btnEntregarEquipo.Location = new System.Drawing.Point(370, 567);
+            this.btnEntregarEquipo.Name = "btnEntregarEquipo";
+            this.btnEntregarEquipo.Size = new System.Drawing.Size(99, 39);
+            this.btnEntregarEquipo.TabIndex = 69;
+            this.btnEntregarEquipo.Text = "ENTREGAR EQUIPO";
+            this.btnEntregarEquipo.UseVisualStyleBackColor = true;
+            this.btnEntregarEquipo.Click += new System.EventHandler(this.btnNuevo_Click_1);
             // 
             // label5
             // 
@@ -584,7 +593,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(797, 494);
+            this.label3.Location = new System.Drawing.Point(797, 526);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 71;
@@ -620,14 +629,17 @@
             this.txtIdIngreso.Name = "txtIdIngreso";
             this.txtIdIngreso.Size = new System.Drawing.Size(26, 20);
             this.txtIdIngreso.TabIndex = 41;
+            this.txtIdIngreso.Visible = false;
             // 
             // txtEstadoSalida
             // 
             this.txtEstadoSalida.FormattingEnabled = true;
             this.txtEstadoSalida.Items.AddRange(new object[] {
             "REPARADO",
-            "ENTREGADO"});
-            this.txtEstadoSalida.Location = new System.Drawing.Point(857, 487);
+            "ENTREGADO",
+            "NO REPARADO",
+            "POR ENTREGAR"});
+            this.txtEstadoSalida.Location = new System.Drawing.Point(857, 519);
             this.txtEstadoSalida.Name = "txtEstadoSalida";
             this.txtEstadoSalida.Size = new System.Drawing.Size(114, 21);
             this.txtEstadoSalida.TabIndex = 75;
@@ -643,18 +655,64 @@
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(835, 490);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(42, 13);
+            this.label15.TabIndex = 107;
+            this.label15.Text = "TOTAL";
+            // 
+            // txtTotalProducto
+            // 
+            this.txtTotalProducto.Location = new System.Drawing.Point(883, 487);
+            this.txtTotalProducto.Name = "txtTotalProducto";
+            this.txtTotalProducto.Size = new System.Drawing.Size(88, 20);
+            this.txtTotalProducto.TabIndex = 106;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(835, 302);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(42, 13);
+            this.label16.TabIndex = 109;
+            this.label16.Text = "TOTAL";
+            // 
+            // txtTotalServicio
+            // 
+            this.txtTotalServicio.Location = new System.Drawing.Point(883, 299);
+            this.txtTotalServicio.Name = "txtTotalServicio";
+            this.txtTotalServicio.Size = new System.Drawing.Size(88, 20);
+            this.txtTotalServicio.TabIndex = 108;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(514, 567);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 39);
+            this.btnEditar.TabIndex = 2;
+            this.btnEditar.Text = "EDITAR";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click_1);
+            // 
             // FrmSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 652);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.txtTotalServicio);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.txtTotalProducto);
             this.Controls.Add(this.txtEstadoSalida);
             this.Controls.Add(this.txtEstadoIngreso);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.btnEntregarEquipo);
             this.Controls.Add(this.btnAgregarProductos);
             this.Controls.Add(this.btnAgregarServicios);
             this.Controls.Add(this.txtAdelanto);
@@ -668,6 +726,7 @@
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label9);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.groupBox8);
@@ -675,7 +734,7 @@
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.txtBuscarIngreso);
-            this.Controls.Add(this.txtNumero);
+            this.Controls.Add(this.txtNumeroSalida);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtIdIngreso);
             this.Controls.Add(this.txtId);
@@ -708,7 +767,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtNumero;
+        private System.Windows.Forms.TextBox txtNumeroSalida;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
@@ -754,9 +813,8 @@
         private System.Windows.Forms.Button btnAgregarServicios;
         private System.Windows.Forms.Button btnAgregarProductos;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnEntregarEquipo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtBuscarIngreso;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvDetalleServicioSalida;
         private System.Windows.Forms.Label label14;
@@ -764,5 +822,11 @@
         private System.Windows.Forms.TextBox txtIdIngreso;
         private System.Windows.Forms.ComboBox txtEstadoSalida;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Label label15;
+        public System.Windows.Forms.TextBox txtTotalProducto;
+        private System.Windows.Forms.Label label16;
+        public System.Windows.Forms.TextBox txtTotalServicio;
+        private System.Windows.Forms.Button btnEditar;
+        public System.Windows.Forms.TextBox txtBuscarIngreso;
     }
 }

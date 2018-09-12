@@ -20,6 +20,14 @@ namespace Sistema_de_ventas_2018.Datos
             };
             return DBHelper.ExecuteDataSet("usp_Datos_FStock_GetAll", dbParams);
         }
+        public static DataSet Get(int productoId)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+            {
+                 DBHelper.MakeParam("@ProductoId",SqlDbType.Int,0,productoId),
+            };
+            return DBHelper.ExecuteDataSet("usp_Datos_FStock_Get", dbParams);
+        }
         public static int Insertar(Stock stock)
         {
             SqlParameter[] dbParams = new SqlParameter[]

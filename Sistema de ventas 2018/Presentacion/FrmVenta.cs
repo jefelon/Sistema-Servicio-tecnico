@@ -26,7 +26,7 @@ namespace Sistema_de_ventas_2018.Presentacion
         private void FrmVenta_Load(object sender, EventArgs e)
         {
             habilitarBotones(false);//el metodo de habilitarBotones esta deshabilitado  
-            cargar_Datos();//mostramos en el formulario el metodo de cargar_Datos          
+            cargar_Comprobante();//mostramos en el formulario el metodo de cargar_Datos          
             mostrarOcultar(false);//el metodo de habilitarBotones esta deshabilitado  
             if(txtId.Text!="")
             {
@@ -69,7 +69,7 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         DataTable dt2 = new DataTable();//varaiables para crear la tabla
         DataTable dt5 = new DataTable();
-        public void cargar_Datos()//mostramos en el cmbTipoDocumento los Tipos de documentos registrados 
+        public void cargar_Comprobante()//mostramos en el cmbTipoDocumento los Tipos de documentos registrados 
         {
                 DataSet ds = FTipoDocumento.GetAll();//mostramos todos los datos registrados 
                 dt2 = ds.Tables[0];//asignamos los datos del datased a la tabla
@@ -152,9 +152,11 @@ namespace Sistema_de_ventas_2018.Presentacion
                     }
 
                     MessageBox.Show("La venta numero " + txtNumeroDocumento.Text + " se insertó correctamente");//se muestra el mensaje con el numero de venta
-                    FrmVenta_Load(null, null);//el formulario es nulo 
+
                     btnNuevo.PerformClick();
                     mostrarOcultar(false);
+                    FrmVenta_Load(null, null);// RECARGAR FORMULARIO
+
                 }
                 else
                 {
@@ -197,7 +199,11 @@ namespace Sistema_de_ventas_2018.Presentacion
         }
         private void habilitarBotones(bool b)//metodo para habilitar el boton
         {
+            btnCancelar.Enabled = b;
+            btnGuardar.Enabled = b;
+            btnNuevo.Enabled = !b;
             btnAgregar.Enabled = b;
+            btnImprimir.Enabled = b;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)//vaciamos los campos del formulario para insertar un nuevo registro
@@ -210,7 +216,7 @@ namespace Sistema_de_ventas_2018.Presentacion
             txtProductoId.Text = "";
             txtProducto.Text = "";
             mostrarOcultar(true);//habilitamos el metodo de mostrarOcultar
-            habilitarBotones(false);//deshabilitamos el metodo de habilitarBotones
+            habilitarBotones(true);//deshabilitamos el metodo de habilitarBotones
 
             txtCliente.Focus();
         }
@@ -223,7 +229,42 @@ namespace Sistema_de_ventas_2018.Presentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            dgvDetalle.Rows.Add(txtProductoId.Text,  txtProducto.Text, txtCantidad.Text, txtPrecio.Text, Convert.ToDecimal(txtPrecio.Text) * Convert.ToDecimal(txtCantidad.Text));//los datos del producto se agregan al dgvDatos
+            double cantidad = 0;
+            double stock = 0;
+
+            DataSet ds1 = FStock.Get(Convert.ToInt32(txtProductoId.Text));
+            DataTable dt1 = ds1.Tables[0];
+
+            cantidad = Convert.ToDouble(txtCantidad.Text);
+            stock= Convert.ToDouble(dt1.Rows[0]["Stock"]);
+
+            if (stock<cantidad)
+            {
+                MessageBox.Show("No hay Stock suficiente, el stock actual es " + stock.ToString());
+            }
+            else {
+                dgvDetalle.Rows.Add(txtProductoId.Text, txtProducto.Text, txtCantidad.Text, txtPrecio.Text, Convert.ToDecimal(txtPrecio.Text) * Convert.ToDecimal(txtCantidad.Text));//los datos del producto se agregan al dgvDatos
+                calcularTotales();
+
+            }
+        }
+        private void calcularTotales()
+        {
+            double subtotal = 0;
+            double total = 0;
+            double igv = 0;
+
+            foreach (DataGridViewRow row in dgvDetalle.Rows)
+            {
+                total += Convert.ToDouble(row.Cells["PrecioVenta"].Value);
+            }
+
+            subtotal = total / 1.18;
+            igv = subtotal * 0.18;
+
+            txtSubTotal.Text = String.Format("{0:n2}", subtotal);
+            txtIgv.Text = String.Format("{0:n2}", igv);
+            txtTotal.Text = String.Format("{0:n2}", total);
         }
 
         private void txtCliente_TextChanged(object sender, EventArgs e)
@@ -260,6 +301,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                 {
                     txtClienteId.Text = dgvClientes.CurrentRow.Cells["Id"].Value.ToString();//los datos Id y Nombre del dgvClientes tienen que mostrarse en los campos de formulario
                     txtCliente.Text = dgvClientes.CurrentRow.Cells["Nombre"].Value.ToString();
+                    txtRuc.Text = dgvClientes.CurrentRow.Cells["Dni"].Value.ToString();
                     dgvClientes.DataSource = null;//dgvClientes es nulo
                     dgvClientes.Visible = false;//dgvClientes no se muestra
                 }
@@ -267,10 +309,13 @@ namespace Sistema_de_ventas_2018.Presentacion
                 {
                     txtClienteId.Text = dgvClientes.CurrentRow.Cells["Id"].Value.ToString();//los datos Id y Razon_social del dgvClientes tienen que mostrarse en los campos de formulario
                     txtCliente.Text = dgvClientes.CurrentRow.Cells["Razon_social"].Value.ToString();
+                    txtRuc.Text= dgvClientes.CurrentRow.Cells["Ruc"].Value.ToString();
                     dgvClientes.DataSource = null;//dgvClientes es nulo
                     dgvClientes.Visible = false;//dgvClientes no se muestra
                 }
             }
+
+            btnCargarProducto.Focus();
         }
 
         private void dgvClientes_KeyDown(object sender, KeyEventArgs e)
@@ -316,16 +361,14 @@ namespace Sistema_de_ventas_2018.Presentacion
             DataSet ds = FVenta.GenerarNumeroDocumento(venta);//Ejecutamos el procedimiento almacenado para Generar numero de documento.
             DataTable dt = ds.Tables[0];
 
-            if (dt.Rows[0]["NumeroDocumento"].ToString()=="")//si el NUmeroDocumento es vacío
+            if (dt.Rows[0]["NumeroSiguiente"].ToString() == "")//si el NUmeroDocumento es vacío
             {
                 txtNumeroDocumento.Text = "1";//txtNumeroDocumento es igual a 1
             }
-            else//de lo contrario
+            else
             {
-                string numero = dt.Rows[0]["NumeroDocumento"].ToString();//numero es igual tabla con el campo "Numero Documento"
-                int numeroSiguiente = Convert.ToInt32(numero);//numeroSiguiente es igual numero 
-                numeroSiguiente = numeroSiguiente + 1;//sumamos el numeroSiguinte
-                txtNumeroDocumento.Text = numeroSiguiente.ToString();//el campo txtNumeroDocumento es igual al numeroSiguinte
+                
+                txtNumeroDocumento.Text = dt.Rows[0]["NumeroSiguiente"].ToString();
             }
 
 
@@ -364,6 +407,11 @@ namespace Sistema_de_ventas_2018.Presentacion
                 btnAgregar.PerformClick();
 
             }
+        }
+
+        private void cmbTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            numeroDoc();
         }
     }
 

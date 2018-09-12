@@ -224,6 +224,27 @@ namespace Sistema_de_ventas_2018.Presentacion
         {
 
             dgvDetalle.Rows.Add(txtProductoId.Text, txtProducto.Text, Convert.ToDecimal(txtConversion.Text)* Convert.ToDecimal(txtCantidad.Text), txtPrecio.Text, Convert.ToDecimal(txtConversion.Text) * (Convert.ToDecimal(txtPrecio.Text) * Convert.ToDecimal(txtCantidad.Text)));
+
+            calcularTotales();
+        }
+
+        private void calcularTotales()
+        {
+            double subtotal = 0;
+            double total = 0;
+            double igv = 0;
+
+            foreach (DataGridViewRow row in dgvDetalle.Rows)
+            {               
+                total += Convert.ToDouble(row.Cells["PrecioCompra"].Value);
+            }
+
+            subtotal = total / 1.18;
+            igv = subtotal * 0.18;
+
+            txtSubTotal.Text = String.Format("{0:n2}", subtotal);
+            txtIgv.Text = String.Format("{0:n2}", igv);
+            txtTotal.Text = String.Format("{0:n2}", total);
         }
 
         private void btnCargarProducto_Click(object sender, EventArgs e)

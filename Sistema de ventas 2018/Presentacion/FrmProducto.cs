@@ -329,5 +329,19 @@ namespace Sistema_de_ventas_2018.Presentacion
                 e.Handled = true;
             }
         }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DataView dv = new DataView(dt0.Copy()); //dt es la tabla que creamos al inicio de esta hoja
+                dv.RowFilter = cmbBuscar.Text + " Like '" + txtBuscar.Text + "%'";
+                dgvDatos.DataSource = dv;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                     if (txtId.Text == "")
                     {
                         Salida salida = new Salida();//instanciamo nuestra clase Salida para rellenarle sus atributos
-                        salida.Numero = Convert.ToInt32(txtNumero.Text);////validamos el campo del formulario
+                        salida.Numero = Convert.ToInt32(txtNumeroSalida.Text);////validamos el campo del formulario
                         salida.FechaSalida = dtpFecha.Value;
                         salida.Diagnostico = txtDiagnostico.Text;
                         salida.Estado = txtEstadoSalida.Text;
@@ -44,7 +44,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                     {
                         Salida salida = new Salida();//instanciamo nuestra clase Salida para rellenarle sus atributos
                         salida.Id = Convert.ToInt32(txtId.Text);
-                        salida.Numero = Convert.ToInt32(txtNumero.Text);////validamos el campo del formulario
+                        salida.Numero = Convert.ToInt32(txtNumeroSalida.Text);////validamos el campo del formulario
                         salida.FechaSalida = dtpFecha.Value;
                         salida.Diagnostico = txtDiagnostico.Text;
                         salida.Estado = txtEstadoSalida.Text;
@@ -52,7 +52,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                         int returnId = FSalida.Actualizar(salida);
                         if (returnId > 0)
                         {
-                            MessageBox.Show("Entrega finalizada","La salida o entrega con número" + txtNumero.Text);
+                            MessageBox.Show("Entrega finalizada","La salida o entrega con número" + txtNumeroSalida.Text);
                             FrmSalida_Load(null, null);
                             habilitarBotones(false);
                         }
@@ -67,10 +67,10 @@ namespace Sistema_de_ventas_2018.Presentacion
         public string validarDatos()//validamos los campos del formulario para no registrar vacios
         {
             string resultado = "";
-            if (txtNumero.Text == "")
+            if (txtNumeroSalida.Text == "")
             {
                 resultado = "El campo Numero está vacío";
-                txtNumero.Focus();
+                txtNumeroSalida.Focus();
             }
             return resultado;
         }
@@ -79,12 +79,17 @@ namespace Sistema_de_ventas_2018.Presentacion
         {
             mostrarOcultar(false);//deshabilitar el metodo
             habilitarBotones(false);//deshabilitar el metodo
+
+            if(txtBuscarIngreso.Text!="")
+            {
+                cargarIngreso(Convert.ToInt32(txtBuscarIngreso.Text));
+            }
         }
         public void mostrarOcultar(bool b)//metodo para habilitar los campos del formulario
         {
             txtDiagnostico.Enabled = b;
             txtEstadoSalida.Enabled = b;
-            txtNumero.Enabled = b;
+            txtNumeroSalida.Enabled = b;
             dtpFecha.Enabled = b;
 
         }
@@ -92,7 +97,8 @@ namespace Sistema_de_ventas_2018.Presentacion
         {
             btnCancelar.Enabled = b;
             btnGuardar.Enabled = b;
-            btnNuevo.Enabled = b;
+            btnEntregarEquipo.Enabled = b;
+            btnEditar.Enabled = b;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -115,7 +121,7 @@ namespace Sistema_de_ventas_2018.Presentacion
             mostrarOcultar(true);//habilitamos el metodo de mostrarOcultar
 
             txtId.Text = frm.idSalida.ToString();//el valor de txtId se mostrara en el otro formulario
-            txtNumero.Text = frm.idSalida.ToString();
+            txtNumeroSalida.Text = frm.idSalida.ToString();
 
             btnAgregarProductos.Enabled = true;//habilitamos el boton para agregar
             btnAgregarServicios.Enabled = true;//habilitamos el boton para agregar
@@ -138,6 +144,15 @@ namespace Sistema_de_ventas_2018.Presentacion
             dgvDetalleProductoSalida.DataSource = dt; //pasamos los datos de la tabla al datagridview
             dgvDetalleProductoSalida.Columns["ProductoId"].Visible = false;
             //dgvDetalleProductoSalida.Columns["Id"].Visible = false;
+
+            double total = 0;
+
+            foreach (DataGridViewRow row in dgvDetalleProductoSalida.Rows)
+            {
+                total += Convert.ToDouble(row.Cells["Importe"].Value);
+            }
+
+            txtTotalProducto.Text = String.Format("{0:n2}", total);
         }
 
         private void btnAgregarServicios_Click(object sender, EventArgs e)
@@ -156,6 +171,15 @@ namespace Sistema_de_ventas_2018.Presentacion
             DataSet ds = FDetalleServicioSalida.GetAll(Convert.ToInt32(txtId.Text));//creamos un dataset, un contenedor de datos y hacemos una consulta con la clase y su método GetAll, en ella el Id         
             dt = ds.Tables[0];//asignamos los datos de datased a la tabla
             dgvDetalleServicioSalida.DataSource = dt;//pasamos los datos de la tabla al datagridview
+
+            double total = 0;
+
+            foreach (DataGridViewRow row in dgvDetalleServicioSalida.Rows)
+            {
+                total += Convert.ToDouble(row.Cells["Importe"].Value);
+            }
+
+            txtTotalServicio.Text = String.Format("{0:n2}", total);
         }
 
         private void cargarIngreso(int numeroIngreso)
@@ -165,6 +189,8 @@ namespace Sistema_de_ventas_2018.Presentacion
             if (dt.Rows.Count <= 0)//si la tabla es menor o igual que cero
             {
                 MessageBox.Show("No existe, revice el número e ingrese nuévamente.", "NO EXISTE REGISTRO");
+
+                limpiarCampos();
             }
 
            else if(dt.Rows.Count > 0)
@@ -193,7 +219,33 @@ namespace Sistema_de_ventas_2018.Presentacion
                 cargarSalida();
 
                 habilitarBotones(true);//habilitamos el metodo
+                
             }
+        }
+
+        private void limpiarCampos()
+        {
+            dgvDetalleProductoSalida.DataSource = null;
+            dgvDetalleServicioSalida.DataSource = null;
+
+            txtNombreRS.Text= "";
+            txtDireccion.Text = "";
+            dtpFechaIngreso.Text = "";
+            txtMotivoIngreso.Text = "";
+            txtObservacionExterna.Text = "";
+            txtObservacionInterna.Text = "";
+            txtAdelanto.Text = "";
+            txtEstadoIngreso.Text = "";
+            txtEquipo.Text = "";
+            txtMarca.Text = "";
+            textBox4.Text = "";
+            txtNumeroSalida.Text= "";
+
+            txtTotalProducto.Text= "";
+            txtTotalServicio.Text= "";
+
+            txtId.Text= "";
+            txtIdIngreso.Text= "";
         }
 
         private void txtBuscarIngreso_KeyDown(object sender, KeyEventArgs e)
@@ -215,7 +267,7 @@ namespace Sistema_de_ventas_2018.Presentacion
             if(dt5.Rows.Count>0)
             {
                 txtId.Text = dt5.Rows[0]["Id"].ToString();
-                txtNumero.Text = dt5.Rows[0]["Numero"].ToString();
+                txtNumeroSalida.Text = dt5.Rows[0]["Numero"].ToString();
                 txtDiagnostico.Text = dt5.Rows[0]["Diagnostico"].ToString();
                 dtpFecha.Text = dt5.Rows[0]["FechaSalida"].ToString();
                 txtEstadoSalida.Text = dt5.Rows[0]["Estado"].ToString();
@@ -223,7 +275,7 @@ namespace Sistema_de_ventas_2018.Presentacion
                 cargarDetalleProductos();
                 cargarDetalleServicios();
 
-                btnNuevo.Enabled = false;
+                btnEntregarEquipo.Enabled = false;
             }
 
         }
@@ -240,6 +292,68 @@ namespace Sistema_de_ventas_2018.Presentacion
                 frmComprobantes.SetParameterValue("SalidaId", Convert.ToInt32(txtId.Text));
                 frmComprobantes.Show();
             }
+        }
+
+        private void dgvDetalleServicioSalida_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                e.SuppressKeyPress = true;
+
+                if (MessageBox.Show("¿Está seguro de eliminar el dato seleccionados ? ", "Eliminando...",
+                                   MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                   DetalleServicioSalida detalleServicioSalida = new DetalleServicioSalida();
+                    detalleServicioSalida.Id = Convert.ToInt32(dgvDetalleServicioSalida.CurrentRow.Cells["Id"].Value.ToString());
+                    int returnId = FDetalleServicioSalida.Eliminar(detalleServicioSalida);
+                    if (returnId > 0)
+                    {
+                        cargarDetalleServicios();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar, llamar a soporte...", "No se puede eliminar");
+                    }
+                }
+
+            }
+        }
+
+        private void dgvDetalleProductoSalida_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                e.SuppressKeyPress = true;
+
+                if (MessageBox.Show("¿Está seguro de eliminar el dato seleccionados ? ", "Eliminando...",
+                                   MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    DetalleProductoSalida detalleProductoSalida = new DetalleProductoSalida();
+                    detalleProductoSalida.Id = Convert.ToInt32(dgvDetalleProductoSalida.CurrentRow.Cells["Id"].Value.ToString());
+                    int returnId = FDetalleProductoSalida.Eliminar(detalleProductoSalida);
+                    if (returnId > 0)
+                    {
+                        cargarDetalleProductos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar, llamar a soporte...", "No se puede eliminar");
+                    }
+                }
+
+            }
+        }
+
+        private void btnEditar_Click_1(object sender, EventArgs e)
+        {
+            mostrarOcultar(true);
+            btnAgregarProductos.Enabled = true;
+            btnAgregarServicios.Enabled = true;
+        }
+
+        private void txtId_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

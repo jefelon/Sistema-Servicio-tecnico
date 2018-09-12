@@ -60,5 +60,15 @@ namespace Sistema_de_ventas_2018.Datos
             };
             return DBHelper.ExecuteDataSet("usp_Datos_FSalida_Get", dbParams);
         }
+        public static DataSet GetEstados(DateTime desde, DateTime hasta, string estado)
+        {
+            SqlParameter[] dbParams = new SqlParameter[]
+            {
+                DBHelper.MakeParam("@Desde",SqlDbType.Date,0,desde),
+                DBHelper.MakeParam("@Hasta",SqlDbType.Date,0,hasta),
+                DBHelper.MakeParam("@Estado",SqlDbType.VarChar,0,estado),
+            };
+            return DBHelper.ExecuteDataSet("usp_Datos_FSalida_GetEstados", dbParams);
+        }
     }
 }

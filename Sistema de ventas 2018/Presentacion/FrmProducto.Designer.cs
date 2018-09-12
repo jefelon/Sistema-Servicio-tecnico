@@ -46,12 +46,14 @@
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbUnidadMedia = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.cmbModelo = new System.Windows.Forms.ComboBox();
+            this.txtUtilidad = new System.Windows.Forms.TextBox();
             this.txtPrecioVenta = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -66,6 +68,8 @@
             this.txtStockMáximo = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.cmbBuscar = new System.Windows.Forms.ComboBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.gbDatos.SuspendLayout();
@@ -73,14 +77,16 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cmbBuscar);
+            this.groupBox2.Controls.Add(this.txtBuscar);
             this.groupBox2.Controls.Add(this.btnCancelar);
             this.groupBox2.Controls.Add(this.btnGuardar);
             this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Controls.Add(this.btnEditar);
             this.groupBox2.Controls.Add(this.btnNuevo);
-            this.groupBox2.Location = new System.Drawing.Point(115, 174);
+            this.groupBox2.Location = new System.Drawing.Point(12, 174);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(431, 60);
+            this.groupBox2.Size = new System.Drawing.Size(796, 60);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
@@ -163,12 +169,14 @@
             this.gbDatos.Controls.Add(this.cmbCategoria);
             this.gbDatos.Controls.Add(this.label2);
             this.gbDatos.Controls.Add(this.txtNombre);
+            this.gbDatos.Controls.Add(this.label16);
             this.gbDatos.Controls.Add(this.label5);
             this.gbDatos.Controls.Add(this.cmbUnidadMedia);
             this.gbDatos.Controls.Add(this.label9);
             this.gbDatos.Controls.Add(this.label3);
             this.gbDatos.Controls.Add(this.label11);
             this.gbDatos.Controls.Add(this.cmbModelo);
+            this.gbDatos.Controls.Add(this.txtUtilidad);
             this.gbDatos.Controls.Add(this.txtPrecioVenta);
             this.gbDatos.Controls.Add(this.txtCodigo);
             this.gbDatos.Controls.Add(this.label8);
@@ -183,7 +191,7 @@
             this.gbDatos.Controls.Add(this.txtStockMáximo);
             this.gbDatos.Location = new System.Drawing.Point(12, 12);
             this.gbDatos.Name = "gbDatos";
-            this.gbDatos.Size = new System.Drawing.Size(728, 156);
+            this.gbDatos.Size = new System.Drawing.Size(796, 156);
             this.gbDatos.TabIndex = 24;
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Datos";
@@ -279,11 +287,21 @@
             this.txtNombre.Size = new System.Drawing.Size(214, 22);
             this.txtNombre.TabIndex = 36;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(540, 44);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(87, 16);
+            this.label16.TabIndex = 31;
+            this.label16.Text = "% UTILIDAD:";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(555, 45);
+            this.label5.Location = new System.Drawing.Point(555, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 16);
             this.label5.TabIndex = 31;
@@ -335,10 +353,18 @@
             this.cmbModelo.Size = new System.Drawing.Size(121, 21);
             this.cmbModelo.TabIndex = 49;
             // 
+            // txtUtilidad
+            // 
+            this.txtUtilidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUtilidad.Location = new System.Drawing.Point(633, 41);
+            this.txtUtilidad.Name = "txtUtilidad";
+            this.txtUtilidad.Size = new System.Drawing.Size(81, 22);
+            this.txtUtilidad.TabIndex = 38;
+            // 
             // txtPrecioVenta
             // 
             this.txtPrecioVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioVenta.Location = new System.Drawing.Point(633, 42);
+            this.txtPrecioVenta.Location = new System.Drawing.Point(633, 69);
             this.txtPrecioVenta.Name = "txtPrecioVenta";
             this.txtPrecioVenta.Size = new System.Drawing.Size(81, 22);
             this.txtPrecioVenta.TabIndex = 38;
@@ -383,7 +409,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(540, 101);
+            this.label6.Location = new System.Drawing.Point(540, 128);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 16);
             this.label6.TabIndex = 42;
@@ -401,7 +427,7 @@
             // txtStockMinimo
             // 
             this.txtStockMinimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStockMinimo.Location = new System.Drawing.Point(633, 70);
+            this.txtStockMinimo.Location = new System.Drawing.Point(633, 97);
             this.txtStockMinimo.Name = "txtStockMinimo";
             this.txtStockMinimo.Size = new System.Drawing.Size(81, 22);
             this.txtStockMinimo.TabIndex = 45;
@@ -410,7 +436,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(544, 73);
+            this.label7.Location = new System.Drawing.Point(544, 100);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 16);
             this.label7.TabIndex = 43;
@@ -439,7 +465,7 @@
             // txtStockMáximo
             // 
             this.txtStockMáximo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStockMáximo.Location = new System.Drawing.Point(633, 98);
+            this.txtStockMáximo.Location = new System.Drawing.Point(633, 125);
             this.txtStockMáximo.Name = "txtStockMáximo";
             this.txtStockMáximo.Size = new System.Drawing.Size(81, 22);
             this.txtStockMáximo.TabIndex = 44;
@@ -463,6 +489,26 @@
             this.label15.TabIndex = 30;
             this.label15.Text = "DESCRIPCIÓN:";
             // 
+            // cmbBuscar
+            // 
+            this.cmbBuscar.FormattingEnabled = true;
+            this.cmbBuscar.Items.AddRange(new object[] {
+            "Codigo",
+            "Nombre"});
+            this.cmbBuscar.Location = new System.Drawing.Point(443, 25);
+            this.cmbBuscar.Name = "cmbBuscar";
+            this.cmbBuscar.Size = new System.Drawing.Size(121, 21);
+            this.cmbBuscar.TabIndex = 21;
+            this.cmbBuscar.Text = "Nombre";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(570, 26);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(197, 20);
+            this.txtBuscar.TabIndex = 20;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -477,6 +523,7 @@
             this.Text = "FrmProducto";
             this.Load += new System.EventHandler(this.FrmProducto_Load);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.gbDatos.ResumeLayout(false);
             this.gbDatos.PerformLayout();
@@ -525,5 +572,9 @@
         private System.Windows.Forms.TextBox txtStockMáximo;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtUtilidad;
+        private System.Windows.Forms.ComboBox cmbBuscar;
+        private System.Windows.Forms.TextBox txtBuscar;
     }
 }

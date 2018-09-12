@@ -46,10 +46,12 @@ namespace Sistema_de_ventas_2018.Presentacion
 
                 cmbTipo.SelectedIndex = 0;
 
-
-
                 btnNuevo.Enabled = false;
                 btnEliminar.Enabled = false;
+
+                txtNombre.Enabled = false;
+                txtApellidos.Enabled = false;
+                txtDni.Enabled = false;
             }
             else
             {
