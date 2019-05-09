@@ -75,7 +75,6 @@ F:\soporte\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema de 
 D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema-Servicio-tecnico\Sistema de ventas 2018\bin\Debug\Sistema de ventas 2018.exe.config
 D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema-Servicio-tecnico\Sistema de ventas 2018\bin\Debug\Sistema de ventas 2018.exe
 D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema-Servicio-tecnico\Sistema de ventas 2018\bin\Debug\Sistema de ventas 2018.pdb
-D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema de ventas 2018.csprojResolveAssemblyReference.cache
 D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Form1.resources
 D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmCompra_Vista.resources
 D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmGenerarSalida.resources
@@ -117,3 +116,6 @@ D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema-Servicio-tecnico\
 D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema-Servicio-tecnico\Sistema de ventas 2018\bin\Debug\FastReport.Editor.dll
 D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmEquiposEstados.resources
 D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema_de_ventas_2018.Presentacion.FrmKardex.resources
+D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema de ventas 2018.csprojAssemblyReference.cache
+D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema de ventas 2018.csproj.CoreCompileInputs.cache
+D:\SISTEMAS\SISTEMA VENTAS 2018\Sistema de ventas 2018\Sistema-Servicio-tecnico\Sistema de ventas 2018\obj\Debug\Sistema de ventas 2018.csproj.CopyComplete
